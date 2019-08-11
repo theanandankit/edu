@@ -5,20 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".action_screen">
+    tools:context=".action_screen"
+    android:background="@color/colourback">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
         android:gravity="center">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="190dp"
-        android:layout_height="190dp"
-        app:cardCornerRadius="10dp"
-        android:layout_margin="20dp">
+        android:layout_width="wrap_content"
+        android:id="@+id/management"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp">
         
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,10 +52,12 @@
     </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="190dp"
-            android:layout_height="190dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/teaching"
             app:cardCornerRadius="10dp"
-            android:layout_margin="20dp">
+            android:layout_margin="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,7 +67,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:background="@drawable/management"
+                    android:background="@drawable/teacher1"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="10dp"
                     />
@@ -68,7 +75,83 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Management \n Team"
+                    android:text="Teaching \n Team"
+                    android:textSize="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/admin"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Administration \n Team"
+                    android:textSize="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:cardCornerRadius="10dp"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/guest"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Guest \n Member"
                     android:textSize="20dp"
                     android:gravity="center_horizontal"
                     android:layout_gravity="center_horizontal"
