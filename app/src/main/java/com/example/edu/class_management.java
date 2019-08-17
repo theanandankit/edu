@@ -13,9 +13,15 @@ public class class_management extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_management);
 
+        TextView s=findViewById(R.id.s);
+
         Intent myintent=getIntent();
 
-        TextView name=myintent.getIntExtra("Teacher_name",);
+        int name=myintent.getIntExtra("Teacher_name",000);
+
+        TextView ss=findViewById(name);
+
+        ss.setText("Ankit");
+
     }
 }
-R
