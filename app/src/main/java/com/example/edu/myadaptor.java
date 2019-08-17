@@ -14,8 +14,9 @@ public class myadaptor extends ArrayAdapter<adaptor_class> {
 
     ArrayList<adaptor_class> list_class= new ArrayList<>();
 
-    public myadaptor(Context context, int resource) {
-        super(context, resource);
+    public myadaptor(Context context, int textViewResourceId, ArrayList<adaptor_class> objects) {
+        super(context, textViewResourceId, objects);
+        list_class = objects;
 
     }
 
@@ -33,9 +34,9 @@ public class myadaptor extends ArrayAdapter<adaptor_class> {
         TextView teacher = (TextView) v.findViewById(R.id.tech1);
         teacher.setText(list_class.get(position).getTeacher_name());
         TextView batch = (TextView) v.findViewById(R.id.batch1);
-        batch.setText(list_class.get(position).getTeacher_name());
+        batch.setText(list_class.get(position).getBatch());
         TextView comment = (TextView) v.findViewById(R.id.com1);
-        comment.setText(list_class.get(position).getTeacher_name());
+        comment.setText(list_class.get(position).getComment());
         return v;
 
     }
