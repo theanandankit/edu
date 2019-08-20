@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/teaching"
+            android:id="@+id/merge"
             app:cardCornerRadius="10dp"
             android:layout_margin="10dp">
 
