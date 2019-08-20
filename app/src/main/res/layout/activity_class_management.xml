@@ -158,7 +158,6 @@
                     android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
 
-
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>

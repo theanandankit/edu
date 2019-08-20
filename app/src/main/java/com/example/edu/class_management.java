@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -16,7 +17,6 @@ import static com.example.edu.Management_screen.class_name;
 public class class_management extends AppCompatActivity {
 
     CardView subtitute;
-    Spinner spinner;
     String name[]=new String[]{"Amit","Ankit","Kamal","Divyansh","Shivam","Aayush"};
 
     @Override
@@ -32,11 +32,9 @@ public class class_management extends AppCompatActivity {
                 switch (view.getId())
                 {
                     case R.id.subtitute:
-                        AlertDialog.Builder builder=new AlertDialog.Builder(class_management.this);
-                        View mview=getLayoutInflater().inflate(R.layout.subtitute_popup,null);
-                        builder.setView(mview);
-                        AlertDialog dialog=builder.create();
-                        dialog.show();
+                       Intent ii=new Intent(class_management.this,subtitue_popup.class);
+                       startActivity(ii);
+                        break;
                 }
             }
         });

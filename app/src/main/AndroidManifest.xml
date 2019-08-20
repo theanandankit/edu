@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".class_management"></activity>
+        <activity android:name=".subtitue_popup"
+
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"></activity>
+        <activity android:name=".class_management" />
         <activity android:name=".Management_screen" />
         <activity android:name=".login_screen" />
         <activity android:name=".action_screen" />
