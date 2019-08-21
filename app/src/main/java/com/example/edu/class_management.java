@@ -16,7 +16,7 @@ import static com.example.edu.Management_screen.class_name;
 
 public class class_management extends AppCompatActivity {
 
-    CardView subtitute,merge,nostudent;
+    CardView subtitute,merge,nostudent,problem;
     String name[]=new String[]{"Amit","Ankit","Kamal","Divyansh","Shivam","Aayush"};
 
     @Override
@@ -26,6 +26,7 @@ public class class_management extends AppCompatActivity {
 
         subtitute=findViewById(R.id.subtitute);
         merge=findViewById(R.id.merge);
+        problem=findViewById(R.id.problem);
         nostudent=findViewById(R.id.nostudent);
         subtitute.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +47,14 @@ public class class_management extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent ii=new Intent(class_management.this,nostudent_popup.class);
+                startActivity(ii);
+            }
+        });
+        problem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent ii=new Intent(class_management.this,otherproblem_popup.class);
                 startActivity(ii);
             }
         });
