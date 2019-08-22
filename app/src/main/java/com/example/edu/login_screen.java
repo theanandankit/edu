@@ -68,6 +68,11 @@ public class login_screen extends AppCompatActivity {
                     Intent i=new Intent(login_screen.this,Management_screen.class);
                     startActivity(i);
                 }
+                else if(username.equals("teacher") && password.equals("123"))
+                {
+                    Intent i=new Intent(login_screen.this,Teacher_management.class);
+                    startActivity(i);
+                }
 
                 else
                 {

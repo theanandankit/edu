@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".otherproblem_popup"
-            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"></activity>
+        <activity android:name=".not_able"></activity>
+        <activity android:name=".Teacher_management" />
+        <activity
+            android:name=".otherproblem_popup"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
         <activity
             android:name=".nostudent_popup"
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
