@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".not_able"></activity>
+        <activity android:name=".new_registration"></activity>
+        <activity android:name=".admin_management" />
+        <activity android:name=".not_able" />
         <activity android:name=".Teacher_management" />
         <activity
             android:name=".otherproblem_popup"
