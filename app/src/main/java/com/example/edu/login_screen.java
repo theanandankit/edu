@@ -1,5 +1,6 @@
 package com.example.edu;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,11 +12,18 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class login_screen extends AppCompatActivity {
 
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +31,10 @@ public class login_screen extends AppCompatActivity {
 
         final EditText use=findViewById(R.id.username);
         final EditText pass=findViewById(R.id.password);
+        final ProgressBar progressBar=findViewById(R.id.progress);
+
+
+        firebaseAuth =FirebaseAuth.getInstance();
 
         String text1="Forget Password";
         String text2="Trouble In Login";
@@ -59,25 +71,22 @@ public class login_screen extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                progressBar.setVisibility(View.VISIBLE);
                 String username= use.getText().toString();
                 String password= pass.getText().toString();
 
-                if(username.equals("theanandankit") && password.equals("12345"))
-                {
-                    Intent i=new Intent(login_screen.this,Management_screen.class);
-                    startActivity(i);
-                }
-                else if(username.equals("teacher") && password.equals("123"))
-                {
-                    Intent i=new Intent(login_screen.this,Teacher_management.class);
-                    startActivity(i);
-                }
-
-                else
-                {
-                    Toast.makeText(login_screen.this,"INVALID INPUT",Toast.LENGTH_LONG).show();
-                }
+                firebaseAuth.signInWithEmailAndPassword(username,password)
+                        .addOnCompleteListener(login_screen.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if(task.isSuccessful())
+                                {
+                                    progressBar.setVisibility(View.GONE);
+                                    Intent i=new Intent(login_screen.this,Management_screen.class);
+                                    startActivity(i);
+                                }
+                            }
+                        });
             }
         });
     }

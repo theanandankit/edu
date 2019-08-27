@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "498530781559",
-    "firebase_url": "https://edufirebaseproject-67920.firebaseio.com",
-    "project_id": "edufirebaseproject-67920",
-    "storage_bucket": "edufirebaseproject-67920.appspot.com"
+    "project_number": "1039695240353",
+    "firebase_url": "https://management-app-cb493.firebaseio.com",
+    "project_id": "management-app-cb493",
+    "storage_bucket": "management-app-cb493.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:498530781559:android:a97e2550230b0cd3",
+        "mobilesdk_app_id": "1:1039695240353:android:a97e2550230b0cd3",
         "android_client_info": {
           "package_name": "com.example.edu"
         }
       },
       "oauth_client": [
         {
-          "client_id": "498530781559-fk71pl612qh7j6g6lv1nvtf6f9bt5np9.apps.googleusercontent.com",
+          "client_id": "1039695240353-m4s89ae9s5p0unl9r4c438pb59gr15r1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.edu",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "498530781559-l27l85lal1po1vrp24tml9kshf46cfg3.apps.googleusercontent.com",
+          "client_id": "1039695240353-ot186e7v0ert13501g8p2r4ud0820q4a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCr0haQKzbYMQjt-I-G9Ql4bfFFs9u1aGs"
+          "current_key": "AIzaSyC6jpZdOHy3eK1stYIIEBiyEGWd1ZII85g"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "498530781559-l27l85lal1po1vrp24tml9kshf46cfg3.apps.googleusercontent.com",
+              "client_id": "1039695240353-ot186e7v0ert13501g8p2r4ud0820q4a.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

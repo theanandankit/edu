@@ -14,13 +14,17 @@ public class admin_management extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_management);
 
+
+
+
         CardView registration =findViewById(R.id.registration);
 
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent
+                Intent i =new Intent(admin_management.this,new_registration.class);
+                startActivity(i);
             }
         });
     }
