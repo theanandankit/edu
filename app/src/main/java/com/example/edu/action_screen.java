@@ -17,11 +17,13 @@ public class action_screen extends AppCompatActivity implements View.OnClickList
         CardView mana= findViewById(R.id.management);
         CardView teach=findViewById(R.id.teaching);
         CardView admin=findViewById(R.id.admin);
+        CardView list_member=findViewById(R.id.list_teacher);
 
 
         mana.setOnClickListener(this);
         teach.setOnClickListener(this);
         admin.setOnClickListener(this);
+        list_member.setOnClickListener(this);
     }
 
     @Override
@@ -42,6 +44,11 @@ public class action_screen extends AppCompatActivity implements View.OnClickList
                  break;
             case R.id.admin:
                 i=new Intent(this,admin_management.class);
+                startActivity(i);
+                break;
+
+            case R.id.list_teacher:
+                i=new Intent(this,list_member.class);
                 startActivity(i);
                 break;
 
