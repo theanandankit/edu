@@ -18,12 +18,22 @@ public class admin_management extends AppCompatActivity {
 
 
         CardView registration =findViewById(R.id.registration);
+        final CardView schedule_management=findViewById(R.id.schedule_management);
 
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent i =new Intent(admin_management.this,new_registration.class);
+                startActivity(i);
+            }
+        });
+
+        schedule_management.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i=new Intent(admin_management.this,schedule_management.class);
                 startActivity(i);
             }
         });

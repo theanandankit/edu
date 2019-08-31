@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/merge"
+            android:id="@+id/schedule_management"
             app:cardCornerRadius="10dp"
             android:layout_margin="10dp">
 
