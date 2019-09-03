@@ -37,6 +37,17 @@ public class schedule_management extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_management);
 
+        teacher_name.add("Monday");
+        teacher_name.add("Tuesday");
+        teacher_name.add("Wednesday");
+        teacher_name.add("Thursday");
+        teacher_name.add("Friday");
+        teacher_name.add("Saturday");
+
+
+
+
+
         Spinner spinner=findViewById(R.id.spinner2);
         Button button=findViewById(R.id.check_button);
 
@@ -110,14 +121,20 @@ public class schedule_management extends AppCompatActivity {
 
 
 
-        for (int a=1;a<13;a++) {
 
-            if (!(a==2||a==4)) {
-                databaseReference = FirebaseDatabase.getInstance().getReference().child("schedule_teacher").child("monday").child(String.valueOf(a));
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("schedule_teacher").child("Momday").child("1");
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                     teacher_name.add(dataSnapshot.getValue().toString());
+
+                           Teacher teacher=dataSnapshot.getValue(Teacher.class);
+
+                           TextView ann=findViewById(R.id.teacher1);
+                           TextView a=findViewById(R.id.sub1);
+
+                           ann.setText(teacher.getName());
+                           a.setText(teacher.getSubject());
+
                     }
 
                     @Override
@@ -125,11 +142,11 @@ public class schedule_management extends AppCompatActivity {
 
                     }
                 });
-            }
+
             ArrayAdapter aa=new ArrayAdapter(schedule_management.this,android.R.layout.simple_spinner_item,teacher_name);
             aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(aa);
-        }
+
     }
     private void showCustomDialog(final int a,final int b) {
         final Dialog dialog = new Dialog(this);
@@ -185,5 +202,37 @@ public class schedule_management extends AppCompatActivity {
         cardView12=findViewById(R.id.card12);
 
 
+    }
+
+    static class Teacher
+    {
+        private String Name;
+        private String Subject;
+
+        public Teacher() {}
+
+        public Teacher(String name,String subject)
+        {
+            this.Name=name;
+            this.Subject=subject;
+        }
+
+        public String getName()
+        {
+            return Name;
+        }
+        public String getSubject()
+        {
+            return Subject;
+        }
+
+        public void setName(String name)
+        {
+            this.Name=name;
+        }
+        public void setSubject(String subject)
+        {
+            this.Subject=subject;
+        }
     }
 }
