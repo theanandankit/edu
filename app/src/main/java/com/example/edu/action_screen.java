@@ -19,7 +19,6 @@ public class action_screen extends AppCompatActivity implements View.OnClickList
         CardView admin=findViewById(R.id.admin);
         CardView list_member=findViewById(R.id.list_teacher);
 
-
         mana.setOnClickListener(this);
         teach.setOnClickListener(this);
         admin.setOnClickListener(this);
@@ -51,7 +50,6 @@ public class action_screen extends AppCompatActivity implements View.OnClickList
                 i=new Intent(this,list_member.class);
                 startActivity(i);
                 break;
-
         }
     }
 }

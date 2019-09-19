@@ -24,9 +24,6 @@
         <activity
             android:name=".merge_popup"
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
-        <activity
-            android:name=".subtitue_popup"
-            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
         <activity android:name=".class_management" />
         <activity android:name=".Management_screen" />
         <activity android:name=".login_screen" />
