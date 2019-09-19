@@ -11,12 +11,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,6 +33,7 @@ public class schedule_management extends AppCompatActivity {
     CardView cardView1,cardView3,cardView5,cardView6,cardView7,cardView8,cardView9,cardView10,cardView11,cardView12;
     DatabaseReference databaseReference;
     ArrayList<String> teacher_name=new ArrayList<>();
+    Spinner spinner;
     public static Teacher teacher;
 
     @Override
@@ -45,13 +48,33 @@ public class schedule_management extends AppCompatActivity {
         teacher_name.add("Friday");
         teacher_name.add("Saturday");
 
+        spinner=findViewById(R.id.spinner2);
 
+        ArrayAdapter aa=new ArrayAdapter(schedule_management.this,android.R.layout.simple_spinner_item,teacher_name);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(aa);
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
+                if (adapterView.getItemAtPosition(i).equals("Monday"))
+                {
+                    set_week_info("monday");
+                    Toast.makeText(getApplicationContext(),"monday",Toast.LENGTH_LONG).show();
+                }
 
-        Spinner spinner=findViewById(R.id.spinner2);
-        Button button=findViewById(R.id.check_button);
+                else{
+                    set_week_info(String.valueOf(adapterView.getItemIdAtPosition(i)));
+                }
 
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         findids();
 
@@ -122,79 +145,9 @@ public class schedule_management extends AppCompatActivity {
 
 
 
-        for (int counter=1;counter<9;counter++) {
-
-            if (!(counter == 2 || counter == 4)) {
-
-                databaseReference = FirebaseDatabase.getInstance().getReference().child("schedule_teacher").child("monday").child(String.valueOf(counter));
-                final int finalCounter = counter;
-                databaseReference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                        teacher = dataSnapshot.getValue(Teacher.class);
-
-                        if(finalCounter ==1)
-                        {
-                            setvalue(R.id.teacher1,R.id.sub1);
-                        }
-                        else if(finalCounter ==3)
-                        {
-                            setvalue(R.id.teacher3,R.id.sub3);
-                        }
-
-                        else if(finalCounter ==5)
-                        {
-                            setvalue(R.id.teacher5,R.id.sub5);
-                        }
-
-                        else if(finalCounter ==6)
-                        {
-                            setvalue(R.id.teacher6,R.id.sub6);
-                        }
-
-                        else if(finalCounter ==7)
-                        {
-                            setvalue(R.id.teacher7,R.id.sub7);
-                        }
-
-                        else if(finalCounter ==8)
-                        {
-                            setvalue(R.id.teacher8,R.id.sub8);
-                        }
-
-                        else if(finalCounter ==9)
-                        {
-                            setvalue(R.id.teacher9,R.id.sub9);
-                        }
-                        else if(finalCounter ==10)
-                        {
-                            setvalue(R.id.teacher10,R.id.sub10);
-                        }
-
-                        else if(finalCounter ==11)
-                        {
-                            setvalue(R.id.teacher11,R.id.sub11);
-                        }
-
-                        else {
-                            setvalue(R.id.teacher12,R.id.sub12);
-                        }
 
 
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-            }
-        }
-
-            ArrayAdapter aa=new ArrayAdapter(schedule_management.this,android.R.layout.simple_spinner_item,teacher_name);
-            aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner.setAdapter(aa);
 
     }
     private void showCustomDialog(final int a,final int b) {
@@ -293,5 +246,79 @@ public class schedule_management extends AppCompatActivity {
         ann.setText(teacher.getName());
         a.setText(teacher.getSubject());
 
+    }
+
+
+    public void set_week_info(String day)
+    {
+        for (int counter=1;counter<9;counter++) {
+
+            if (!(counter == 2 || counter == 4)) {
+
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("schedule_teacher").child(day).child(String.valueOf(counter));
+                final int finalCounter = counter;
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        teacher = dataSnapshot.getValue(Teacher.class);
+
+                        if(finalCounter ==1)
+                        {
+                            setvalue(R.id.teacher1,R.id.sub1);
+                        }
+                        else if(finalCounter ==3)
+                        {
+                            setvalue(R.id.teacher3,R.id.sub3);
+                        }
+
+                        else if(finalCounter ==5)
+                        {
+                            setvalue(R.id.teacher5,R.id.sub5);
+                        }
+
+                        else if(finalCounter ==6)
+                        {
+                            setvalue(R.id.teacher6,R.id.sub6);
+                        }
+
+                        else if(finalCounter ==7)
+                        {
+                            setvalue(R.id.teacher7,R.id.sub7);
+                        }
+
+                        else if(finalCounter ==8)
+                        {
+                            setvalue(R.id.teacher8,R.id.sub8);
+                        }
+
+                        else if(finalCounter ==9)
+                        {
+                            setvalue(R.id.teacher9,R.id.sub9);
+                        }
+                        else if(finalCounter ==10)
+                        {
+                            setvalue(R.id.teacher10,R.id.sub10);
+                        }
+
+                        else if(finalCounter ==11)
+                        {
+                            setvalue(R.id.teacher11,R.id.sub11);
+                        }
+
+                        else {
+                            setvalue(R.id.teacher12,R.id.sub12);
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        }
     }
 }
