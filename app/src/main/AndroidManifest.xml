@@ -15,12 +15,6 @@
         <activity android:name=".admin_management" />
         <activity android:name=".not_able" />
         <activity android:name=".Teacher_management" />
-        <activity
-            android:name=".otherproblem_popup"
-            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
-        <activity
-            android:name=".nostudent_popup"
-            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
         <activity android:name=".class_management" />
         <activity android:name=".Management_screen" />
         <activity android:name=".login_screen" />
