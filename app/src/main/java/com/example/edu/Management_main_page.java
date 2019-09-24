@@ -23,6 +23,7 @@ public class Management_main_page extends AppCompatActivity {
 
                 Intent i=new Intent(Management_main_page.this,Management_screen.class);
                 startActivity(i);
+
             }
         });
 

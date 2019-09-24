@@ -40,6 +40,7 @@ public class new_registration extends AppCompatActivity {
         final EditText pass = findViewById(R.id.pass);
         final EditText uname=findViewById(R.id.user_name);
         final EditText ubatch=findViewById(R.id.user_batch);
+        final EditText ucontact=findViewById(R.id.user_contact);
 
         Button regi = findViewById(R.id.register);
 
@@ -51,6 +52,7 @@ public class new_registration extends AppCompatActivity {
                 final String password = pass.getText().toString();
                 String uuname=uname.getText().toString();
                 String uubatch=ubatch.getText().toString();
+                String uucontact=ucontact.getText().toString();
 
                 if (username.isEmpty()) {
                     Toast.makeText(new_registration.this, "please Enter the Username", Toast.LENGTH_LONG).show();
@@ -72,6 +74,12 @@ public class new_registration extends AppCompatActivity {
                     Toast.makeText(new_registration.this, "please Enter the batch", Toast.LENGTH_LONG).show();
                     return;
                 }
+                if (uucontact.isEmpty())
+                {
+
+                    Toast.makeText(new_registration.this, "please Enter the contact no.", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 firebaseAuth.createUserWithEmailAndPassword(username, password)
                         .addOnCompleteListener(new_registration.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -86,7 +94,7 @@ public class new_registration extends AppCompatActivity {
                             }
                         });
 
-                new_user userr=new new_user(uuname,username,uubatch);
+                new_user userr=new new_user(uuname,username,uubatch,uucontact);
 
                 databaseReference=FirebaseDatabase.getInstance().getReference().child("teacher_info").child(counter);
 
@@ -115,15 +123,24 @@ public class new_registration extends AppCompatActivity {
         });
     }
     public class new_user{
-        public String user_name;
-        public String email;
-        public String batch;
+        String user_name;
+        String email;
+        String batch;
+        int actual_day;
+        int present;
+        int extra_day;
+        String contact_no;
 
-        public new_user(String user_name,String email,String batch)
+
+        public new_user(String user_name,String email,String batch,String contact_no)
         {
             this.user_name=user_name;
             this.batch=batch;
             this.email=email;
+            actual_day=0;
+            present=0;
+            extra_day=0;
+            this.contact_no=contact_no;
         }
     }
 
