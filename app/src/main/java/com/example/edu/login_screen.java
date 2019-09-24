@@ -86,7 +86,7 @@ public class login_screen extends AppCompatActivity {
                                 if(task.isSuccessful())
                                 {
                                     progressBar.setVisibility(View.GONE);
-                                    Intent i=new Intent(login_screen.this,Management_screen.class);
+                                    Intent i=new Intent(login_screen.this,Management_main_page.class);
                                     startActivity(i);
                                 }
                             }
