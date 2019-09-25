@@ -50,7 +50,6 @@ public class Management_screen extends AppCompatActivity {
 
                             Toast.makeText(Management_screen.this, name, Toast.LENGTH_LONG).show();
 
-
                             class_name.add(0, new adaptor_class(name, "2018", "ok"));
                             myadaptor myad = new myadaptor(Management_screen.this, R.layout.class_list, class_name);
                             listView.setAdapter(myad);

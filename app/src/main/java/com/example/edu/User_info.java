@@ -10,32 +10,14 @@ class User_info {
     String roll_no;
     int actual_days;
 
-    public int getActual_days() {
-        return actual_days;
-    }
-
-    public void setActual_days(int actual_days) {
-        this.actual_days = actual_days;
-    }
-
-    public User_info(String uid, String name, int attendance, int extra, int total_days, int contact_no, String roll_no, int actual_days) {
-        this.uid = uid;
+    public User_info( String name, int attendance, int extra, int total_days, int contact_no, String roll_no) {
         this.name = name;
         this.attendance = attendance;
         this.extra = extra;
         this.total_days = total_days;
         this.contact_no=contact_no;
         this.roll_no=roll_no;
-        this.actual_days=actual_days;
 
-    }
-
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
     }
 
     public String getName() {

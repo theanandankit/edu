@@ -143,12 +143,6 @@ public class schedule_management extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
     }
     private void showCustomDialog(final int a,final int b) {
         final Dialog dialog = new Dialog(this);
@@ -210,15 +204,12 @@ public class schedule_management extends AppCompatActivity {
     {
         private String Name;
         private String Subject;
-
         public Teacher() {}
-
         public Teacher(String name,String subject)
         {
             this.Name=name;
             this.Subject=subject;
         }
-
         public String getName()
         {
             return Name;

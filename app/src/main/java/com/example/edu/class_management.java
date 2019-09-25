@@ -14,9 +14,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import static com.example.edu.Management_screen.class_name;
+
 public class class_management extends AppCompatActivity {
 
     CardView subtitute,merge,nostudent,problem;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,20 +28,12 @@ public class class_management extends AppCompatActivity {
         setContentView(R.layout.activity_class_management);
 
         subtitute=findViewById(R.id.subtitute);
-        problem=findViewById(R.id.problem);
         nostudent=findViewById(R.id.nostudent);
         subtitute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 showdilog_subtitue();
-            }
-        });
-        findViewById(R.id.merge).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                showdilog_merge();
             }
         });
         nostudent.setOnClickListener(new View.OnClickListener() {
@@ -47,17 +43,9 @@ public class class_management extends AppCompatActivity {
                 showdilog_nostudent();
             }
         });
-        problem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                showdilog_otherproblem();
-            }
-        });
-
     }
 
-    private void showdilog_merge()
+   /* private void showdilog_merge()
     {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
@@ -81,6 +69,7 @@ public class class_management extends AppCompatActivity {
         dialog.getWindow().setAttributes(lp);
 
     }
+    */
     private void showdilog_subtitue()
     {
 
@@ -138,6 +127,25 @@ public class class_management extends AppCompatActivity {
             }
         });
 
+        dialog.findViewById(R.id.bt_save).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(check_member.isChecked())
+                {
+                    String name= spinner.getSelectedItem().toString();
+                    class_name.set(0,new adaptor_class(name,"2018","okj"));
+                }
+                else
+                {
+                     EditText editText=findViewById(R.id.name);
+                     String name= editText.getText().toString();
+                    class_name.set(0,new adaptor_class(name,"2018","okj"));
+                }
+
+            }
+        });
+
 
     (dialog.findViewById(R.id.bt_close)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,7 +174,7 @@ public class class_management extends AppCompatActivity {
         dialog.show();
         dialog.getWindow().setAttributes(lp);
     }
-    private void showdilog_otherproblem()
+ /*   private void showdilog_otherproblem()
     {
 
 
@@ -184,4 +192,5 @@ public class class_management extends AppCompatActivity {
         dialog.getWindow().setAttributes(lp);
 
     }
+  */
 }
