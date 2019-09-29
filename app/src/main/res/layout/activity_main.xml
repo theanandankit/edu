@@ -16,7 +16,7 @@
         android:textSize="30dp"
         android:layout_marginTop="50dp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/darkBlue"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -35,6 +35,6 @@
         android:textSize="20dp"
         android:layout_marginTop="50dp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/darkBlue" />
 
 </LinearLayout>

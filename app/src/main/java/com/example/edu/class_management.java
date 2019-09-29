@@ -1,5 +1,6 @@
 package com.example.edu;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -13,12 +14,21 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import static com.example.edu.Management_screen.class_name;
 
 public class class_management extends AppCompatActivity {
 
     CardView subtitute,merge,nostudent,problem;
+    DatabaseReference databaseReference;
 
 
 
@@ -26,6 +36,23 @@ public class class_management extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_management);
+        SimpleDateFormat sdf2 = new SimpleDateFormat("EEEE");
+        String current_day = sdf2.format(new Date());
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("schedule_teacher").child(current_day);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot:dataSnapshot.getChildren())
+                {
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         subtitute=findViewById(R.id.subtitute);
         nostudent=findViewById(R.id.nostudent);

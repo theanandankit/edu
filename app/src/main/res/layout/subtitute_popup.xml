@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fitsSystemWindows="true">
 
@@ -47,6 +49,34 @@
 
 
     </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:text="Present"
+            android:id="@+id/present"
+            android:textColor="@color/black"
+            android:layout_margin="20dp"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Absent"
+            android:id="@+id/absent"
+            android:textColor="@color/black"
+            android:layout_margin="20dp"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+
+
+
 
 
     <LinearLayout
@@ -66,7 +96,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
-            android:layout_margin="20dp"></Spinner>
+            android:layout_margin="20dp">
+
+        </Spinner>
 
     </LinearLayout>
 
@@ -86,13 +118,17 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:hint="Name Of Teacher"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            app:boxBackgroundColor="@color/white">
 
-            <EditText
-                android:id="@+id/name"
+            <com.google.android.material.textfield.TextInputEditText
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name Of Teacher"
+
                 android:layout_margin="20dp"
                 android:layout_gravity="center_horizontal"
                 />
@@ -100,13 +136,17 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/Batch"
+            android:hint="Batch"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            app:boxBackgroundColor="@color/white">
 
-            <EditText
-                android:id="@+id/Batch"
+            <com.google.android.material.textfield.TextInputEditText
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Batch"
+
                 android:layout_margin="20dp"
                 android:layout_gravity="center_horizontal"
                 />
