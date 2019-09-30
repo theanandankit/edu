@@ -28,8 +28,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import dmax.dialog.SpotsDialog;
-
 public class new_registration extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -57,6 +55,7 @@ public class new_registration extends AppCompatActivity {
         final EditText uname=findViewById(R.id.user_name);
         final EditText ubatch=findViewById(R.id.user_batch);
         final EditText ucontact=findViewById(R.id.user_contact);
+        final EditText uemail=findViewById(R.id.email);
         spinner=findViewById(R.id.type);
 
         teacher_type.add("Teacher");
@@ -92,14 +91,14 @@ public class new_registration extends AppCompatActivity {
             public void onClick(View view) {
 
                 String username = user.getText().toString();
-                username=username+"@gmail.com";
                 final String password = pass.getText().toString();
                 String uuname=uname.getText().toString();
+                String email=uemail.getText().toString();
                 String uubatch=ubatch.getText().toString();
                 String uucontact=ucontact.getText().toString();
                 String type=spinner.getSelectedItem().toString();
 
-                if (username.isEmpty()) {
+                if (email.isEmpty()) {
                     Toast.makeText(new_registration.this, "please Enter the Username", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -125,7 +124,7 @@ public class new_registration extends AppCompatActivity {
                     Toast.makeText(new_registration.this, "please Enter the contact no.", Toast.LENGTH_LONG).show();
                     return;
                 }
-                firebaseAuth.createUserWithEmailAndPassword(username, password)
+                firebaseAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new_registration.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -140,7 +139,7 @@ public class new_registration extends AppCompatActivity {
                             }
                         });
 
-                new_user userr=new new_user(uuname,username,uubatch,uucontact,type);
+                new_user userr=new new_user(uuname,email,uubatch,uucontact,type);
 
                 databaseReference=FirebaseDatabase.getInstance().getReference().child("teacher_info").child("SGM"+counter);
 
