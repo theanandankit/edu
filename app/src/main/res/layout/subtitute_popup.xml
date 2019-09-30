@@ -15,13 +15,15 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <ImageButton
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/bt_close"
+                style="@style/Widget.MaterialComponents.FloatingActionButton"
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_marginLeft="5dp"
-                android:background="@drawable/ic_close_black_24dp"
-                android:tint="@android:color/white" />
+                app:backgroundTint="@android:color/transparent"
+                app:shapeAppearance="@color/white"
+               android:src="@drawable/ic_clear_white" />
 
             <TextView
                 android:layout_width="0dp"
@@ -33,11 +35,15 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
                 android:textColor="@android:color/white" />
 
-            <Button
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/bt_save"
-                style="@style/Widget.AppCompat.Button.Borderless"
+               style="@style/Widget.MaterialComponents.FloatingActionButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                app:backgroundTint="@android:color/transparent"
+                app:shapeAppearance="@android:color/white"
+                android:src="@drawable/ic_check_white"
+
                 android:gravity="center"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
