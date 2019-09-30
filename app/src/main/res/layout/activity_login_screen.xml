@@ -16,13 +16,16 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/username"
+        android:hint="Username"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-   <EditText
-       android:id="@+id/username"
+   <com.google.android.material.textfield.TextInputEditText
+
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:hint="Username"
+
        android:layout_margin="20dp"
        android:layout_gravity="center_horizontal"
        />
@@ -30,13 +33,17 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/password"
+        android:hint="Password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
 
-        <EditText
-            android:id="@+id/password"
+        <com.google.android.material.textfield.TextInputEditText
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+
             android:inputType="textPassword"
             android:layout_margin="20dp"
             android:layout_gravity="center_horizontal"
@@ -49,18 +56,20 @@
     android:orientation="horizontal"
     android:layout_margin="20dp">
 
-    <CheckBox
+    <com.google.android.material.checkbox.MaterialCheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Remember the password"
         android:layout_weight="1"
         />
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Login"/>
+        android:text="Login"
+        app:cornerRadius="20dp"
+        style="@style/Widget.MaterialComponents.Button"/>
 
 
 </LinearLayout>
