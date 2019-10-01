@@ -103,6 +103,7 @@ public class login_screen extends AppCompatActivity {
                                     {
                                         use.setError(null);
                                         pass.setError(null);
+                                        Toast.makeText(getApplicationContext(),"Error Logging in", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.INVISIBLE);
                                     }
                                 }

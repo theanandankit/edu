@@ -1,14 +1,17 @@
 package com.example.edu;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.app.Dialog;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -20,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +35,7 @@ import java.util.ArrayList;
 public class schedule_management extends AppCompatActivity {
 
     CardView cardView1,cardView3,cardView5,cardView6,cardView7,cardView8,cardView9,cardView10,cardView11,cardView12;
+    String s;
     DatabaseReference databaseReference;
     ArrayList<String> teacher_name=new ArrayList<>();
     Spinner spinner;
@@ -40,7 +45,8 @@ public class schedule_management extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_management);
-
+        databaseReference=FirebaseDatabase.getInstance().getReference().child("schedule_teacher");
+        teacher_name.add("Select day");
         teacher_name.add("Monday");
         teacher_name.add("Tuesday");
         teacher_name.add("Wednesday");
@@ -50,7 +56,26 @@ public class schedule_management extends AppCompatActivity {
 
         spinner=findViewById(R.id.spinner2);
 
-        ArrayAdapter aa=new ArrayAdapter(schedule_management.this,android.R.layout.simple_spinner_item,teacher_name);
+        ArrayAdapter<String> aa=new ArrayAdapter<String>(schedule_management.this,android.R.layout.simple_spinner_item,teacher_name){
+            @Override
+            public boolean isEnabled(int position) {
+                if(position==0)
+                    return false;
+                else
+                    return true;
+            }
+
+            @Override
+            public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View v=super.getDropDownView(position,convertView,parent);
+                TextView t=(TextView)v;
+                if(position==0)
+                    t.setTextColor(Color.GRAY);
+                else
+                    t.setTextColor(Color.BLACK);
+                return v;
+            }
+        };
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(aa);
 
@@ -58,15 +83,33 @@ public class schedule_management extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (adapterView.getItemAtPosition(i).equals("Monday"))
-                {
-                    set_week_info("monday");
-                    Toast.makeText(getApplicationContext(),"monday",Toast.LENGTH_LONG).show();
-                }
-
-                else{
-                    set_week_info(String.valueOf(adapterView.getItemIdAtPosition(i)));
-                }
+               switch (i)
+               {
+                   case 1:
+                       s="Monday";
+                       break;
+                   case 2:
+                       s="Tuesday";
+                       break;
+                   case 3:
+                       s="Wednesday";
+                       break;
+                   case 4:
+                       s="Thursday";
+                       break;
+                   case 5:
+                       s="Friday";
+                       break;
+                   case 6:
+                       s="Saturday";
+                       break;
+                   case 7:
+                       s="Sunday";
+                       break;
+                   default:
+                       s="select day";
+               }
+               set_week_info(s);
 
             }
 
@@ -82,7 +125,7 @@ public class schedule_management extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                showCustomDialog(R.id.teacher1,R.id.sub1);
+                showCustomDialog(1,R.id.teacher1,R.id.uid1,R.id.batch1,R.id.sub1);
 
             }
         });
@@ -90,61 +133,61 @@ public class schedule_management extends AppCompatActivity {
         cardView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCustomDialog(R.id.teacher3,R.id.sub3);
+                showCustomDialog(3,R.id.teacher3,R.id.uid3,R.id.batch3,R.id.sub3);
             }
         });
         cardView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCustomDialog(R.id.teacher5,R.id.sub5);
+                showCustomDialog(5,R.id.teacher5,R.id.uid5,R.id.batch5,R.id.sub5);
             }
         });
 
         cardView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCustomDialog(R.id.teacher6,R.id.sub6);
+                showCustomDialog(6,R.id.teacher6,R.id.uid6,R.id.batch6,R.id.sub6);
             }
         });
         cardView7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCustomDialog(R.id.teacher7,R.id.sub7);
+                showCustomDialog(7,R.id.teacher7,R.id.uid7,R.id.batch7,R.id.sub7);
             }
         });
         cardView8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCustomDialog(R.id.teacher8,R.id.sub8);
+                showCustomDialog(8,R.id.teacher8,R.id.uid8,R.id.batch8,R.id.sub8);
             }
         });
         cardView9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCustomDialog(R.id.teacher9,R.id.sub9);
+                showCustomDialog(9,R.id.teacher9,R.id.uid9,R.id.batch9,R.id.sub9);
             }
         });
         cardView10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCustomDialog(R.id.teacher10,R.id.sub10);
+                showCustomDialog(10,R.id.teacher10,R.id.uid10,R.id.batch10,R.id.sub10);
             }
         });
         cardView11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCustomDialog(R.id.teacher11,R.id.sub11);
+                showCustomDialog(11,R.id.teacher11,R.id.uid11,R.id.batch11,R.id.sub11);
             }
         });
         cardView12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCustomDialog(R.id.teacher12,R.id.sub12);
+                showCustomDialog(12,R.id.teacher12,R.id.uid12,R.id.batch12,R.id.sub12);
             }
         });
 
     }
-    private void showCustomDialog(final int a,final int b) {
+    private void showCustomDialog(final int d,final int a,final int b, final int e,final int c) {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
         dialog.setContentView(R.layout.dialog_event);
@@ -166,15 +209,28 @@ public class schedule_management extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String teacher,subject;
-                EditText teacher_nam = dialog.findViewById(R.id.set_teacher_name);
-                teacher = teacher_nam.getText().toString();
+                String teacher,uid,subject,batch;
+                TextInputLayout teacher_nam = dialog.findViewById(R.id.set_teacher_name);
+                teacher = teacher_nam.getEditText().getText().toString();
                 TextView aa = findViewById(a);
                 aa.setText(teacher);
-                EditText subject_nam= dialog.findViewById(R.id.set_subject);
-                subject = subject_nam.getText().toString();
-                TextView bb = findViewById(b);
-                bb.setText(subject);
+                TextInputLayout u_id=dialog.findViewById(R.id.set_uid);
+                uid=u_id.getEditText().getText().toString();
+                TextView bb=findViewById(b);
+                bb.setText(uid);
+                TextInputLayout subject_nam= dialog.findViewById(R.id.set_subject);
+                subject = subject_nam.getEditText().getText().toString();
+                TextView cc = findViewById(c);
+                cc.setText(subject);
+                TextInputLayout batch_nam=dialog.findViewById(R.id.set_batch);
+                batch=batch_nam.getEditText().getText().toString();
+                TextView ee=findViewById(e);
+                ee.setText(batch);
+
+                DatabaseReference reference=databaseReference.child(s).child(Integer.toString(d));
+                Teacher teach=new Teacher(teacher,uid,batch,subject);
+                reference.setValue(teach);
+
 
                 dialog.dismiss();
             }
@@ -204,12 +260,17 @@ public class schedule_management extends AppCompatActivity {
     {
         private String Name;
         private String Subject;
+        private String uid;
+      String batch;
         public Teacher() {}
-        public Teacher(String name,String subject)
+        public Teacher(String name,String uid,String batch,String subject)
         {
             this.Name=name;
+            this.uid=uid;
             this.Subject=subject;
+            this.batch=batch;
         }
+
         public String getName()
         {
             return Name;
@@ -217,6 +278,14 @@ public class schedule_management extends AppCompatActivity {
         public String getSubject()
         {
             return Subject;
+        }
+
+        public String getUid() {
+            return uid;
+        }
+
+        public void setUid(String uid) {
+            this.uid = uid;
         }
 
         public void setName(String name)
@@ -227,28 +296,36 @@ public class schedule_management extends AppCompatActivity {
         {
             this.Subject=subject;
         }
+
+        public String getBatch() {
+            return batch;
+        }
     }
 
-    public void setvalue(final int aa,final int b)
+    public void setvalue(final int a,final int b, final int c, final int d)
     {
-        TextView ann = findViewById(aa);
-        TextView a = findViewById(b);
+        TextView teacher_name = findViewById(a);
+        TextView uid = findViewById(b);
+        TextView batch=findViewById(c);
+        TextView subject=findViewById(d);
 
-        ann.setText(teacher.getName());
-        a.setText(teacher.getSubject());
+        teacher_name.setText(teacher.getName());
+        uid.setText(teacher.getUid());
+        batch.setText(teacher.getBatch());
+        subject.setText(teacher.getSubject());
 
     }
 
 
     public void set_week_info(String day)
     {
-        for (int counter=1;counter<9;counter++) {
+        for (int counter=1;counter<=12;counter++) {
 
             if (!(counter == 2 || counter == 4)) {
 
-                databaseReference = FirebaseDatabase.getInstance().getReference().child("schedule_teacher").child(day).child(String.valueOf(counter));
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("schedule_teacher").child(day).child(String.valueOf(counter));
                 final int finalCounter = counter;
-                databaseReference.addValueEventListener(new ValueEventListener() {
+                ref.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -256,49 +333,49 @@ public class schedule_management extends AppCompatActivity {
 
                         if(finalCounter ==1)
                         {
-                            setvalue(R.id.teacher1,R.id.sub1);
+                            setvalue(R.id.teacher1,R.id.uid1,R.id.batch1,R.id.sub1);
                         }
                         else if(finalCounter ==3)
                         {
-                            setvalue(R.id.teacher3,R.id.sub3);
+                            setvalue(R.id.teacher3,R.id.uid3,R.id.batch3,R.id.sub3);
                         }
 
                         else if(finalCounter ==5)
                         {
-                            setvalue(R.id.teacher5,R.id.sub5);
+                            setvalue(R.id.teacher5,R.id.uid5,R.id.batch5,R.id.sub5);
                         }
 
                         else if(finalCounter ==6)
                         {
-                            setvalue(R.id.teacher6,R.id.sub6);
+                            setvalue(R.id.teacher6,R.id.uid6,R.id.batch6,R.id.sub6);
                         }
 
                         else if(finalCounter ==7)
                         {
-                            setvalue(R.id.teacher7,R.id.sub7);
+                            setvalue(R.id.teacher7,R.id.uid7,R.id.batch7,R.id.sub7);
                         }
 
                         else if(finalCounter ==8)
                         {
-                            setvalue(R.id.teacher8,R.id.sub8);
+                            setvalue(R.id.teacher8,R.id.uid8,R.id.batch8,R.id.sub8);
                         }
 
                         else if(finalCounter ==9)
                         {
-                            setvalue(R.id.teacher9,R.id.sub9);
+                            setvalue(R.id.teacher9,R.id.uid9,R.id.batch9,R.id.sub9);
                         }
                         else if(finalCounter ==10)
                         {
-                            setvalue(R.id.teacher10,R.id.sub10);
+                            setvalue(R.id.teacher10,R.id.uid10,R.id.batch10,R.id.sub10);
                         }
 
                         else if(finalCounter ==11)
                         {
-                            setvalue(R.id.teacher11,R.id.sub11);
+                            setvalue(R.id.teacher11,R.id.uid11,R.id.batch11,R.id.sub11);
                         }
 
                         else {
-                            setvalue(R.id.teacher12,R.id.sub12);
+                            setvalue(R.id.teacher12,R.id.uid12,R.id.batch12,R.id.sub12);
                         }
 
 

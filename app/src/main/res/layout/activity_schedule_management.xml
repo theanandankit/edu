@@ -6,742 +6,705 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".schedule_management">
-
-    <RelativeLayout
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="30dp">
-
-  <Spinner
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/spinner2">
-
-  </Spinner>
-
-    </RelativeLayout>
-
-
-<HorizontalScrollView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:id="@+id/card1"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Class: 1-2"
-                    android:textSize="20dp"
-                    android:layout_gravity="center_horizontal">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teacher Name"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-------"
-                    android:id="@+id/teacher1"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subject"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="------"
-                    android:id="@+id/sub1"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal" />
-            </LinearLayout>
-
-
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:id="@+id/card3"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Class: 3-4"
-                    android:textSize="20dp"
-                    android:layout_gravity="center_horizontal">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teacher Name"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-------"
-                    android:textSize="20dp"
-                    android:id="@+id/teacher3"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subject"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="------"
-                    android:textSize="20dp"
-                    android:id="@+id/sub3"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:id="@+id/card5"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Class: 3-4"
-                    android:textSize="20dp"
-                    android:layout_gravity="center_horizontal">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teacher Name"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-------"
-                    android:textSize="20dp"
-                    android:id="@+id/teacher5"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subject"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="------"
-                    android:textSize="20dp"
-                    android:id="@+id/sub5"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:id="@+id/card6"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Class: 3-4"
-                    android:textSize="20dp"
-                    android:layout_gravity="center_horizontal">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teacher Name"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-------"
-                    android:textSize="20dp"
-                    android:id="@+id/teacher6"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subject"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="------"
-                    android:textSize="20dp"
-                    android:id="@+id/sub6"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:id="@+id/card7"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Class: 3-4"
-                    android:textSize="20dp"
-                    android:layout_gravity="center_horizontal">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teacher Name"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-------"
-                    android:textSize="20dp"
-                    android:id="@+id/teacher7"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subject"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="------"
-                    android:textSize="20dp"
-                    android:id="@+id/sub7"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:id="@+id/card8"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Class: 3-4"
-                    android:textSize="20dp"
-                    android:layout_gravity="center_horizontal">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teacher Name"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-------"
-                    android:textSize="20dp"
-                    android:id="@+id/teacher8"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subject"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="------"
-                    android:textSize="20dp"
-                    android:id="@+id/sub8"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:id="@+id/card9"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Class: 3-4"
-                    android:textSize="20dp"
-                    android:layout_gravity="center_horizontal">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teacher Name"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-------"
-                    android:textSize="20dp"
-                    android:id="@+id/teacher9"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subject"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="------"
-                    android:textSize="20dp"
-                    android:id="@+id/sub9"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:id="@+id/card10"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Class: 3-4"
-                    android:textSize="20dp"
-                    android:layout_gravity="center_horizontal">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teacher Name"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-------"
-                    android:textSize="20dp"
-                    android:id="@+id/teacher10"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subject"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="------"
-                    android:textSize="20dp"
-                    android:id="@+id/sub10"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:id="@+id/card11"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Class: 3-4"
-                    android:textSize="20dp"
-                    android:layout_gravity="center_horizontal">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teacher Name"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-------"
-                    android:textSize="20dp"
-                    android:id="@+id/teacher11"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subject"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="------"
-                    android:textSize="20dp"
-                    android:id="@+id/sub11"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:id="@+id/card12"
-            android:layout_margin="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Class: 3-4"
-                    android:textSize="20dp"
-                    android:layout_gravity="center_horizontal">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teacher Name"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-------"
-                    android:textSize="20dp"
-                    android:id="@+id/teacher12"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subject"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="------"
-                    android:textSize="20dp"
-                    android:id="@+id/sub12"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
-</HorizontalScrollView>
-
+        android:id="@+id/spinner2">
+    </Spinner>
     <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
-
-
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
             <androidx.cardview.widget.CardView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="10dp"
+                android:id="@+id/card1"
                 android:layout_margin="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="10dp"
+                    android:padding="20dp"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Class: 1-2"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_horizontal"/>
+
+
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" Management Team"
+                        android:text="Teacher:"
+                        android:id="@+id/teacher1"
                         android:textSize="20dp"
                         android:gravity="center_horizontal"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_gravity="start"
                         android:textColor="@color/colorPrimaryDark"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" -------"
-                        android:id="@+id/mag1"
-                        android:textSize="20dp"
-                        android:gravity="center_horizontal"
-                        android:layout_margin="15dp"
-                        android:layout_gravity="center_horizontal"
-                        android:textColor="@color/colorPrimaryDark"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="-------"
-                        android:layout_margin="15dp"
-                        android:id="@+id/mag2"
+                        android:text="UID:"
+                        android:id="@+id/uid1"
                         android:textSize="20dp"
                         android:gravity="center_horizontal"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Batch:"
+                        android:id="@+id/batch1"
+                        android:textSize="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subject:"
+                        android:id="@+id/sub1"
+                        android:textSize="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/card3"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Class: 3-4"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_horizontal">
+
+                    </TextView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teacher:"
+                        android:textSize="20dp"
+                        android:id="@+id/teacher3"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UID:"
+                        android:textSize="20dp"
+                        android:id="@+id/uid3"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Batch:"
+                        android:id="@+id/batch3"
+                        android:textSize="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subject:"
+                        android:textSize="20dp"
+                        android:id="@+id/sub3"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
                         android:textColor="@color/colorPrimaryDark"/>
                 </LinearLayout>
 
 
             </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/card5"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Class: 5"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_horizontal">
+
+                    </TextView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teacher:"
+                        android:textSize="20dp"
+                        android:id="@+id/teacher5"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UID:"
+                        android:textSize="20dp"
+                        android:id="@+id/uid5"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Batch:"
+                        android:id="@+id/batch5"
+                        android:textSize="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subject:"
+                        android:textSize="20dp"
+                        android:id="@+id/sub5"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/card6"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Class: 6"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_horizontal">
+
+                    </TextView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teacher:"
+                        android:textSize="20dp"
+                        android:id="@+id/teacher6"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UID:"
+                        android:textSize="20dp"
+                        android:id="@+id/uid6"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Batch:"
+                        android:id="@+id/batch6"
+                        android:textSize="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subject:"
+                        android:textSize="20dp"
+                        android:id="@+id/sub6"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/card7"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Class: 7"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_horizontal">
+
+                    </TextView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teacher:"
+                        android:textSize="20dp"
+                        android:id="@+id/teacher7"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UID:"
+                        android:textSize="20dp"
+                        android:id="@+id/uid7"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Batch:"
+                        android:id="@+id/batch7"
+                        android:textSize="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subject:"
+                        android:textSize="20dp"
+                        android:id="@+id/sub7"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/card8"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Class: 8"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_horizontal">
+
+                    </TextView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teacher:"
+                        android:textSize="20dp"
+                        android:id="@+id/teacher8"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UID:"
+                        android:textSize="20dp"
+                        android:id="@+id/uid8"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Batch:"
+                        android:id="@+id/batch8"
+                        android:textSize="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subject:"
+                        android:textSize="20dp"
+                        android:id="@+id/sub8"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/card9"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Class: 9"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_horizontal">
+
+                    </TextView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teacher:"
+                        android:textSize="20dp"
+                        android:id="@+id/teacher9"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UID:"
+                        android:textSize="20dp"
+                        android:id="@+id/uid9"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Batch:"
+                        android:id="@+id/batch9"
+                        android:textSize="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subject:"
+                        android:textSize="20dp"
+                        android:id="@+id/sub9"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/card10"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Class: 10"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_horizontal">
+
+                    </TextView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teacher:"
+                        android:textSize="20dp"
+                        android:id="@+id/teacher10"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UID:"
+                        android:textSize="20dp"
+                        android:id="@+id/uid10"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Batch:"
+                        android:id="@+id/batch10"
+                        android:textSize="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subject:"
+                        android:textSize="20dp"
+                        android:id="@+id/sub10"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/card11"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Class: 11"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_horizontal">
+
+                    </TextView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teacher:"
+                        android:textSize="20dp"
+                        android:id="@+id/teacher11"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UID:"
+                        android:textSize="20dp"
+                        android:id="@+id/uid11"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Batch:"
+                        android:id="@+id/batch11"
+                        android:textSize="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subject:"
+                        android:textSize="20dp"
+                        android:id="@+id/sub11"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/card12"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Class: 12"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_horizontal">
+
+                    </TextView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teacher:"
+                        android:textSize="20dp"
+                        android:id="@+id/teacher12"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UID:"
+                        android:textSize="20dp"
+                        android:id="@+id/uid12"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Batch:"
+                        android:id="@+id/batch12"
+                        android:textSize="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subject:"
+                        android:textSize="20dp"
+                        android:id="@+id/sub12"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="start"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
         </LinearLayout>
-
-
     </HorizontalScrollView>
 </LinearLayout>

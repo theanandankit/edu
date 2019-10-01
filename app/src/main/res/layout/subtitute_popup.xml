@@ -35,7 +35,7 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
                 android:textColor="@android:color/white" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            <!--com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/bt_save"
                style="@style/Widget.MaterialComponents.FloatingActionButton"
                 android:layout_width="wrap_content"
@@ -48,37 +48,67 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="Save"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white" /-->
 
         </LinearLayout>
 
 
 
     </com.google.android.material.appbar.AppBarLayout>
-    <LinearLayout
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Present"
+                android:id="@+id/present"
+                android:textColor="@color/black"
+                android:layout_margin="20dp"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Absent"
+                android:id="@+id/absent"
+                android:textColor="@color/black"
+                android:layout_margin="20dp"
+                android:textSize="20sp"/>
+
+        </RadioGroup>
+
+
+
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <CheckBox
+
+
+        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="20sp"
-            android:text="Present"
-            android:id="@+id/present"
+            android:text="Sustitute sent"
+            android:id="@+id/substitute_sent"
             android:textColor="@color/black"
             android:layout_margin="20dp"/>
-        <CheckBox
+        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Absent"
-            android:id="@+id/absent"
+            android:text="Substitute not sent"
+            android:id="@+id/substitute_not_sent"
             android:textColor="@color/black"
             android:layout_margin="20dp"
             android:textSize="20sp"/>
 
-    </LinearLayout>
+    </RadioGroup>
 
 
 

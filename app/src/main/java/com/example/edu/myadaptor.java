@@ -5,17 +5,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class myadaptor extends ArrayAdapter<adaptor_class> {
+public class myadaptor extends ArrayAdapter {
 
-    ArrayList<adaptor_class> list_class= new ArrayList<>();
+    private  ArrayList<adaptor_class> list_class;
+    Context context;
+    private static class ViewHolder {
+        TextView Name;
+        TextView uid;
+        TextView batch;
+        TextView class1;
+        TextView comment;
 
-    public myadaptor(Context context, int textViewResourceId, ArrayList<adaptor_class> objects) {
-        super(context, textViewResourceId, objects);
+    }
+
+    public myadaptor(ArrayList objects, Context context) {
+        super(context,R.layout.class_list,objects);
         list_class = objects;
 
     }
@@ -26,18 +37,48 @@ public class myadaptor extends ArrayAdapter<adaptor_class> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public adaptor_class getItem(int position) {
+        return list_class.get(position);
+    }
 
-        View v = convertView;
-        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.class_list, null);
-        TextView teacher = (TextView) v.findViewById(R.id.tech1);
-        teacher.setText(list_class.get(position).getTeacher_name());
-        TextView batch = (TextView) v.findViewById(R.id.batch1);
-        batch.setText(list_class.get(position).getBatch());
-        TextView comment = (TextView) v.findViewById(R.id.com1);
-        comment.setText(list_class.get(position).getComment());
-        return v;
 
+    @Override
+    public View getView(int position, View convertView,  ViewGroup parent) {
+
+        ViewHolder viewHolder;
+        final View result;
+
+        if (convertView == null) {
+            viewHolder = new ViewHolder();
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.class_list, parent, false);
+            viewHolder.Name = (TextView) convertView.findViewById(R.id.teach1);
+            viewHolder.uid = (TextView)convertView.findViewById(R.id.Uid);
+            viewHolder.batch=(TextView)convertView.findViewById(R.id.batch);
+            viewHolder.class1=(TextView)convertView.findViewById(R.id.classes);
+            //viewHolder.substitute=(EditText)convertView.findViewById(R.id.substitute);
+
+            result=convertView;
+            convertView.setTag(viewHolder);
+
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+            result=convertView;
+        }
+
+        adaptor_class item = getItem(position);
+
+
+        viewHolder.Name.setText(item.teacher_name);
+        viewHolder.uid.setText(item.uid);
+        viewHolder.batch.setText(item.batch);
+        viewHolder.class1.setText(item.class1);
+        viewHolder.comment.setText(item.comment);
+        /** if(item.checked)
+         viewHolder.substitute.setVisibility(View.INVISIBLE);
+         else
+         viewHolder.substitute.setVisibility(View.VISIBLE);*/
+
+
+        return result;
     }
 }
