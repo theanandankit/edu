@@ -68,12 +68,12 @@ public class Management_screen extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                adaptor_class obj=class_name.get(position);
+
 
                 showCustomDialog(position);
-                obj.comment=status;
-                    adaptor.notifyDataSetChanged();
-                    reference.child(obj.getClass1()).setValue(obj);
+
+
+                    //Toast.makeText(getApplicationContext(),obj.comment,Toast.LENGTH_LONG).show();
                /* View v=listView.getChildAt(position-listView.getFirstVisiblePosition());
                 TextView comm=(TextView)v.findViewById(R.id.com1);
                 comm.setText(status);
@@ -147,7 +147,7 @@ public class Management_screen extends AppCompatActivity {
         myadaptor myad=new myadaptor(class_name,this);
         listView.setAdapter(myad);
     }
-    public void showCustomDialog(int i)
+    public void showCustomDialog(final int i)
     {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
@@ -169,11 +169,13 @@ public class Management_screen extends AppCompatActivity {
         final Spinner spinner=(Spinner)dialog.findViewById(R.id.spinner);
 
         Button submit=(Button)dialog.findViewById(R.id.submit);
-        check_member.setOnClickListener(new View.OnClickListener() {
+        present.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(present.isChecked())
                 {
+                    substitute_sent.setEnabled(false);
+                    substitute_not_sent.setEnabled(false);
                    check_member.setEnabled(false);
                    check_not_member.setEnabled(false);
                    spinner.setEnabled(false);
@@ -200,8 +202,8 @@ public class Management_screen extends AppCompatActivity {
         substitute_not_sent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                substitute_not_sent.setEnabled(true);
-                substitute_sent.setEnabled(true);
+                //substitute_not_sent.setEnabled(true);
+                //substitute_sent.setEnabled(true);
                 check_member.setEnabled(false);
                 check_not_member.setEnabled(false);
                 spinner.setEnabled(false);
@@ -213,6 +215,13 @@ public class Management_screen extends AppCompatActivity {
         substitute_sent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //substitute_not_sent.setEnabled(true);
+                //substitute_sent.setEnabled(true);
+                check_member.setEnabled(true);
+                check_not_member.setEnabled(true);
+                spinner.setEnabled(true);
+                name.setEnabled(true);
+                Batch.setEnabled(true);
 
             }
         });
@@ -225,7 +234,11 @@ public class Management_screen extends AppCompatActivity {
                 if(present.isChecked())
                 {
                     status="Present";
+                    adaptor_class obj=class_name.get(i);
                     dialog.dismiss();
+                    obj.comment=status;
+                    adaptor.notifyDataSetChanged();
+                    reference.child(obj.getClass1()).setValue(obj);
                 }
 
                else if(absent.isChecked())
@@ -234,25 +247,34 @@ public class Management_screen extends AppCompatActivity {
                     {
                         status="Substitute sent";
                         dialog.dismiss();
+                        adaptor_class obj=class_name.get(i);
+                        obj.comment=status;
+                        adaptor.notifyDataSetChanged();
+                        reference.child(obj.getClass1()).setValue(obj);
                     }
 
                     else if(!substitute_sent.isChecked() && substitute_not_sent.isChecked())
                     {
                         status="Substitute not sent";
                         dialog.dismiss();
+                        adaptor_class obj=class_name.get(i);
+                        obj.comment=status;
+                        adaptor.notifyDataSetChanged();
+                        reference.child(obj.getClass1()).setValue(obj);
                     }
 
                     else Toast.makeText(getApplicationContext(),"Enter valid options",Toast.LENGTH_LONG).show();
                 }
                else
                    Toast.makeText(getApplicationContext(),"Enter valid options",Toast.LENGTH_LONG).show();
-               Toast.makeText(getApplicationContext(),status,Toast.LENGTH_LONG).show();
+              Toast.makeText(getApplicationContext(),status,Toast.LENGTH_LONG).show();
 
 
             }
         });
         dialog.show();
         dialog.getWindow().setAttributes(lp);
+        return;
 
     }
     private void showList()

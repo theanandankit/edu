@@ -42,6 +42,7 @@ public class myadaptor extends ArrayAdapter {
     }
 
 
+
     @Override
     public View getView(int position, View convertView,  ViewGroup parent) {
 
