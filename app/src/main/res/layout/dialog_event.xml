@@ -20,9 +20,10 @@
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/ic_close_black_24dp"
+                android:src="@drawable/ic_clear_white"
                 style="@style/Widget.MaterialComponents.FloatingActionButton"
                 app:rippleColor="@color/colorPrimaryDark"
+                app:shapeAppearance="@color/cardview_light_background"
 
                 />
 
@@ -45,10 +46,14 @@
                 android:gravity="center"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:src="@drawable/ic_close_black_24dp"
+                android:src="@drawable/ic_check_white"
+                app:backgroundTint="@android:color/transparent"
+                app:shapeAppearance="@color/cardview_light_background"
                app:rippleColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
+
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -70,6 +75,42 @@
             android:layout_gravity="center_horizontal"
             />
     </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        app:boxBackgroundColor="@color/white"
+        android:id="@+id/set_uid"
+        android:hint="UID">
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:inputType="text"
+            android:layout_margin="20dp"
+            android:layout_gravity="center_horizontal"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/set_batch"
+        android:hint="Batch"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        app:boxBackgroundColor="@color/white">
+
+    <com.google.android.material.textfield.TextInputEditText
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -84,10 +125,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:inputType="textPassword"
+            android:inputType="text"
             android:layout_margin="20dp"
             android:layout_gravity="center_horizontal"
             />
     </com.google.android.material.textfield.TextInputLayout>
+
+
 
 </LinearLayout>

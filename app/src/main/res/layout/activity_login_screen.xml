@@ -19,7 +19,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/username"
         android:hint="Username"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        >
 
    <com.google.android.material.textfield.TextInputEditText
 
@@ -37,6 +39,11 @@
         android:id="@+id/password"
         android:hint="Password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:passwordToggleEnabled="true"
+        app:errorEnabled="true"
+
+
+
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -45,8 +52,13 @@
             android:layout_height="wrap_content"
 
             android:inputType="textPassword"
-            android:layout_margin="20dp"
+
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_gravity="center_horizontal"
+
             />
     </com.google.android.material.textfield.TextInputLayout>
 

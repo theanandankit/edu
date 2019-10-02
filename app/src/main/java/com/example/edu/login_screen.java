@@ -18,10 +18,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class login_screen extends AppCompatActivity {
 
@@ -32,9 +36,10 @@ public class login_screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
 
-        final EditText use=findViewById(R.id.username);
-        final EditText pass=findViewById(R.id.password);
+        final TextInputLayout use=findViewById(R.id.username);
+        final TextInputLayout pass=findViewById(R.id.password);
         final ProgressBar progressBar=findViewById(R.id.progress);
+        progressBar.setVisibility(View.INVISIBLE);
 
 
         firebaseAuth =FirebaseAuth.getInstance();
@@ -76,21 +81,42 @@ public class login_screen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                String username= use.getText().toString();
-                String password= pass.getText().toString();
-
-                firebaseAuth.signInWithEmailAndPassword(username,password)
-                        .addOnCompleteListener(login_screen.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful())
-                                {
-                                    progressBar.setVisibility(View.GONE);
-                                    Intent i=new Intent(login_screen.this,Management_main_page.class);
-                                    startActivity(i);
+                String username= use.getEditText().getText().toString();
+                String password= pass.getEditText().getText().toString();
+                String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+                SimpleDateFormat sdf2 = new SimpleDateFormat("EEEE");
+                final String current_day = sdf2.format(new Date());
+                boolean t= username.matches(regex);
+                if(t==false)
+                    use.setError("Invalid Email");
+                else if(password.length()==0)
+                    pass.setError("Password can't be empty");
+                else
+                { progressBar.setVisibility(View.VISIBLE);
+                    firebaseAuth.signInWithEmailAndPassword(username,password)
+                            .addOnCompleteListener(login_screen.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if(task.isSuccessful())
+                                    {
+                                        progressBar.setVisibility(View.GONE);
+                                        Toast.makeText(getApplicationContext(),current_day,Toast.LENGTH_LONG).show();
+                                        Intent i=new Intent(login_screen.this,Management_screen.class);
+                                        progressBar.setVisibility(View.INVISIBLE);
+                                        startActivity(i);
+                                    }
+                                    else
+                                    {
+                                        use.setError(null);
+                                        pass.setError(null);
+                                        Toast.makeText(getApplicationContext(),"Error Logging in", Toast.LENGTH_LONG).show();
+                                        progressBar.setVisibility(View.INVISIBLE);
+                                    }
                                 }
-                            }
-                        });
+                            });
+                }
+
+
             }
         });
     }

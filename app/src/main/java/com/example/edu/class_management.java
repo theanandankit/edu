@@ -38,7 +38,7 @@ public class class_management extends AppCompatActivity {
         setContentView(R.layout.activity_class_management);
         SimpleDateFormat sdf2 = new SimpleDateFormat("EEEE");
         String current_day = sdf2.format(new Date());
-        databaseReference= FirebaseDatabase.getInstance().getReference().child("schedule_teacher").child(current_day);
+        /**databaseReference= FirebaseDatabase.getInstance().getReference().child("schedule_teacher").child(current_day);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -96,7 +96,7 @@ public class class_management extends AppCompatActivity {
         dialog.getWindow().setAttributes(lp);
 
     }
-    */
+
     private void showdilog_subtitue()
     {
 
@@ -201,7 +201,7 @@ public class class_management extends AppCompatActivity {
         dialog.show();
         dialog.getWindow().setAttributes(lp);
     }
- /*   private void showdilog_otherproblem()
+    private void showdilog_otherproblem()
     {
 
 
@@ -220,4 +220,5 @@ public class class_management extends AppCompatActivity {
 
     }
   */
+}
 }

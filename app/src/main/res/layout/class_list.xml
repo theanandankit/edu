@@ -18,21 +18,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                android:id="@+id/tech1"
+                android:id="@+id/teach1"
                 android:layout_margin="3dp"
-                android:text="NAME OF TEACHER"/>
+                android:text="TEACHER:"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/Uid"
+                android:layout_margin="3dp"
+                android:text="UID:"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
-                android:id="@+id/batch1"
-                android:text="BATCH"/>
+                android:id="@+id/batch"
+                android:textSize="15dp"
+                android:text="BATCH:"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
-                android:text="CLASS: 1-2"/>
+                android:id="@+id/classes"
+                android:textSize="15dp"
+                android:text="CLASS:"/>
         </LinearLayout>
 
         <LinearLayout
