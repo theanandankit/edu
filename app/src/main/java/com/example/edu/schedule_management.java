@@ -13,7 +13,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 
 import android.widget.Spinner;
@@ -196,8 +195,6 @@ public class schedule_management extends AppCompatActivity {
         cardView10=findViewById(R.id.card10);
         cardView11=findViewById(R.id.card11);
         cardView12=findViewById(R.id.card12);
-
-
     }
 
     static class Teacher
@@ -239,7 +236,6 @@ public class schedule_management extends AppCompatActivity {
 
     }
 
-
     public void set_week_info(String day)
     {
         for (int counter=1;counter<9;counter++) {
@@ -262,7 +258,6 @@ public class schedule_management extends AppCompatActivity {
                         {
                             setvalue(R.id.teacher3,R.id.sub3);
                         }
-
                         else if(finalCounter ==5)
                         {
                             setvalue(R.id.teacher5,R.id.sub5);
@@ -287,6 +282,7 @@ public class schedule_management extends AppCompatActivity {
                         {
                             setvalue(R.id.teacher9,R.id.sub9);
                         }
+
                         else if(finalCounter ==10)
                         {
                             setvalue(R.id.teacher10,R.id.sub10);
@@ -300,10 +296,7 @@ public class schedule_management extends AppCompatActivity {
                         else {
                             setvalue(R.id.teacher12,R.id.sub12);
                         }
-
-
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 

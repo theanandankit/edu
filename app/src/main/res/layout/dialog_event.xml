@@ -20,7 +20,7 @@
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/ic_close"
+                android:src="@drawable/ic_close_black_24dp"
                 style="@style/Widget.MaterialComponents.FloatingActionButton"
                 app:rippleColor="@color/colorPrimaryDark"
 
@@ -45,12 +45,10 @@
                 android:gravity="center"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:src="@drawable/ic_check"
+                android:src="@drawable/ic_close_black_24dp"
                app:rippleColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
-
-
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -7,7 +7,16 @@
     android:orientation="vertical"
     tools:context=".action_screen"
     android:background="@color/white">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -253,5 +262,8 @@
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
