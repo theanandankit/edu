@@ -71,13 +71,13 @@ public class Management_screen extends AppCompatActivity {
                 adaptor_class obj=class_name.get(position);
 
                 showCustomDialog(position);
-                class_name.get(position).comment=status;
-                    //adaptor.notifyDataSetChanged();
+                obj.comment=status;
+                    adaptor.notifyDataSetChanged();
                     reference.child(obj.getClass1()).setValue(obj);
-                View v=listView.getChildAt(position-listView.getFirstVisiblePosition());
+               /* View v=listView.getChildAt(position-listView.getFirstVisiblePosition());
                 TextView comm=(TextView)v.findViewById(R.id.com1);
                 comm.setText(status);
-               // reference.setValue()
+               // reference.setValue()*/
 
 
             }
