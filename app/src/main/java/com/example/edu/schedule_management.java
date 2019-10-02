@@ -107,7 +107,7 @@ public class schedule_management extends AppCompatActivity {
                        s="Sunday";
                        break;
                    default:
-                       s="select day";
+                       s="Monday";
                }
                set_week_info(s);
 
@@ -213,19 +213,19 @@ public class schedule_management extends AppCompatActivity {
                 TextInputLayout teacher_nam = dialog.findViewById(R.id.set_teacher_name);
                 teacher = teacher_nam.getEditText().getText().toString();
                 TextView aa = findViewById(a);
-                aa.setText(teacher);
+                aa.setText("Teacher: "+teacher);
                 TextInputLayout u_id=dialog.findViewById(R.id.set_uid);
                 uid=u_id.getEditText().getText().toString();
                 TextView bb=findViewById(b);
-                bb.setText(uid);
+                bb.setText("UID: "+uid);
                 TextInputLayout subject_nam= dialog.findViewById(R.id.set_subject);
                 subject = subject_nam.getEditText().getText().toString();
                 TextView cc = findViewById(c);
-                cc.setText(subject);
+                cc.setText("Subject: "+subject);
                 TextInputLayout batch_nam=dialog.findViewById(R.id.set_batch);
                 batch=batch_nam.getEditText().getText().toString();
                 TextView ee=findViewById(e);
-                ee.setText(batch);
+                ee.setText("Batch: "+batch);
 
                 DatabaseReference reference=databaseReference.child(s).child(Integer.toString(d));
                 Teacher teach=new Teacher(teacher,uid,batch,subject);
@@ -261,7 +261,9 @@ public class schedule_management extends AppCompatActivity {
         private String Name;
         private String Subject;
         private String uid;
-      String batch;
+        private String batch;
+
+
         public Teacher() {}
         public Teacher(String name,String uid,String batch,String subject)
         {
@@ -309,10 +311,10 @@ public class schedule_management extends AppCompatActivity {
         TextView batch=findViewById(c);
         TextView subject=findViewById(d);
 
-        teacher_name.setText(teacher.getName());
-        uid.setText(teacher.getUid());
-        batch.setText(teacher.getBatch());
-        subject.setText(teacher.getSubject());
+        teacher_name.setText("Teacher: "+teacher.getName());
+        uid.setText("UID: "+teacher.getUid());
+        batch.setText("Batch: "+teacher.getBatch());
+        subject.setText("Subject: "+teacher.getSubject());
 
     }
 
@@ -330,53 +332,61 @@ public class schedule_management extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         teacher = dataSnapshot.getValue(Teacher.class);
+                        if(teacher!=null)
+                        {
+                            if(finalCounter ==1)
+                            {
+                                setvalue(R.id.teacher1,R.id.uid1,R.id.batch1,R.id.sub1);
+                            }
+                            else if(finalCounter ==3)
+                            {
+                                setvalue(R.id.teacher3,R.id.uid3,R.id.batch3,R.id.sub3);
+                            }
 
-                        if(finalCounter ==1)
-                        {
-                            setvalue(R.id.teacher1,R.id.uid1,R.id.batch1,R.id.sub1);
+                            else if(finalCounter ==5)
+                            {
+                                setvalue(R.id.teacher5,R.id.uid5,R.id.batch5,R.id.sub5);
+                            }
+
+                            else if(finalCounter ==6)
+                            {
+                                setvalue(R.id.teacher6,R.id.uid6,R.id.batch6,R.id.sub6);
+                            }
+
+                            else if(finalCounter ==7)
+                            {
+                                setvalue(R.id.teacher7,R.id.uid7,R.id.batch7,R.id.sub7);
+                            }
+
+                            else if(finalCounter ==8)
+                            {
+                                setvalue(R.id.teacher8,R.id.uid8,R.id.batch8,R.id.sub8);
+                            }
+
+                            else if(finalCounter ==9)
+                            {
+                                setvalue(R.id.teacher9,R.id.uid9,R.id.batch9,R.id.sub9);
+                            }
+                            else if(finalCounter ==10)
+                            {
+                                setvalue(R.id.teacher10,R.id.uid10,R.id.batch10,R.id.sub10);
+                            }
+
+                            else if(finalCounter ==11)
+                            {
+                                setvalue(R.id.teacher11,R.id.uid11,R.id.batch11,R.id.sub11);
+                            }
+
+                            else {
+                                setvalue(R.id.teacher12,R.id.uid12,R.id.batch12,R.id.sub12);
+                            }
+
                         }
-                        else if(finalCounter ==3)
+                        else
                         {
-                            setvalue(R.id.teacher3,R.id.uid3,R.id.batch3,R.id.sub3);
+
                         }
 
-                        else if(finalCounter ==5)
-                        {
-                            setvalue(R.id.teacher5,R.id.uid5,R.id.batch5,R.id.sub5);
-                        }
-
-                        else if(finalCounter ==6)
-                        {
-                            setvalue(R.id.teacher6,R.id.uid6,R.id.batch6,R.id.sub6);
-                        }
-
-                        else if(finalCounter ==7)
-                        {
-                            setvalue(R.id.teacher7,R.id.uid7,R.id.batch7,R.id.sub7);
-                        }
-
-                        else if(finalCounter ==8)
-                        {
-                            setvalue(R.id.teacher8,R.id.uid8,R.id.batch8,R.id.sub8);
-                        }
-
-                        else if(finalCounter ==9)
-                        {
-                            setvalue(R.id.teacher9,R.id.uid9,R.id.batch9,R.id.sub9);
-                        }
-                        else if(finalCounter ==10)
-                        {
-                            setvalue(R.id.teacher10,R.id.uid10,R.id.batch10,R.id.sub10);
-                        }
-
-                        else if(finalCounter ==11)
-                        {
-                            setvalue(R.id.teacher11,R.id.uid11,R.id.batch11,R.id.sub11);
-                        }
-
-                        else {
-                            setvalue(R.id.teacher12,R.id.uid12,R.id.batch12,R.id.sub12);
-                        }
 
 
                     }

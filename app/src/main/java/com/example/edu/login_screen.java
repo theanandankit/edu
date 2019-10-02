@@ -24,6 +24,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class login_screen extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
@@ -81,6 +84,8 @@ public class login_screen extends AppCompatActivity {
                 String username= use.getEditText().getText().toString();
                 String password= pass.getEditText().getText().toString();
                 String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+                SimpleDateFormat sdf2 = new SimpleDateFormat("EEEE");
+                final String current_day = sdf2.format(new Date());
                 boolean t= username.matches(regex);
                 if(t==false)
                     use.setError("Invalid Email");
@@ -95,7 +100,8 @@ public class login_screen extends AppCompatActivity {
                                     if(task.isSuccessful())
                                     {
                                         progressBar.setVisibility(View.GONE);
-                                        Intent i=new Intent(login_screen.this,Management_main_page.class);
+                                        Toast.makeText(getApplicationContext(),current_day,Toast.LENGTH_LONG).show();
+                                        Intent i=new Intent(login_screen.this,Management_screen.class);
                                         progressBar.setVisibility(View.INVISIBLE);
                                         startActivity(i);
                                     }

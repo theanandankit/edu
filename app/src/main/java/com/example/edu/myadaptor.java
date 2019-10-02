@@ -55,6 +55,7 @@ public class myadaptor extends ArrayAdapter {
             viewHolder.uid = (TextView)convertView.findViewById(R.id.Uid);
             viewHolder.batch=(TextView)convertView.findViewById(R.id.batch);
             viewHolder.class1=(TextView)convertView.findViewById(R.id.classes);
+            viewHolder.comment=(TextView)convertView.findViewById(R.id.com1);
             //viewHolder.substitute=(EditText)convertView.findViewById(R.id.substitute);
 
             result=convertView;
