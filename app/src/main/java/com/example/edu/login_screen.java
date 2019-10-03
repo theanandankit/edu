@@ -45,7 +45,7 @@ public class login_screen extends AppCompatActivity {
         firebaseAuth =FirebaseAuth.getInstance();
 
 
-        String text1="Forget Password";
+        String text1="Forgot Password";
         String text2="Trouble In Login";
 
         Button login=findViewById(R.id.login);
@@ -109,7 +109,11 @@ public class login_screen extends AppCompatActivity {
                                     {
                                         use.setError(null);
                                         pass.setError(null);
+<<<<<<< Updated upstream
                                         Toast.makeText(getApplicationContext(),"Error Logging in", Toast.LENGTH_LONG).show();
+=======
+                                        Toast.makeText(getApplicationContext(),"Invalid username or password",Toast.LENGTH_LONG).show();
+>>>>>>> Stashed changes
                                         progressBar.setVisibility(View.INVISIBLE);
                                     }
                                 }
