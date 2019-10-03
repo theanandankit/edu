@@ -36,14 +36,29 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/userid"
+        android:hint="SGM ID"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_gravity="center_horizontal"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/password"
         android:hint="Password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:passwordToggleEnabled="true"
         app:errorEnabled="true"
-
-
-
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -72,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Remember the password"
+        android:id="@+id/remember_checkbox"
         android:layout_weight="1"
         />
     <com.google.android.material.button.MaterialButton
@@ -96,6 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/forget_password"
+        android:textSize="20dp"
         android:gravity="center_horizontal"
         android:layout_weight="1"/>
 
@@ -103,6 +120,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/trouble"
+        android:textSize="20dp"
         android:gravity="center_horizontal"
         android:layout_marginLeft="20dp"
         android:layout_weight="1"/>
