@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.app.Dialog;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import android.view.View;
@@ -208,24 +211,33 @@ public class schedule_management extends AppCompatActivity {
         (dialog.findViewById(R.id.bt_save)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.stylish);
 
                 String teacher,uid,subject,batch;
                 TextInputLayout teacher_nam = dialog.findViewById(R.id.set_teacher_name);
                 teacher = teacher_nam.getEditText().getText().toString();
                 TextView aa = findViewById(a);
                 aa.setText("Teacher: "+teacher);
+                aa.setTypeface(typeface);
+                aa.setTextColor(Color.BLACK);
                 TextInputLayout u_id=dialog.findViewById(R.id.set_uid);
                 uid=u_id.getEditText().getText().toString();
                 TextView bb=findViewById(b);
                 bb.setText("UID: "+uid);
+                bb.setTypeface(typeface);
+                bb.setTextColor(Color.BLACK);
                 TextInputLayout subject_nam= dialog.findViewById(R.id.set_subject);
                 subject = subject_nam.getEditText().getText().toString();
                 TextView cc = findViewById(c);
                 cc.setText("Subject: "+subject);
+                cc.setTypeface(typeface);
+                cc.setTextColor(Color.BLACK);
                 TextInputLayout batch_nam=dialog.findViewById(R.id.set_batch);
                 batch=batch_nam.getEditText().getText().toString();
                 TextView ee=findViewById(e);
                 ee.setText("Batch: "+batch);
+                ee.setTypeface(typeface);
+                ee.setTextColor(Color.BLACK);
 
                 DatabaseReference reference=databaseReference.child(s).child(Integer.toString(d));
                 Teacher teach=new Teacher(teacher,uid,batch,subject);
@@ -238,6 +250,7 @@ public class schedule_management extends AppCompatActivity {
 
         dialog.show();
         dialog.getWindow().setAttributes(lp);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
     public void findids()
@@ -304,17 +317,36 @@ public class schedule_management extends AppCompatActivity {
         }
     }
 
-    public void setvalue(final int a,final int b, final int c, final int d)
+    public void setvalue(final int a,final int b, final int c, final int d, final int i)
     {
         TextView teacher_name = findViewById(a);
         TextView uid = findViewById(b);
         TextView batch=findViewById(c);
         TextView subject=findViewById(d);
-
-        teacher_name.setText("Teacher: "+teacher.getName());
-        uid.setText("UID: "+teacher.getUid());
-        batch.setText("Batch: "+teacher.getBatch());
-        subject.setText("Subject: "+teacher.getSubject());
+        String teach="Teacher: ";
+        String u_id="UID: ";
+        String Batch="Batch: ";
+        String Subject="Subject: ";
+        if(i==1)
+        {
+            teach=teach+teacher.getName();
+            u_id=u_id+teacher.getUid();
+            Batch=Batch+teacher.getBatch();
+            Subject=Subject+teacher.getSubject();
+        }
+        Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.stylish);
+        teacher_name.setText(teach);
+        teacher_name.setTypeface(typeface);
+        teacher_name.setTextColor(Color.BLACK);
+        uid.setText(u_id);
+        uid.setTypeface(typeface);
+        uid.setTextColor(Color.BLACK);
+        batch.setText(Batch);
+        batch.setTypeface(typeface);
+        batch.setTextColor(Color.BLACK);
+        subject.setText(Subject);
+        subject.setTypeface(typeface);
+        subject.setTextColor(Color.BLACK);
 
     }
 
@@ -332,59 +364,60 @@ public class schedule_management extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         teacher = dataSnapshot.getValue(Teacher.class);
+                        int i=0;
                         if(teacher!=null)
-                        {
-                            if(finalCounter ==1)
-                            {
-                                setvalue(R.id.teacher1,R.id.uid1,R.id.batch1,R.id.sub1);
-                            }
-                            else if(finalCounter ==3)
-                            {
-                                setvalue(R.id.teacher3,R.id.uid3,R.id.batch3,R.id.sub3);
-                            }
-
-                            else if(finalCounter ==5)
-                            {
-                                setvalue(R.id.teacher5,R.id.uid5,R.id.batch5,R.id.sub5);
-                            }
-
-                            else if(finalCounter ==6)
-                            {
-                                setvalue(R.id.teacher6,R.id.uid6,R.id.batch6,R.id.sub6);
-                            }
-
-                            else if(finalCounter ==7)
-                            {
-                                setvalue(R.id.teacher7,R.id.uid7,R.id.batch7,R.id.sub7);
-                            }
-
-                            else if(finalCounter ==8)
-                            {
-                                setvalue(R.id.teacher8,R.id.uid8,R.id.batch8,R.id.sub8);
-                            }
-
-                            else if(finalCounter ==9)
-                            {
-                                setvalue(R.id.teacher9,R.id.uid9,R.id.batch9,R.id.sub9);
-                            }
-                            else if(finalCounter ==10)
-                            {
-                                setvalue(R.id.teacher10,R.id.uid10,R.id.batch10,R.id.sub10);
-                            }
-
-                            else if(finalCounter ==11)
-                            {
-                                setvalue(R.id.teacher11,R.id.uid11,R.id.batch11,R.id.sub11);
-                            }
-
-                            else {
-                                setvalue(R.id.teacher12,R.id.uid12,R.id.batch12,R.id.sub12);
-                            }
+                        {  i=1;
 
                         }
                         else
                         {
+                            i=0;
+                        }
+                        if(finalCounter ==1)
+                        {
+                            setvalue(R.id.teacher1,R.id.uid1,R.id.batch1,R.id.sub1,i);
+                        }
+                        else if(finalCounter ==3)
+                        {
+                            setvalue(R.id.teacher3,R.id.uid3,R.id.batch3,R.id.sub3,i);
+                        }
 
+                        else if(finalCounter ==5)
+                        {
+                            setvalue(R.id.teacher5,R.id.uid5,R.id.batch5,R.id.sub5,i);
+                        }
+
+                        else if(finalCounter ==6)
+                        {
+                            setvalue(R.id.teacher6,R.id.uid6,R.id.batch6,R.id.sub6,i);
+                        }
+
+                        else if(finalCounter ==7)
+                        {
+                            setvalue(R.id.teacher7,R.id.uid7,R.id.batch7,R.id.sub7,i);
+                        }
+
+                        else if(finalCounter ==8)
+                        {
+                            setvalue(R.id.teacher8,R.id.uid8,R.id.batch8,R.id.sub8,i);
+                        }
+
+                        else if(finalCounter ==9)
+                        {
+                            setvalue(R.id.teacher9,R.id.uid9,R.id.batch9,R.id.sub9,i);
+                        }
+                        else if(finalCounter ==10)
+                        {
+                            setvalue(R.id.teacher10,R.id.uid10,R.id.batch10,R.id.sub10,i);
+                        }
+
+                        else if(finalCounter ==11)
+                        {
+                            setvalue(R.id.teacher11,R.id.uid11,R.id.batch11,R.id.sub11,i);
+                        }
+
+                        else {
+                            setvalue(R.id.teacher12,R.id.uid12,R.id.batch12,R.id.sub12,i);
                         }
 
 
