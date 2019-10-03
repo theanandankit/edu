@@ -4,9 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -47,7 +49,10 @@ public class new_registration extends AppCompatActivity {
         progressDialog = new ProgressDialog(new_registration.this);
 
         progressDialog.setMessage("Loading.... Creating SGM ID");
+
         progressDialog.show();
+
+        progressDialog.setCanceledOnTouchOutside(false);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
@@ -133,8 +138,7 @@ public class new_registration extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(new_registration.this, "user is registered successfully", Toast.LENGTH_LONG).show();
 
-                            //        show_new_regi_popup(uuname, uubatch);
-                                    finish();
+                                    show_new_regi_popup("SGM"+counter);
 
                                 } else {
                                     Toast.makeText(new_registration.this, "Something went gone \n Please try again later", Toast.LENGTH_LONG).show();
@@ -178,22 +182,11 @@ public class new_registration extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        finish();
-    }
-
-    /*   @Override
-       public void onResume(){
-           super.onResume();
-           finish();
-       }
-
-    public void show_new_regi_popup(String name,String roll_no)
+    public void show_new_regi_popup(String id)
     {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
-        dialog.setContentView(R.layout.new_regis_conf_popup);
+        dialog.setContentView(R.layout.new_regi_popup_message);
         dialog.setCancelable(true);
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -201,24 +194,24 @@ public class new_registration extends AppCompatActivity {
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
-        TextView textView=dialog.findViewById(R.id.new_regi_popup_message);
-        Button ok=dialog.findViewById(R.id.ok);
+        TextView textView=dialog.findViewById(R.id.new_regi_confirm);
+        Button button=dialog.findViewById(R.id.done);
 
-        String message=name+"\n with \n"+roll_no+"\n is successfully registered \n";
+        textView.setText(id);
 
-        textView.setText(message);
-
-        ok.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                dialog.dismiss();
                 finish();
             }
         });
 
         dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
         dialog.getWindow().setAttributes(lp);
 
     }
-    */
+
 }
