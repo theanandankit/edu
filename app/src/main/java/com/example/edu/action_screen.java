@@ -42,7 +42,7 @@ public class action_screen extends AppCompatActivity implements View.OnClickList
                  startActivity(i);
                  break;
             case R.id.admin:
-                i=new Intent(this,login_screen.class);
+                i=new Intent(this,admin_management.class);
                 startActivity(i);
                 break;
 
