@@ -58,11 +58,11 @@
                 android:textSize="20dp"
                 android:gravity="center_horizontal"
                 android:text="comment"/>
-            <ImageView
+            <!--ImageView
                 android:layout_width="30dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:background="@drawable/ic_keyboard_arrow_right_black_24dp"/>
+                android:background="@drawable/ic_keyboard_arrow_right_black_24dp"/-->
 
         </LinearLayout>
 

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/teach_name"
+                android:layout_margin="3dp"
+                android:text="TEACHER:"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/Uid_no"
+                android:layout_margin="3dp"
+                android:text="UID:"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:id="@+id/class_no"
+                android:textSize="15dp"
+                android:text="CLASS:"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:id="@+id/status"
+                android:textSize="20dp"
+                android:gravity="center_horizontal"
+                android:text="comment"/>
+            <!--ImageView
+                android:layout_width="30dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_keyboard_arrow_right_black_24dp"/-->
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

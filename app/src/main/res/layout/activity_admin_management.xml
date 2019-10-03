@@ -44,6 +44,8 @@
                     android:textSize="20dp"
                     android:gravity="center_horizontal"
                     android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/stylish"
+                    android:textStyle="bold"
                     android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
 
@@ -79,6 +81,8 @@
                     android:text="Schedule \n Management"
                     android:textSize="20dp"
                     android:gravity="center_horizontal"
+                    android:fontFamily="@font/stylish"
+                    android:textStyle="bold"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
