@@ -155,6 +155,7 @@ public class new_registration extends AppCompatActivity {
                 user_counter++;
 
                 databaseReference_counter.setValue(user_counter);
+
             }
         });
     }

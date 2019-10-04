@@ -42,6 +42,7 @@ public class login_screen extends AppCompatActivity {
     public DatabaseReference databaseReference,databaseReference1,databaseReference2;
     public static SharedPreferences pref;
     public static TextInputLayout use;
+    public static String complain,complain_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +94,7 @@ public class login_screen extends AppCompatActivity {
             public void onClick(View view) {
 
 
+                trouble_loading();
             }
         };
 
@@ -283,7 +285,7 @@ public class login_screen extends AppCompatActivity {
         dialog.getWindow().setAttributes(lp);
     }
 
-    public void trouble_loading(final String username)
+    public void trouble_loading()
     {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
@@ -296,6 +298,7 @@ public class login_screen extends AppCompatActivity {
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
         final EditText complain_text=dialog.findViewById(R.id.complain_text);
+        final EditText complain_username=dialog.findViewById(R.id.complain_name);
 
         Button done=dialog.findViewById(R.id.complain_done);
         Button cancel=dialog.findViewById(R.id.complain_cancel);
@@ -312,11 +315,40 @@ public class login_screen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String complain=complain_text.getText().toString();
+                complain=complain_text.getText().toString();
+                complain_name=complain_username.getText().toString();
 
-                complain=complain+"-by"+username;
+
+                complain=complain+"-by "+complain_name;
+
+               final DatabaseReference databaseReference_complain_counter=FirebaseDatabase.getInstance().getReference().child("complain").child("counter");
+
+
+                databaseReference_complain_counter.addListenerForSingleValueEvent(new ValueEventListener() {
+                   @Override
+                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                       String counter=dataSnapshot.getValue().toString();
+                       int count=dataSnapshot.getValue().hashCode();
+
+                       DatabaseReference databaseReference_complain=FirebaseDatabase.getInstance().getReference().child("complain").child(counter);
+                       databaseReference_complain.setValue(complain);
+
+                       count++;
+
+                       databaseReference_complain_counter.setValue(count);
+                   }
+
+                   @Override
+                   public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                   }
+               });
 
 
             }});
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setAttributes(lp);
     }
 }
