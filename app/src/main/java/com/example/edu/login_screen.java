@@ -1,11 +1,14 @@
 package com.example.edu;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -46,6 +49,15 @@ public class login_screen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
+        this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.general_actionbar);
+        getSupportActionBar().setElevation(10);
+        View view = getSupportActionBar().getCustomView();
+        TextView textView=(TextView)view.findViewById(R.id.tab_name);
+        textView.setText("Auth Screen");
+        Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.berkshireswash);
+        textView.setTextColor(getResources().getColor(R.color.white));
 
         use=findViewById(R.id.username);
         final TextInputLayout pass=findViewById(R.id.password);

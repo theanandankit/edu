@@ -25,6 +25,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
@@ -63,14 +64,7 @@ public class Management_screen extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.actionbar_layout);
         getSupportActionBar().setElevation(10);
         View view = getSupportActionBar().getCustomView();
-        Button b=(Button)view.findViewById(R.id.submit2);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              Intent i=new Intent(Management_screen.this,Show_Attendance.class);
-              startActivity(i);
-            }
-        });
+
         Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
 
         listView= findViewById(R.id.list_id);
@@ -84,6 +78,16 @@ public class Management_screen extends AppCompatActivity {
 
 
         reference=FirebaseDatabase.getInstance().getReference().child(date);
+        Button b=(Button)view.findViewById(R.id.submit2);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent i=new Intent(Management_screen.this,Show_Attendance.class);
+                startActivity(i);
+            }
+        });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -163,6 +167,13 @@ public class Management_screen extends AppCompatActivity {
 
 
     }
+    private void showList()
+    {
+        Toast.makeText(getApplicationContext(),String.valueOf(class_name.size()),Toast.LENGTH_LONG).show();
+        adaptor=new myadaptor(class_name,getApplicationContext());
+        listView.setAdapter(adaptor);
+
+    }
     @Override
     public void onRestart() {
         super.onRestart();
@@ -191,7 +202,7 @@ public class Management_screen extends AppCompatActivity {
         final RadioButton substitute_sent=(RadioButton)dialog.findViewById(R.id.substitute_sent);
         final RadioButton substitute_not_sent=(RadioButton)dialog.findViewById(R.id.substitute_not_sent);
         final Spinner spinner=(Spinner)dialog.findViewById(R.id.spinner);
-        final FloatingActionButton close=(FloatingActionButton)dialog.findViewById(R.id.bt_close);
+        final ExtendedFloatingActionButton close=(ExtendedFloatingActionButton)dialog.findViewById(R.id.bt_close);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -269,7 +280,11 @@ public class Management_screen extends AppCompatActivity {
                     dialog.dismiss();
                     obj.comment=status;
                     adaptor.notifyDataSetChanged();
-                    reference.child(String.valueOf(obj.getClass1().toString().charAt(0))).setValue(obj);
+                    int x=obj.getClass1().indexOf('-');
+                    if(x>0)
+                        reference.child(String.valueOf(obj.getClass1().toString().charAt(0))).setValue(obj);
+                    else
+                        reference.child(String.valueOf(obj.getClass1())).setValue(obj);
                 }
 
                else if(absent.isChecked())
@@ -281,7 +296,11 @@ public class Management_screen extends AppCompatActivity {
                         adaptor_class obj=class_name.get(i);
                         obj.comment=status;
                         adaptor.notifyDataSetChanged();
+                        int x=obj.getClass1().indexOf('-');
+                        if(x>0)
                         reference.child(String.valueOf(obj.getClass1().toString().charAt(0))).setValue(obj);
+                        else
+                            reference.child(String.valueOf(obj.getClass1())).setValue(obj);
                         dialog.dismiss();
                     }
 
@@ -292,7 +311,11 @@ public class Management_screen extends AppCompatActivity {
                         adaptor_class obj=class_name.get(i);
                         obj.comment=status;
                         adaptor.notifyDataSetChanged();
-                        reference.child(String.valueOf(obj.getClass1().toString().charAt(0))).setValue(obj);
+                        int x=obj.getClass1().indexOf('-');
+                        if(x>0)
+                            reference.child(String.valueOf(obj.getClass1().toString().charAt(0))).setValue(obj);
+                        else
+                            reference.child(String.valueOf(obj.getClass1())).setValue(obj);
                         dialog.dismiss();
                     }
 
@@ -311,13 +334,7 @@ public class Management_screen extends AppCompatActivity {
         return;
 
     }
-    private void showList()
-    {
-        Toast.makeText(getApplicationContext(),String.valueOf(class_name.size()),Toast.LENGTH_LONG).show();
-        adaptor=new myadaptor(class_name,getApplicationContext());
-        listView.setAdapter(adaptor);
 
-    }
     private void showLoadData()
     {
         final Dialog dialog = new Dialog(this);
