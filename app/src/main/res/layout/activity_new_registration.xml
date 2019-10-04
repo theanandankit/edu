@@ -143,7 +143,9 @@
                 android:layout_margin="20dp"
                 android:id="@+id/type"
                 android:gravity="center_horizontal"
-                ></Spinner>
+                >
+
+            </Spinner>
 
             <Button
                 android:layout_width="match_parent"

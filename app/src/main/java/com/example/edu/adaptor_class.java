@@ -2,6 +2,7 @@ package com.example.edu;
 
 import android.util.Log;
 
+
 public class adaptor_class {
 
     String teacher_name;
@@ -11,8 +12,10 @@ public class adaptor_class {
 
     String comment;
 
+    public adaptor_class() {
+    }
 
-    public adaptor_class(String teach,String uid,String batch,String class1,String comm)
+    public adaptor_class(String teach, String uid, String batch, String class1, String comm)
     {
         teacher_name=teach;
         this.uid=uid;
