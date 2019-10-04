@@ -20,7 +20,7 @@
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Password Reset Message"
+                android:text="Complain Here"
                 android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
                 android:textColor="@android:color/white" />
@@ -28,47 +28,44 @@
 
         </LinearLayout>
 
-
-
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical">
+    <EditText
+        android:layout_width="match_parent"
+        android:background="@drawable/rectangle"
+        android:hint="write it here...."
+        android:id="@+id/complain_text"
+        android:maxLines="3"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:layout_height="100dp"
+        android:gravity="top">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:text="After confirmation, \n Reset link will be send to your Email"
-            android:layout_margin="15dp"
-            android:textStyle="bold"
-            android:textSize="20dp"/>
+    </EditText>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:layout_margin="15dp"
-            android:textStyle="bold"
-            android:id="@+id/email_dispaly"
-            android:textSize="20dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:background="@drawable/rectangle"
+        android:hint="Name"
+        android:id="@+id/complain_name"
+        android:maxLines="3"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:layout_height="100dp"
+        android:gravity="top">
 
-    </LinearLayout>
+    </EditText>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/email_cancel"
+            android:id="@+id/complain_cancel"
             android:text="cancel"
             android:layout_margin="20dp"
             android:layout_weight="1"/>
@@ -76,8 +73,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/email_done"
-            android:text="Done"
+            android:id="@+id/complain_done"
+            android:text="done"
             android:layout_margin="20dp"
             android:layout_weight="1"/>
     </LinearLayout>

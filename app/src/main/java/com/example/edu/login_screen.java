@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -78,6 +79,8 @@ public class login_screen extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (!use.getEditText().getText().toString().isEmpty()) {
+
+                    email_confirm_popup(use.getEditText().getText().toString());
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"Enter your Email",Toast.LENGTH_LONG).show();
@@ -88,7 +91,8 @@ public class login_screen extends AppCompatActivity {
         ClickableSpan clickableSpan1 = new ClickableSpan() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(login_screen.this,"trouble in login",Toast.LENGTH_LONG).show();
+
+
             }
         };
 
@@ -156,7 +160,7 @@ public class login_screen extends AppCompatActivity {
 
                                                                             if (checkBox.isChecked())
                                                                             {
-                                                                                editor.putInt("type",1);                           // for administrator the value of type in shared preference is 1
+                                                                                editor.putInt("type",1);                       // for administrator the value of type in shared preference is 1
                                                                             }
 
                                                                             Intent i=new Intent(login_screen.this,admin_management.class);
@@ -277,5 +281,42 @@ public class login_screen extends AppCompatActivity {
         dialog.show();
         dialog.setCanceledOnTouchOutside(false);
         dialog.getWindow().setAttributes(lp);
+    }
+
+    public void trouble_loading(final String username)
+    {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.complain_popup);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+        final EditText complain_text=dialog.findViewById(R.id.complain_text);
+
+        Button done=dialog.findViewById(R.id.complain_done);
+        Button cancel=dialog.findViewById(R.id.complain_cancel);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dialog.dismiss();
+            }
+        });
+
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String complain=complain_text.getText().toString();
+
+                complain=complain+"-by"+username;
+
+
+            }});
     }
 }
