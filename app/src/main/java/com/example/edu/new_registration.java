@@ -1,11 +1,14 @@
 package com.example.edu;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -45,6 +48,15 @@ public class new_registration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_registration);
+        this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.general_actionbar);
+        getSupportActionBar().setElevation(10);
+        View view = getSupportActionBar().getCustomView();
+        TextView textView=(TextView)view.findViewById(R.id.tab_name);
+        textView.setText("New Registration");
+        Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.berkshireswash);
+        textView.setTextColor(getResources().getColor(R.color.white));
 
         progressDialog = new ProgressDialog(new_registration.this);
 

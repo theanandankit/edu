@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp">
+    android:layout_margin="10dp"
+    app:cardCornerRadius="8dp"
+    android:elevation="3dp"
+    app:cardBackgroundColor="@color/white"
+    android:padding="3dp"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="5dp"
+        android:layout_margin="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,6 +41,14 @@
                 android:id="@+id/Uid_no"
                 android:layout_margin="3dp"
                 android:text="UID:"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/batch_no"
+                android:layout_margin="3dp"
+                android:text="Batch:"/>
+
 
 
             <TextView
@@ -37,12 +58,7 @@
                 android:id="@+id/class_no"
                 android:textSize="15dp"
                 android:text="CLASS:"/>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
@@ -61,5 +77,6 @@
         </LinearLayout>
 
     </LinearLayout>
+    </RelativeLayout>
 
-</RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

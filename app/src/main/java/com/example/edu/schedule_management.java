@@ -2,6 +2,7 @@ package com.example.edu;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
@@ -48,6 +49,15 @@ public class schedule_management extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_management);
+        this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.general_actionbar);
+        getSupportActionBar().setElevation(10);
+        View view = getSupportActionBar().getCustomView();
+        TextView textView=(TextView)view.findViewById(R.id.tab_name);
+        textView.setText("Set schedule");
+        Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.berkshireswash);
+        textView.setTextColor(getResources().getColor(R.color.white));
         databaseReference=FirebaseDatabase.getInstance().getReference().child("schedule_teacher");
         teacher_name.add("Select day");
         teacher_name.add("Monday");

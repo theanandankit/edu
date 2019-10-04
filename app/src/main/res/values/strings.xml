@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">edu</string>
+    <string name="status_today">Status Today</string>
 </resources>
