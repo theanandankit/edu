@@ -160,8 +160,8 @@ public class login_screen extends AppCompatActivity {
                                                                             }
 
                                                                             Intent i=new Intent(login_screen.this,admin_management.class);
-                                                                            progressBar.setVisibility(View.INVISIBLE);
                                                                             startActivity(i);
+                                                                            progressBar.setVisibility(View.INVISIBLE);
 
                                                                         }
                                                                         else if(dataSnapshot.getValue().toString().equals("Teacher")) {
@@ -169,16 +169,17 @@ public class login_screen extends AppCompatActivity {
                                                                                 editor.putInt("type", 2);
                                                                             }
                                                                             Intent i=new Intent(login_screen.this,Teacher_management.class);
-                                                                            progressBar.setVisibility(View.INVISIBLE);
                                                                             startActivity(i);
+                                                                            progressBar.setVisibility(View.INVISIBLE);
                                                                         }
                                                                         else if(dataSnapshot.getValue().toString().equals("Management")) {
                                                                             if (checkBox.isChecked()) {
                                                                                 editor.putInt("type", 3);
                                                                             }
                                                                             Intent i=new Intent(login_screen.this,Management_screen.class);
-                                                                            progressBar.setVisibility(View.INVISIBLE);
+
                                                                             startActivity(i);
+                                                                            progressBar.setVisibility(View.INVISIBLE);
                                                                         }
                                                                     }
 
