@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -68,7 +69,7 @@ public class login_screen extends AppCompatActivity {
         progressBar.setVisibility(View.INVISIBLE);
 
         // shared preference to remember the last login
-         pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = pref.edit();
 
         firebaseAuth =FirebaseAuth.getInstance();
@@ -187,6 +188,8 @@ public class login_screen extends AppCompatActivity {
                                                                                 editor.putInt("type", 2);
                                                                             }
                                                                             Intent i=new Intent(login_screen.this,Teacher_management.class);
+                                                                            editor.putString("userid",userid);
+                                                                            editor.commit();
                                                                             startActivity(i);
                                                                             progressBar.setVisibility(View.INVISIBLE);
                                                                         }
