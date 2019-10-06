@@ -31,6 +31,7 @@ public class admin_management extends AppCompatActivity {
 
 
         CardView registration =findViewById(R.id.registration);
+        final CardView management_schedule=findViewById(R.id.management_schedule);
         final CardView schedule_management=findViewById(R.id.schedule_management);
 
         registration.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +48,13 @@ public class admin_management extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i=new Intent(admin_management.this,schedule_management.class);
+                startActivity(i);
+            }
+        });
+        management_schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(admin_management.this,Management_schedule.class);
                 startActivity(i);
             }
         });

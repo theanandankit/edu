@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.edu">
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Show_Attendance" android:label="Status Today">
-        </activity>
+        <activity android:name=".Management_schedule"></activity>
+        <activity
+            android:name=".Show_Attendance"
+            android:label="Status Today"></activity>
         <activity android:name=".Management_main_page" />
         <activity android:name=".schedule_management" />
         <activity android:name=".list_member" />
@@ -20,11 +21,11 @@
         <activity android:name=".not_able" />
         <activity android:name=".Teacher_management" />
         <activity android:name=".class_management" />
-        <activity android:name=".Management_screen" android:label="Teacher Attendance" />
+        <activity
+            android:name=".Management_screen"
+            android:label="Teacher Attendance" />
         <activity android:name=".login_screen" />
-        <activity android:name=".action_screen" >
-
-        </activity>
+        <activity android:name=".action_screen"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,6 +36,6 @@
         </activity>
     </application>
 
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
