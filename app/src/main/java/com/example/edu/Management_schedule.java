@@ -110,12 +110,12 @@ public class Management_schedule extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String member1_name,uid1,batch1,member2_name,uid2,batch2;
-                TextInputLayout member1=(TextInputLayout)findViewById(R.id.set_member1_name);
-                TextInputLayout member2=(TextInputLayout)findViewById(R.id.set_member2_name);
-                TextInputLayout Uid1=(TextInputLayout)findViewById(R.id.set_uid1);
-                TextInputLayout Uid2=(TextInputLayout)findViewById(R.id.set_uid2);
-                TextInputLayout Batch1=(TextInputLayout)findViewById(R.id.set_batch1);
-                TextInputLayout Batch2=(TextInputLayout)findViewById(R.id.set_batch2);
+                TextInputLayout member1=(TextInputLayout)dialog.findViewById(R.id.set_member1_name);
+                TextInputLayout member2=(TextInputLayout)dialog.findViewById(R.id.set_member2_name);
+                TextInputLayout Uid1=(TextInputLayout)dialog.findViewById(R.id.set_uid1);
+                TextInputLayout Uid2=(TextInputLayout)dialog.findViewById(R.id.set_uid2);
+                TextInputLayout Batch1=(TextInputLayout)dialog.findViewById(R.id.set_batch1);
+                TextInputLayout Batch2=(TextInputLayout)dialog.findViewById(R.id.set_batch2);
                 member1_name=member1.getEditText().getText().toString();
                 uid1=Uid1.getEditText().getText().toString();
                 batch1=Batch1.getEditText().getText().toString();
@@ -128,6 +128,7 @@ public class Management_schedule extends AppCompatActivity {
                 u2.setText(uid2);
                 b1.setText(batch1);
                 b2.setText(batch2);
+                dialog.dismiss();
 
             }
         });
