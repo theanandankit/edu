@@ -58,7 +58,7 @@ public class schedule_management extends AppCompatActivity {
         textView.setText("Set schedule");
         Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.berkshireswash);
         textView.setTextColor(getResources().getColor(R.color.white));
-        databaseReference=FirebaseDatabase.getInstance().getReference().child("schedule_teacher");
+        databaseReference=FirebaseDatabase.getInstance().getReference().child("Schedule");
         teacher_name.add("Select day");
         teacher_name.add("Monday");
         teacher_name.add("Tuesday");
@@ -249,7 +249,7 @@ public class schedule_management extends AppCompatActivity {
                 ee.setTypeface(typeface);
                 ee.setTextColor(Color.BLACK);
 
-                DatabaseReference reference=databaseReference.child(s).child(Integer.toString(d));
+                DatabaseReference reference=databaseReference.child(s).child("Teachers").child(Integer.toString(d));
                 Teacher teach=new Teacher(teacher,uid,batch,subject);
                 reference.setValue(teach);
 
