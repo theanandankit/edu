@@ -4,11 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,14 +27,17 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Teacher_management extends AppCompatActivity {
     public  static  Teacher teacher_info;
+    CardView cardView_teacher_complain;
+    public static String userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_management);
 
+        cardView_teacher_complain=findViewById(R.id.teacher_complain_cardview);
         SharedPreferences pref= PreferenceManager.getDefaultSharedPreferences(Teacher_management.this);
-        String userid=pref.getString("userid","000");
+        userid=pref.getString("userid","000");
 
         Toast.makeText(getApplicationContext(),userid,Toast.LENGTH_LONG).show();
 
@@ -48,6 +58,13 @@ public class Teacher_management extends AppCompatActivity {
             }
         });
 
+        cardView_teacher_complain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                teacher_complain(teacher_info.getUser_name());
+            }
+        });
 
 
     }
@@ -150,6 +167,7 @@ public class Teacher_management extends AppCompatActivity {
         TextView user_total=findViewById(R.id.teacher_total);
         TextView user_extra=findViewById(R.id.teacher_extra);
         TextView user_present=findViewById(R.id.teacher_present);
+        TextView user_sgm_id=findViewById(R.id.teacher_sgm_id);
 
         user_name.setText(teacher_info.getUser_name());
         user_email.setText(teacher_info.getEmail());
@@ -158,8 +176,70 @@ public class Teacher_management extends AppCompatActivity {
         user_total.setText(teacher_info.getActual_day());
         user_extra.setText(teacher_info.getExtra_day());
         user_present.setText(teacher_info.getPresent());
+        user_sgm_id.setText(userid);
 
 
     }
+    public void teacher_complain(String name)
+    {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.complain_teacher);
+        dialog.setCancelable(true);
 
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+        EditText complain=dialog.findViewById(R.id.teacher_complain_text);
+        Button done=dialog.findViewById(R.id.teacher_complain_done);
+        Button cancel=dialog.findViewById(R.id.teacher_complain_cancel);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        String complain_text=complain.getText().toString();
+
+        complain_text=complain_text+"-by "+name+" (from teacher section)";
+
+        final String finalComplain_text = complain_text;
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final DatabaseReference databaseReference_complain_counter=FirebaseDatabase.getInstance().getReference().child("complain").child("counter");
+
+
+                databaseReference_complain_counter.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        String counter=dataSnapshot.getValue().toString();
+                        int count=dataSnapshot.getValue().hashCode();
+
+                        DatabaseReference databaseReference_complain=FirebaseDatabase.getInstance().getReference().child("complain").child(counter);
+                        databaseReference_complain.setValue(finalComplain_text);
+
+                        count++;
+
+                        databaseReference_complain_counter.setValue(count);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+            }});
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setAttributes(lp);
+
+    }
 }
