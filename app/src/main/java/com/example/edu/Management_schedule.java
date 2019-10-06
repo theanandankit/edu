@@ -88,7 +88,8 @@ public class Management_schedule extends AppCompatActivity {
         });
 
     }
-    public void showCustomDialog(final String s,int name1,int name2,int uid1,int uid2 , int batch1, int batch2 )
+    public void showCustomDialog(final
+                                 String s,int name1,int name2,int uid1,int uid2 , int batch1, int batch2 )
     {
         final TextView m1=(TextView)findViewById(name1);
         final TextView m2=(TextView)findViewById(name2);
