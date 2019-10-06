@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".schedule_management">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:id="@+id/mgmt_card1"
+            app:cardCornerRadius="5dp">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Monday"
+                    android:fontFamily="@font/pacifico"
+                    android:textSize="20dp"
+                    android:textAlignment="center"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="1."
+                    android:id="@+id/monday_no.1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name: "
+                    android:layout_toEndOf="@id/monday_no.1"
+
+                    android:id="@+id/monday1"
+                    android:textAllCaps="true"
+                    />
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_below="@id/monday1"
+                   android:layout_toEndOf="@id/monday_no.1"
+                   android:orientation="horizontal">
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:text="UID: "
+                       android:id="@+id/monday_uid1"
+                       android:textAllCaps="true"/>
+                   <TextView
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:text="Batch: "
+                       android:id="@+id/monday_batch1"
+                       android:textAllCaps="true"/>
+
+               </LinearLayout>
+
+
+
+
+
+            </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="2."
+                        android:id="@+id/monday_no.2"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: "
+                        android:layout_toEndOf="@id/monday_no.2"
+
+                        android:id="@+id/monday2"
+                        android:textAllCaps="true"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/monday2"
+                        android:layout_toEndOf="@id/monday_no.2"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="UID: "
+                            android:id="@+id/monday_uid2"
+                            android:textAllCaps="true"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Batch: "
+                            android:id="@+id/monday_batch2"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/mgmt_card2"
+            app:cardCornerRadius="10dp">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tuesday"
+                    android:fontFamily="@font/pacifico"
+                    android:textSize="20dp"
+                    android:textAlignment="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="1."
+                        android:id="@+id/tuesday_no.1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: "
+                        android:layout_toEndOf="@id/tuesday_no.1"
+
+                        android:id="@+id/tuesday1"
+                        android:textAllCaps="true"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tuesday1"
+                        android:layout_toEndOf="@id/tuesday_no.1"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="UID: "
+                            android:id="@+id/tuesday_uid1"
+                            android:textAllCaps="true"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Batch: "
+                            android:id="@+id/tuesday_batch1"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="2."
+                        android:id="@+id/tuesday_no.2"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: "
+                        android:layout_toEndOf="@id/tuesday_no.2"
+
+                        android:id="@+id/tuesday2"
+                        android:textAllCaps="true"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tuesday2"
+                        android:layout_toEndOf="@id/tuesday_no.2"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="UID: "
+                            android:id="@+id/tuesday_uid2"
+                            android:textAllCaps="true"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Batch: "
+                            android:id="@+id/tuesday_batch2"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/mgmt_card3"
+            app:cardCornerRadius="10dp">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Wednesday"
+                    android:fontFamily="@font/pacifico"
+                    android:textSize="20dp"
+                    android:textAlignment="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="2."
+                        android:id="@+id/wednesday_no.1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: "
+                        android:layout_toEndOf="@id/wednesday_no.1"
+
+                        android:id="@+id/wednesday1"
+                        android:textAllCaps="true"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/wednesday1"
+                        android:layout_toEndOf="@id/wednesday_no.1"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="UID: "
+                            android:id="@+id/wednesday_uid1"
+                            android:textAllCaps="true"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Batch: "
+                            android:id="@+id/wednesday_batch1"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="2."
+                        android:id="@+id/wednesday_no.2"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: "
+                        android:layout_toEndOf="@id/wednesday_no.2"
+
+                        android:id="@+id/wednesday2"
+                        android:textAllCaps="true"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/wednesday2"
+                        android:layout_toEndOf="@id/wednesday_no.2"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="UID: "
+                            android:id="@+id/wednesday_uid2"
+                            android:textAllCaps="true"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Batch: "
+                            android:id="@+id/wednesday_batch2"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/mgmt_card4"
+            app:cardCornerRadius="10dp">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thursday"
+                    android:fontFamily="@font/pacifico"
+                    android:textSize="20dp"
+                    android:textAlignment="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="1."
+                        android:id="@+id/thursday_no.1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: "
+                        android:layout_toEndOf="@id/thursday_no.1"
+
+                        android:id="@+id/thursday1"
+                        android:textAllCaps="true"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/thursday1"
+                        android:layout_toEndOf="@id/thursday_no.1"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="UID: "
+                            android:id="@+id/thursday_uid1"
+                            android:textAllCaps="true"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Batch: "
+                            android:id="@+id/thursday_batch1"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="2."
+                        android:id="@+id/thursday_no.2"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: "
+                        android:layout_toEndOf="@id/thursday_no.2"
+
+                        android:id="@+id/thursday2"
+                        android:textAllCaps="true"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/thursday2"
+                        android:layout_toEndOf="@id/thursday_no.2"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="UID: "
+                            android:id="@+id/thursday_uid2"
+                            android:textAllCaps="true"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Batch: "
+                            android:id="@+id/thursday_batch2"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/mgmt_card5"
+            app:cardCornerRadius="10dp">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Friday"
+                    android:fontFamily="@font/pacifico"
+                    android:textSize="20dp"
+                    android:textAlignment="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="1."
+                        android:id="@+id/friday_no.1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: "
+                        android:layout_toEndOf="@id/friday_no.1"
+
+                        android:id="@+id/friday1"
+                        android:textAllCaps="true"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/friday1"
+                        android:layout_toEndOf="@id/friday_no.1"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="UID: "
+                            android:id="@+id/friday_uid1"
+                            android:textAllCaps="true"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Batch: "
+                            android:id="@+id/friday_batch1"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="2."
+                        android:id="@+id/friday_no.2"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: "
+                        android:layout_toEndOf="@id/friday_no.2"
+
+                        android:id="@+id/friday2"
+                        android:textAllCaps="true"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/friday2"
+                        android:layout_toEndOf="@id/friday_no.2"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="UID: "
+                            android:id="@+id/friday_uid2"
+                            android:textAllCaps="true"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Batch: "
+                            android:id="@+id/friday_batch2"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/mgmt_card6"
+            app:cardCornerRadius="10dp">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Saturday"
+                    android:fontFamily="@font/pacifico"
+                    android:textSize="20dp"
+                    android:textAlignment="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="1."
+                        android:id="@+id/saturday_no.1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: "
+                        android:layout_toEndOf="@id/saturday_no.1"
+
+                        android:id="@+id/saturday1"
+                        android:textAllCaps="true"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/saturday1"
+                        android:layout_toEndOf="@id/saturday_no.1"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="UID: "
+                            android:id="@+id/saturday_uid1"
+                            android:textAllCaps="true"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Batch: "
+                            android:id="@+id/saturday_batch1"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="2."
+                        android:id="@+id/saturday_no.2"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: "
+                        android:layout_toEndOf="@id/saturday_no.2"
+
+                        android:id="@+id/saturday2"
+                        android:textAllCaps="true"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/saturday2"
+                        android:layout_toEndOf="@id/saturday_no.2"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="UID: "
+                            android:id="@+id/saturday_uid2"
+                            android:textAllCaps="true"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Batch: "
+                            android:id="@+id/saturday_batch2"
+                            android:textAllCaps="true"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+</ScrollView>
