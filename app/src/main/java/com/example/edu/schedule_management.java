@@ -58,7 +58,7 @@ public class schedule_management extends AppCompatActivity {
         textView.setText("Set schedule");
         Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.berkshireswash);
         textView.setTextColor(getResources().getColor(R.color.white));
-        databaseReference=FirebaseDatabase.getInstance().getReference().child("schedule_teacher");
+        databaseReference=FirebaseDatabase.getInstance().getReference().child("Schedule");
         teacher_name.add("Select day");
         teacher_name.add("Monday");
         teacher_name.add("Tuesday");
@@ -211,6 +211,14 @@ public class schedule_management extends AppCompatActivity {
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
+        Spinner teacher_schedule_spinner=dialog.findViewById(R.id.techer_schedule_spinner);
+
+
+        member_sgmid teacher_setter=new member_sgmid();
+        ArrayAdapter aaa = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,teacher_setter.spinner_setter());
+        aaa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        teacher_schedule_spinner.setAdapter(aaa);
+
 
         (dialog.findViewById(R.id.bt_close)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -249,7 +257,7 @@ public class schedule_management extends AppCompatActivity {
                 ee.setTypeface(typeface);
                 ee.setTextColor(Color.BLACK);
 
-                DatabaseReference reference=databaseReference.child(s).child(Integer.toString(d));
+                DatabaseReference reference=databaseReference.child(s).child("Teachers").child(Integer.toString(d));
                 Teacher teach=new Teacher(teacher,uid,batch,subject);
                 reference.setValue(teach);
 
@@ -429,8 +437,6 @@ public class schedule_management extends AppCompatActivity {
                         else {
                             setvalue(R.id.teacher12,R.id.uid12,R.id.batch12,R.id.sub12,i);
                         }
-
-
 
                     }
 
