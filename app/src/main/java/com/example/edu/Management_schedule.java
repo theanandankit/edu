@@ -16,8 +16,11 @@ import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Management_schedule extends AppCompatActivity {
     String s;
@@ -36,6 +39,10 @@ public class Management_schedule extends AppCompatActivity {
         getSupportActionBar().setElevation(10);
         View view = getSupportActionBar().getCustomView();
         TextView textView=(TextView)view.findViewById(R.id.tab_name);
+        SimpleDateFormat sdf2 = new SimpleDateFormat("EEEE");
+        String current_day = sdf2.format(new Date());
+        //String current_day="Wednesday";
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("Schedule");//.child(current_day).child("Management");
         textView.setText("Set schedule");
         mgmt_card1=(CardView)findViewById(R.id.mgmt_card1);
         mgmt_card2=(CardView)findViewById(R.id.mgmt_card2);
@@ -46,42 +53,43 @@ public class Management_schedule extends AppCompatActivity {
         mgmt_card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showCustomDialog(R.id.monday1,R.id.monday2,R.id.monday_uid1,R.id.monday_uid2,R.id.monday_batch1,R.id.monday_batch2);
+                showCustomDialog("Monday",R.id.monday1,R.id.monday2,R.id.monday_uid1,R.id.monday_uid2,R.id.monday_batch1,R.id.monday_batch2);
             }
         });
         mgmt_card2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showCustomDialog(R.id.tuesday1,R.id.tuesday2,R.id.tuesday_uid1,R.id.tuesday_uid2,R.id.tuesday_batch1,R.id.tuesday_batch2);
+                showCustomDialog("Tuesday",R.id.tuesday1,R.id.tuesday2,R.id.tuesday_uid1,R.id.tuesday_uid2,R.id.tuesday_batch1,R.id.tuesday_batch2);
             }
         });
         mgmt_card3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showCustomDialog(R.id.wednesday1,R.id.wednesday2,R.id.wednesday_uid1,R.id.wednesday_uid2,R.id.wednesday_batch1,R.id.wednesday_batch2);
+                showCustomDialog("Wednesday",R.id.wednesday1,R.id.wednesday2,R.id.wednesday_uid1,R.id.wednesday_uid2,R.id.wednesday_batch1,R.id.wednesday_batch2);
             }
         });
         mgmt_card4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showCustomDialog(R.id.thursday1,R.id.thursday2,R.id.thursday_uid1,R.id.thursday_uid2,R.id.thursday_batch1,R.id.thursday_batch2);
+                showCustomDialog("Thursday",R.id.thursday1,R.id.thursday2,R.id.thursday_uid1,R.id.thursday_uid2,R.id.thursday_batch1,R.id.thursday_batch2);
             }
         });
         mgmt_card5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showCustomDialog(R.id.friday1,R.id.friday2,R.id.friday_uid1,R.id.friday_uid2,R.id.friday_batch1,R.id.friday_batch2);
+                showCustomDialog("Friday",R.id.friday1,R.id.friday2,R.id.friday_uid1,R.id.friday_uid2,R.id.friday_batch1,R.id.friday_batch2);
             }
         });
         mgmt_card6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showCustomDialog(R.id.saturday1,R.id.saturday2,R.id.saturday_uid1,R.id.saturday_uid2,R.id.saturday_batch1,R.id.saturday_batch2);
+                showCustomDialog("Saturday",R.id.saturday1,R.id.saturday2,R.id.saturday_uid1,R.id.saturday_uid2,R.id.saturday_batch1,R.id.saturday_batch2);
             }
         });
 
     }
-    public void showCustomDialog(int name1,int name2,int uid1,int uid2 , int batch1, int batch2 )
+    public void showCustomDialog(final
+                                 String s,int name1,int name2,int uid1,int uid2 , int batch1, int batch2 )
     {
         final TextView m1=(TextView)findViewById(name1);
         final TextView m2=(TextView)findViewById(name2);
@@ -128,6 +136,8 @@ public class Management_schedule extends AppCompatActivity {
                 u2.setText(uid2);
                 b1.setText(batch1);
                 b2.setText(batch2);
+                Management_class mgmt=new Management_class(member1_name,uid1,batch1,member2_name,uid2,batch2);
+                databaseReference.child(s).child("Management").setValue(mgmt);
                 dialog.dismiss();
 
             }

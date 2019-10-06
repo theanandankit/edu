@@ -77,7 +77,7 @@ public class Management_screen extends AppCompatActivity {
         date= sdf1.format(todaysDate).toString();
 
 
-        reference=FirebaseDatabase.getInstance().getReference().child(date);
+        reference=FirebaseDatabase.getInstance().getReference().child(date).child("Teacher-Attendance");
         Button b=(Button)view.findViewById(R.id.submit2);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,7 +126,7 @@ public class Management_screen extends AppCompatActivity {
                         classes = Integer.toString(a);
                     Log.d("class",String.valueOf(a));
                     Log.d("class:",Integer.toString(a));
-                    databaseReference = FirebaseDatabase.getInstance().getReference().child("schedule_teacher").child(current_day).child(String.valueOf(a));
+                    databaseReference = FirebaseDatabase.getInstance().getReference().child("Schedule").child(current_day).child("Teachers").child(String.valueOf(a));
 
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
@@ -282,7 +282,7 @@ public class Management_screen extends AppCompatActivity {
                     adaptor.notifyDataSetChanged();
                     int x=obj.getClass1().indexOf('-');
                     if(x>0)
-                        reference.child(String.valueOf(obj.getClass1().toString().charAt(0))).setValue(obj);
+                        reference.child(String.valueOf(obj.getClass1().charAt(0))).setValue(obj);
                     else
                         reference.child(String.valueOf(obj.getClass1())).setValue(obj);
                 }
@@ -298,7 +298,7 @@ public class Management_screen extends AppCompatActivity {
                         adaptor.notifyDataSetChanged();
                         int x=obj.getClass1().indexOf('-');
                         if(x>0)
-                        reference.child(String.valueOf(obj.getClass1().toString().charAt(0))).setValue(obj);
+                        reference.child(String.valueOf(obj.getClass1().charAt(0))).setValue(obj);
                         else
                             reference.child(String.valueOf(obj.getClass1())).setValue(obj);
                         dialog.dismiss();
@@ -313,7 +313,7 @@ public class Management_screen extends AppCompatActivity {
                         adaptor.notifyDataSetChanged();
                         int x=obj.getClass1().indexOf('-');
                         if(x>0)
-                            reference.child(String.valueOf(obj.getClass1().toString().charAt(0))).setValue(obj);
+                            reference.child(String.valueOf(obj.getClass1().charAt(0))).setValue(obj);
                         else
                             reference.child(String.valueOf(obj.getClass1())).setValue(obj);
                         dialog.dismiss();
