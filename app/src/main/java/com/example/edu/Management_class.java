@@ -1,9 +1,12 @@
 package com.example.edu;
 
 public class Management_class {
-    String name1,batch1,uid1,name2,uid2,batch2;
+    String name1,uid1,batch1,name2,uid2,batch2;
 
-    public Management_class(String name1, String batch1, String uid1, String name2, String uid2, String batch2) {
+    public Management_class() {
+    }
+
+    public Management_class(String name1, String uid1, String batch1, String name2, String uid2, String batch2) {
         this.name1 = name1;
         this.batch1 = batch1;
         this.uid1 = uid1;
