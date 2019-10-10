@@ -58,7 +58,7 @@ public class Show_Attendance extends AppCompatActivity {
 
 
 
-        reference=FirebaseDatabase.getInstance().getReference().child(date);
+        reference=FirebaseDatabase.getInstance().getReference().child(date).child("Teacher-Attendance");
         for(i=1;i<=12;i++)
         {
             if(i!=2 && i!=4)
