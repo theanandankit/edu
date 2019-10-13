@@ -40,10 +40,13 @@ public class schedule_management extends AppCompatActivity {
 
     CardView cardView1,cardView3,cardView5,cardView6,cardView7,cardView8,cardView9,cardView10,cardView11,cardView12;
     String s;
+    public static member_sgmid teacher_setter=new member_sgmid();
+    ArrayList<String> teacher_list=new ArrayList<>();
     DatabaseReference databaseReference;
     ArrayList<String> teacher_name=new ArrayList<>();
     Spinner spinner;
     public static Teacher teacher;
+    public static Teacher_management.Teacher teacher_information;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -67,9 +70,14 @@ public class schedule_management extends AppCompatActivity {
         teacher_name.add("Friday");
         teacher_name.add("Saturday");
 
+
+        // importing the list of teacher to teacher_list
+
+        teacher_list=teacher_setter.spinner_setter();
+
         spinner=findViewById(R.id.spinner2);
 
-        ArrayAdapter<String> aa=new ArrayAdapter<String>(schedule_management.this,android.R.layout.simple_spinner_item,teacher_name){
+        ArrayAdapter<String> aa=new ArrayAdapter<String>(schedule_management.this, android.R.layout.simple_spinner_item,teacher_name){
             @Override
             public boolean isEnabled(int position) {
                 if(position==0)
@@ -211,13 +219,72 @@ public class schedule_management extends AppCompatActivity {
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
-        Spinner teacher_schedule_spinner=dialog.findViewById(R.id.techer_schedule_spinner);
+        final Spinner teacher_schedule_spinner= dialog.findViewById(R.id.techer_schedule_spinner);
 
-
-        member_sgmid teacher_setter=new member_sgmid();
-        ArrayAdapter aaa = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,teacher_setter.spinner_setter());
+        ArrayAdapter aaa = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,teacher_list);
         aaa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         teacher_schedule_spinner.setAdapter(aaa);
+
+        teacher_schedule_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, final int i, long l) {
+
+
+              member_sgmid mm=new member_sgmid();
+
+              final String id=mm.get_uid(adapterView.getItemAtPosition(i).toString());
+
+            //    Toast.makeText(getApplicationContext(),teacher_information.getUser_name(),Toast.LENGTH_LONG).show();
+
+                System.out.println("123");
+
+              DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child("teacher_info").child(id);
+
+              databaseReference.addValueEventListener(new ValueEventListener() {
+                  @Override
+                  public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                      teacher_information=dataSnapshot.getValue(Teacher_management.Teacher.class);
+
+                      System.out.println(id);
+
+                      TextInputLayout teacher_nam = dialog.findViewById(R.id.set_teacher_name);
+
+                      TextInputLayout u_id=dialog.findViewById(R.id.set_uid);
+
+                      TextInputLayout batch_nam=dialog.findViewById(R.id.set_batch);
+
+                      Toast.makeText(getApplicationContext(),teacher_information.getUser_name(),Toast.LENGTH_LONG).show();
+
+                      teacher_nam.getEditText().setText(teacher_information.getUser_name());
+
+                      teacher_nam.setEnabled(false);
+
+                      u_id.getEditText().setText(id);
+
+                      u_id.setEnabled(false);
+
+                      batch_nam.getEditText().setText(teacher_information.getBatch());
+
+                      batch_nam.setEnabled(false);
+
+                  }
+
+                  @Override
+                  public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                  }
+              });
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
 
 
         (dialog.findViewById(R.id.bt_close)).setOnClickListener(new View.OnClickListener() {
@@ -283,8 +350,6 @@ public class schedule_management extends AppCompatActivity {
         cardView10=findViewById(R.id.card10);
         cardView11=findViewById(R.id.card11);
         cardView12=findViewById(R.id.card12);
-
-
     }
 
     static class Teacher

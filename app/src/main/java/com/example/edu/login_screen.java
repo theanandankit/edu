@@ -81,6 +81,7 @@ public class login_screen extends AppCompatActivity {
 
         String text2="Trouble In Login";
 
+
         Button login=findViewById(R.id.login);
         TextView forget_password=findViewById(R.id.forget_password);
         TextView trouble=findViewById(R.id.trouble);
