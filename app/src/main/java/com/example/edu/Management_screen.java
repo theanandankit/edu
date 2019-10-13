@@ -40,6 +40,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TimeZone;
 
 public class Management_screen extends AppCompatActivity {
@@ -47,10 +49,13 @@ public class Management_screen extends AppCompatActivity {
 
     public static ArrayList<adaptor_class> class_name=new ArrayList<>();
     public static ListView listView;
+    public static int p;
     private myadaptor adaptor;
     DatabaseReference databaseReference;
     DatabaseReference reference;
      public static int a;
+    HashMap<String,String> attendance = new HashMap<>();
+    HashMap<String,String> substitute_list = new HashMap<>();
 
     String teacher,batch,status;
     int k=0;
@@ -67,24 +72,114 @@ public class Management_screen extends AppCompatActivity {
 
         Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
 
+
         listView= findViewById(R.id.list_id);
         SimpleDateFormat sdf2 = new SimpleDateFormat("EEEE");
        // String current_day = sdf2.format(new Date());
         String current_day="Wednesday";
         Date todaysDate = new Date();
-        String date = "";
+
         DateFormat sdf1 = new SimpleDateFormat("dd-MMM-yyyy");
-        date= sdf1.format(todaysDate).toString();
+     final String   date= sdf1.format(todaysDate).toString();
+
 
 
         reference=FirebaseDatabase.getInstance().getReference().child(date).child("Teacher-Attendance");
+
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.hasChild("set"))
+                {   System.out.println("set");
+                    Intent i=new Intent(Management_screen.this,Show_Attendance.class);
+                    startActivity(i);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         Button b=(Button)view.findViewById(R.id.submit2);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                reference.child("set").setValue("1");
+                for(final String Uid: attendance.keySet())
+                {  final String a=attendance.get(Uid);
+                   final DatabaseReference databaseReference1=FirebaseDatabase.getInstance().getReference().child("teacher_info").child(Uid).child("actual_day");
+                    databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                           /** Teacher_management.Teacher teacher=dataSnapshot.getValue(Teacher_management.Teacher.class);
+                           System.out.println(teacher.getUser_name());
+                           Map<String, Object> map = new HashMap<>();
+                            int b=Integer.parseInt(teacher.getActual_day())+1;
+                            int p=Integer.parseInt(teacher.getPresent())+1;
+                            map.put("actual_day", String.valueOf(b));*
 
-                Intent i=new Intent(Management_screen.this,Show_Attendance.class);
+                            //if(attendance.get(Uid)==1)
+                               // map.put("present",String.valueOf(p));
+                            databaseReference.updateChildren(map);
+                            map.clear();*/
+                           p=Integer.parseInt(dataSnapshot.getValue().toString());
+                           System.out.println(p);
+                           p=p+1;
+                            update(p,databaseReference1);
+
+                            System.out.println(dataSnapshot.getValue().hashCode());
+
+                           return;
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                    final DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference().child("teacher_info").child(Uid).child("present");
+                    databaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            /** Teacher_management.Teacher teacher=dataSnapshot.getValue(Teacher_management.Teacher.class);
+                             System.out.println(teacher.getUser_name());
+                             Map<String, Object> map = new HashMap<>();
+                             int b=Integer.parseInt(teacher.getActual_day())+1;
+                             int p=Integer.parseInt(teacher.getPresent())+1;
+                             map.put("actual_day", String.valueOf(b));*
+
+                             //if(attendance.get(Uid)==1)
+                             // map.put("present",String.valueOf(p));
+                             databaseReference.updateChildren(map);
+                             map.clear();*/
+                            if(a.equals("1"))
+                            {
+                                p=Integer.parseInt(dataSnapshot.getValue().toString());
+                                System.out.println(p);
+                                p=p+1;
+                                update(p,databaseReference2);
+
+                                System.out.println(dataSnapshot.getValue().hashCode());
+
+                            }
+
+                            return;
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+  }
+                attendance.clear();
+
+
+               Intent i=new Intent(Management_screen.this,Show_Attendance.class);
                 startActivity(i);
             }
         });
@@ -110,7 +205,7 @@ public class Management_screen extends AppCompatActivity {
 
 
 
-
+            class_name.clear();
             for (a = 1;a <=12; ++a)
             {
 
@@ -187,6 +282,8 @@ public class Management_screen extends AppCompatActivity {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
         dialog.setContentView(R.layout.subtitute_popup);
         dialog.setCancelable(true);
+        final String key=class_name.get(i).getUid().toUpperCase();
+        System.out.println(key);
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
@@ -276,6 +373,7 @@ public class Management_screen extends AppCompatActivity {
                 if(present.isChecked())
                 {
                     status="Present";
+                    attendance.put(key,"1");
                     adaptor_class obj=class_name.get(i);
                     dialog.dismiss();
                     obj.comment=status;
@@ -288,7 +386,7 @@ public class Management_screen extends AppCompatActivity {
                 }
 
                else if(absent.isChecked())
-                {
+                { attendance.put(key,"0");
                     if(substitute_sent.isChecked() && !substitute_not_sent.isChecked())
                     {
                         status="Substitute sent";
@@ -357,4 +455,8 @@ public class Management_screen extends AppCompatActivity {
         listView.setAdapter(myAdapter);
     }
 
+    public void update(int a,DatabaseReference d)
+    {
+        d.setValue(String.valueOf(a));
+    }
 }

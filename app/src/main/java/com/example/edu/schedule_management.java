@@ -440,7 +440,7 @@ public class schedule_management extends AppCompatActivity {
 
             if (!(counter == 2 || counter == 4)) {
 
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("schedule_teacher").child(day).child(String.valueOf(counter));
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Schedule").child(day).child("Teachers").child(String.valueOf(counter));
                 final int finalCounter = counter;
                 ref.addValueEventListener(new ValueEventListener() {
                     @Override
