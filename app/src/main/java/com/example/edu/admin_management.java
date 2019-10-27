@@ -11,11 +11,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class admin_management extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class admin_management extends AppCompatActivity {
+    public static ArrayList<String> member_list=new ArrayList<>();
+
+    public static member_sgmid member_list_object=new member_sgmid();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        member_list=member_list_object.spinner_setter();
         setContentView(R.layout.activity_admin_management);
         this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -33,6 +38,7 @@ public class admin_management extends AppCompatActivity {
         CardView registration =findViewById(R.id.registration);
         final CardView management_schedule=findViewById(R.id.management_schedule);
         final CardView schedule_management=findViewById(R.id.schedule_management);
+        final CardView member_management=findViewById(R.id.member_monitoring);
 
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +61,14 @@ public class admin_management extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(admin_management.this,Management_schedule.class);
+                startActivity(i);
+            }
+        });
+
+        member_management.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getApplicationContext(),member_monitoring.class);
                 startActivity(i);
             }
         });
