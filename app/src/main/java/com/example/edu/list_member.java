@@ -31,13 +31,6 @@ public class list_member extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_member);
 
-        ArrayList<String> animalNames = new ArrayList<>();
-        animalNames.add("Horse");
-        animalNames.add("Cow");
-        animalNames.add("Camel");
-        animalNames.add("Sheep");
-        animalNames.add("Goat");
-
         RecyclerView recyclerView=findViewById(R.id.recyclerView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

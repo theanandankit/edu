@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".member_monitoring"></activity>
+        <activity android:name=".complain_viewer_activity"></activity>
+        <activity android:name=".member_monitoring" />
         <activity android:name=".Management_schedule" />
         <activity
             android:name=".Show_Attendance"

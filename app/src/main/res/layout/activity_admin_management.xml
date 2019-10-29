@@ -155,6 +155,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:background="@drawable/monitoring"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="10dp"
                     />
@@ -201,7 +202,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:background="@drawable/schedule"
+                    android:background="@drawable/list_teacher"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="10dp"
                     />
@@ -210,6 +211,44 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="List of member"
+                    android:textSize="20dp"
+                    android:gravity="center_horizontal"
+                    android:fontFamily="@font/stylish"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/management_complain"
+            app:cardCornerRadius="10dp"
+            android:layout_margin="10dp"
+            app:cardElevation="20dp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/complian"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="complains"
                     android:textSize="20dp"
                     android:gravity="center_horizontal"
                     android:fontFamily="@font/stylish"
