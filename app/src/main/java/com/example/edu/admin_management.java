@@ -6,12 +6,15 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
+import android.graphics.ColorSpace;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class admin_management extends AppCompatActivity {
     public static ArrayList<String> member_list=new ArrayList<>();
@@ -21,6 +24,7 @@ public class admin_management extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         member_list=member_list_object.spinner_setter();
+        Collections.sort(member_list,String.CASE_INSENSITIVE_ORDER);
         setContentView(R.layout.activity_admin_management);
         this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -39,6 +43,7 @@ public class admin_management extends AppCompatActivity {
         final CardView management_schedule=findViewById(R.id.management_schedule);
         final CardView schedule_management=findViewById(R.id.schedule_management);
         final CardView member_management=findViewById(R.id.member_monitoring);
+        final CardView list_of_member=findViewById(R.id.management_listview);
 
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +74,15 @@ public class admin_management extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(getApplicationContext(),member_monitoring.class);
+                startActivity(i);
+            }
+        });
+
+        list_of_member.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i=new Intent(getApplicationContext(),list_member.class);
                 startActivity(i);
             }
         });
