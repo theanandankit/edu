@@ -1,5 +1,6 @@
 package com.example.edu;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -12,12 +13,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import static com.example.edu.login_screen.pref;
+
 public class admin_management extends AppCompatActivity {
     public static ArrayList<String> member_list=new ArrayList<>();
+    Teacher_management.Teacher admin_teacher_info=new Teacher_management.Teacher();
 
     public static member_sgmid member_list_object=new member_sgmid();
     @Override
@@ -31,7 +41,7 @@ public class admin_management extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.general_actionbar);
         getSupportActionBar().setElevation(10);
         View view = getSupportActionBar().getCustomView();
-        TextView textView=(TextView)view.findViewById(R.id.tab_name);
+        final TextView textView=(TextView)view.findViewById(R.id.tab_name);
         textView.setText("Admin");
         Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.berkshireswash);
         textView.setTextColor(getResources().getColor(R.color.white));
@@ -96,5 +106,35 @@ public class admin_management extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("teacher_info").child(pref.getString("userid","000"));
+
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                admin_teacher_info=dataSnapshot.getValue(Teacher_management.Teacher.class);
+
+                TextView name=findViewById(R.id.admin_user_name);
+                TextView batch=findViewById(R.id.admin_user_batch);
+                TextView contact=findViewById(R.id.admin_user_phone);
+                TextView email=findViewById(R.id.admi_user_email);
+
+                name.setText(admin_teacher_info.getUser_name());
+                batch.setText(admin_teacher_info.getBatch());
+                contact.setText(admin_teacher_info.getContact_no());
+                email.setText(admin_teacher_info.getEmail());
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
+            }
+        });
     }
+
 }

@@ -7,6 +7,64 @@
     tools:context=".admin_management"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/admin_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="30sp"
+                    android:text="Ankit"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
+
+                <TextView
+                    android:id="@+id/admin_user_batch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="15sp"
+                    android:text="2018IMg-XXX"
+                    android:layout_gravity="center_horizontal"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/admi_user_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="15sp"
+                    android:text="pata_nai@kuchbhi.com"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/admin_user_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="15sp"
+                    android:text="10 digit no"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+            </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -152,13 +210,15 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:background="@drawable/monitoring"
+                    android:background="@drawable/schedule"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="10dp"
                     />
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -264,5 +324,8 @@
 
     </LinearLayout>
 
+        </LinearLayout>
+
+    </ScrollView>
 
     </LinearLayout>

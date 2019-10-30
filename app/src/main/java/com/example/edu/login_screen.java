@@ -180,6 +180,8 @@ public class login_screen extends AppCompatActivity {
                                                                             }
 
                                                                             Intent i=new Intent(login_screen.this,admin_management.class);
+                                                                            editor.putString("userid",userid);
+                                                                            editor.commit();
                                                                             startActivity(i);
                                                                             progressBar.setVisibility(View.INVISIBLE);
 
