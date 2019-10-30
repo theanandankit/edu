@@ -30,7 +30,8 @@
             android:label="Teacher Attendance" />
         <activity android:name=".login_screen" />
         <activity android:name=".action_screen" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/full_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

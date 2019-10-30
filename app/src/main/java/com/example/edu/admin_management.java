@@ -47,8 +47,6 @@ public class admin_management extends AppCompatActivity {
         textView.setTextColor(getResources().getColor(R.color.white));
 
 
-
-
         CardView registration =findViewById(R.id.registration);
         final CardView management_schedule=findViewById(R.id.management_schedule);
         final CardView schedule_management=findViewById(R.id.schedule_management);
