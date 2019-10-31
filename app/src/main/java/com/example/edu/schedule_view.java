@@ -69,7 +69,6 @@ public class schedule_view extends AppCompatActivity {
                         listView.setAdapter(myAdapter);
                     }
 
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 

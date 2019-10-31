@@ -71,8 +71,7 @@ public class action_screen extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.list_teacher:
-                i=new Intent(getApplicationContext(),schedule_view.class);
-                startActivity(i);
+
                 break;
         }
     }
