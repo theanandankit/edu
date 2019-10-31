@@ -4,14 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".list_member">
+    tools:context=".complain_viewer_activity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:scrollingCache="true" />
-
+        android:layout_height="wrap_content"
+        android:id="@+id/complain_recycle_view"
+        ></androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

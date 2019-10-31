@@ -10,9 +10,12 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 public class action_screen extends AppCompatActivity implements View.OnClickListener {
+    ViewFlipper viewFlipper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,14 @@ public class action_screen extends AppCompatActivity implements View.OnClickList
         CardView admin=findViewById(R.id.admin);
         CardView list_member=findViewById(R.id.list_teacher);
 
+        viewFlipper=findViewById(R.id.flipper);
+
+        int image[]={R.drawable.flipper_1,R.drawable.flipper_2,R.drawable.flipper_3};
+
+        for (int images :image)
+        {
+            flipperimage(images);
+        }
         mana.setOnClickListener(this);
         teach.setOnClickListener(this);
         admin.setOnClickListener(this);
@@ -64,5 +75,17 @@ public class action_screen extends AppCompatActivity implements View.OnClickList
                 startActivity(i);
                 break;
         }
+    }
+    public void flipperimage(int image)
+    {
+        ImageView imageView=new ImageView(this);
+        imageView.setBackgroundResource(image);
+
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(3000);
+        viewFlipper.setAutoStart(true);
+
+        viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
+        viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
     }
 }

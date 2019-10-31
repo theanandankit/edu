@@ -81,6 +81,7 @@ public class login_screen extends AppCompatActivity {
 
         String text2="Trouble In Login";
 
+
         Button login=findViewById(R.id.login);
         TextView forget_password=findViewById(R.id.forget_password);
         TextView trouble=findViewById(R.id.trouble);
@@ -179,6 +180,8 @@ public class login_screen extends AppCompatActivity {
                                                                             }
 
                                                                             Intent i=new Intent(login_screen.this,admin_management.class);
+                                                                            editor.putString("userid",userid);
+                                                                            editor.commit();
                                                                             startActivity(i);
                                                                             progressBar.setVisibility(View.INVISIBLE);
 

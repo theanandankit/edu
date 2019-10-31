@@ -6,8 +6,8 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="25dp"
     app:cardBackgroundColor="@android:color/transparent"
-
     android:fitsSystemWindows="true">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,6 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"

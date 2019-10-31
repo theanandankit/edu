@@ -3,9 +3,6 @@ package com.example.edu;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
-//import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,17 +13,15 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,12 +31,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.TimeZone;
 
 public class Management_screen extends AppCompatActivity {
@@ -51,11 +44,13 @@ public class Management_screen extends AppCompatActivity {
     public static ListView listView;
     public static int p;
     private myadaptor adaptor;
+    ArrayList<String> list_of_student=new ArrayList<>();
     DatabaseReference databaseReference;
     DatabaseReference reference;
      public static int a;
     HashMap<String,String> attendance = new HashMap<>();
     HashMap<String,String> substitute_list = new HashMap<>();
+    public static Teacher_management.Teacher attendance_teacher_info;
 
     String teacher,batch,status;
     int k=0;
@@ -72,6 +67,10 @@ public class Management_screen extends AppCompatActivity {
 
         Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
 
+        member_sgmid attendance_list=new member_sgmid();
+
+        list_of_student=attendance_list.spinner_setter();
+
 
         listView= findViewById(R.id.list_id);
         SimpleDateFormat sdf2 = new SimpleDateFormat("EEEE");
@@ -81,7 +80,6 @@ public class Management_screen extends AppCompatActivity {
 
         DateFormat sdf1 = new SimpleDateFormat("dd-MMM-yyyy");
      final String   date= sdf1.format(todaysDate).toString();
-
 
 
         reference=FirebaseDatabase.getInstance().getReference().child(date).child("Teacher-Attendance");
@@ -254,13 +252,6 @@ public class Management_screen extends AppCompatActivity {
                 }
 
             }
-
-
-
-
-
-
-
     }
     private void showList()
     {
@@ -298,12 +289,83 @@ public class Management_screen extends AppCompatActivity {
         final TextInputLayout Batch=(TextInputLayout)dialog.findViewById(R.id.Batch);
         final RadioButton substitute_sent=(RadioButton)dialog.findViewById(R.id.substitute_sent);
         final RadioButton substitute_not_sent=(RadioButton)dialog.findViewById(R.id.substitute_not_sent);
-        final Spinner spinner=(Spinner)dialog.findViewById(R.id.spinner);
+        final Spinner spinner=(Spinner)dialog.findViewById(R.id.attendance_spinner);
         final ExtendedFloatingActionButton close=(ExtendedFloatingActionButton)dialog.findViewById(R.id.bt_close);
+
+
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+            }
+        });
+
+
+        spinner.setEnabled(false);
+        ArrayAdapter aaa = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,list_of_student);
+        aaa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(aaa);
+
+        check_member.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                spinner.setEnabled(true);
+                name.setEnabled(false);
+                check_not_member.setChecked(false);
+                Batch.setEnabled(false);
+
+            }
+        });
+
+        check_not_member.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                spinner.setEnabled(false);
+                check_member.setChecked(false);
+                name.setEnabled(true);
+                Batch.setEnabled(true);
+            }
+        });
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                member_sgmid mm=new member_sgmid();
+
+                final String id=mm.get_uid(adapterView.getItemAtPosition(i).toString());
+
+                DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child("teacher_info").child(id);
+
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        attendance_teacher_info=dataSnapshot.getValue(Teacher_management.Teacher.class);
+
+                        name.getEditText().setText(attendance_teacher_info.getUser_name());
+
+                        Batch.getEditText().setText(attendance_teacher_info.getBatch());
+
+                        name.setEnabled(false);
+
+                        Batch.setEnabled(false);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 
@@ -321,7 +383,6 @@ public class Management_screen extends AppCompatActivity {
                    name.setEnabled(false);
                    Batch.setEnabled(false);
                 }
-
             }
         });
         absent.setOnClickListener(new View.OnClickListener() {

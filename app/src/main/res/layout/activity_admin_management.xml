@@ -7,6 +7,64 @@
     tools:context=".admin_management"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/admin_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="30sp"
+                    android:text="Ankit"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
+
+                <TextView
+                    android:id="@+id/admin_user_batch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="15sp"
+                    android:text="2018IMg-XXX"
+                    android:layout_gravity="center_horizontal"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/admi_user_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="15sp"
+                    android:text="pata_nai@kuchbhi.com"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/admin_user_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="15sp"
+                    android:text="10 digit no"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+            </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -137,7 +195,137 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/member_monitoring"
+            app:cardCornerRadius="10dp"
+            android:layout_margin="10dp"
+            app:cardElevation="20dp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/schedule"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Member \nMonitoring"
+                    android:textSize="20dp"
+                    android:gravity="center_horizontal"
+                    android:fontFamily="@font/stylish"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/management_listview"
+            app:cardCornerRadius="10dp"
+            android:layout_margin="10dp"
+            app:cardElevation="20dp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/list_teacher"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="List of member"
+                    android:textSize="20dp"
+                    android:gravity="center_horizontal"
+                    android:fontFamily="@font/stylish"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/management_complain"
+            app:cardCornerRadius="10dp"
+            android:layout_margin="10dp"
+            app:cardElevation="20dp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/complian"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="complains"
+                    android:textSize="20dp"
+                    android:gravity="center_horizontal"
+                    android:fontFamily="@font/stylish"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+    </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
     </LinearLayout>
