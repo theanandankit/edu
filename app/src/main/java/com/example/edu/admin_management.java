@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.CharArrayReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -53,8 +54,17 @@ public class admin_management extends AppCompatActivity {
         final CardView member_management=findViewById(R.id.member_monitoring);
         final CardView list_of_member=findViewById(R.id.management_listview);
         final CardView management_complain=findViewById(R.id.management_complain);
+        final CardView admin_schedule_view=findViewById(R.id.admin_schedule_view);
 
 
+        admin_schedule_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(getApplicationContext(),schedule_view.class);
+                startActivity(i);
+            }
+        });
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
