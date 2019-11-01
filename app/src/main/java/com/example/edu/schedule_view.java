@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.edu.adapter.schedule_adapter;
 import com.google.firebase.database.DataSnapshot;
@@ -38,6 +39,10 @@ public class schedule_view extends AppCompatActivity {
         Spinner spinner = findViewById(R.id.schedule_view_spinner);
         final ArrayList<Item> student_list=new ArrayList<>();
         final ListView listView=findViewById(R.id.schedule_view_listview);
+        final TextView management_name1=findViewById(R.id.schedule_management_name1);
+        final TextView management_name2=findViewById(R.id.schedule_management_name2);
+
+
 
         ArrayAdapter aaa = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, day);
         aaa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -46,6 +51,25 @@ public class schedule_view extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                DatabaseReference databaseReference_management=FirebaseDatabase.getInstance().getReference().child("Schedule").child(parent.getItemAtPosition(position).toString()).child("Management");
+
+                databaseReference_management.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        Management_class mng=dataSnapshot.getValue(Management_class.class);
+
+                        management_name1.setText(mng.getName1()+"\n("+mng.getBatch1()+")");
+
+                        management_name2.setText(mng.getName2()+"\n("+mng.getBatch2()+")");
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
 
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Schedule").child(parent.getItemAtPosition(position).toString()).child("Teachers");
 
