@@ -26,7 +26,7 @@
                 android:layout_margin="15dp"
                 android:textSize="30dp"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/aclonica"
+                android:fontFamily="@font/berkshireswash"
                 android:layout_gravity="center"
                 android:gravity="center"
                 >
@@ -119,8 +119,6 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     app:cardCornerRadius="50dp"
-                    app:rippleColor="@color/ripple"
-                    android:id="@+id/management"
                     app:cardElevation="20dp"
                     app:cardBackgroundColor="@color/white">
                     <LinearLayout
@@ -272,10 +270,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="5dp"
-            app:rippleColor="@color/ripple"
-            android:id="@+id/teaching"
             app:cardCornerRadius="50dp"
 
+            app:rippleColor="@color/ripple"
+            android:id="@+id/management"
             app:cardElevation="20dp"
             app:cardBackgroundColor="@color/white">
             <LinearLayout

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".admin_management"
     android:orientation="vertical">
 
@@ -18,20 +19,88 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/admin_flipper">
+
+                </ViewFlipper>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="The Secret in Education Lies in Respecting the Student \n -Ralph Waldo Emerson"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/stylish">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="personal Information"
+                android:layout_marginLeft="20dp"
+                android:textSize="18dp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/aclonica">
+            </TextView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="50dp"
+                app:rippleColor="@color/ripple"
+                android:id="@+id/management"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
                 android:orientation="vertical">
+
 
                 <TextView
                     android:id="@+id/admin_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/aclonica"
                     android:layout_gravity="center_horizontal"
                     android:textSize="30sp"
                     android:text="Ankit"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
+
+
+                <TextView
+                    android:id="@+id/admin_sgm_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/aclonica"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="15dp"
+                    android:text="SGM-XX"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
 
                 <TextView
@@ -39,6 +108,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/aclonica"
                     android:textSize="15sp"
                     android:text="2018IMg-XXX"
                     android:layout_gravity="center_horizontal"
@@ -49,6 +120,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/aclonica"
                     android:layout_gravity="center_horizontal"
                     android:textSize="15sp"
                     android:text="pata_nai@kuchbhi.com"
@@ -59,318 +132,514 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/aclonica"
                     android:layout_gravity="center_horizontal"
                     android:textSize="15sp"
                     android:text="10 digit no"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
             </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center">
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
-            android:id="@+id/registration"
-            android:layout_weight="1"
-            android:layout_margin="10dp"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="20dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/registration"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sign up \nNew user"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/stylish"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
 
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/schedule_management"
-            app:cardCornerRadius="10dp"
-            android:layout_margin="10dp"
-            app:cardElevation="20dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/schedule"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teacher \n Schedule"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:fontFamily="@font/stylish"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center">
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/management_schedule"
-            app:cardCornerRadius="10dp"
-            android:layout_margin="10dp"
-            app:cardElevation="20dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/schedule"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Management \n Schedule"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:fontFamily="@font/stylish"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/member_monitoring"
-            app:cardCornerRadius="10dp"
-            android:layout_margin="10dp"
-            app:cardElevation="20dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/schedule"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Member \nMonitoring"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:fontFamily="@font/stylish"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center">
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/management_listview"
-            app:cardCornerRadius="10dp"
-            android:layout_margin="10dp"
-            app:cardElevation="20dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/list_teacher"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="List of member"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:fontFamily="@font/stylish"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/management_complain"
-            app:cardCornerRadius="10dp"
-            android:layout_margin="10dp"
-            app:cardElevation="20dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/complian"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="complains"
-                    android:textSize="20dp"
-                    android:gravity="center_horizontal"
-                    android:fontFamily="@font/stylish"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </LinearLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
-
-
-
-    </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center">
+                android:layout_marginTop="20dp"
+                android:text="General feature"
+                android:layout_marginLeft="20dp"
+                android:textSize="18dp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/aclonica">
+            </TextView>
 
-                <com.google.android.material.card.MaterialCardView
-
-                    android:layout_width="wrap_content"
-                    android:id="@+id/admin_schedule_view"
-                    android:layout_weight="1"
-                    android:layout_margin="10dp"
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:id="@+id/admin_schedule_view"
+                android:layout_weight="1"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="20dp"
-                    app:cardBackgroundColor="@color/white">
+                    android:orientation="horizontal">
+
+
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:background="@drawable/schedule_viewer"
                             android:layout_gravity="center_horizontal"
                             android:layout_margin="10dp"
+                            android:layout_weight="1"
                             />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Schedule"
-                            android:textSize="20dp"
-                            android:gravity="center_horizontal"
-                            android:layout_gravity="center_horizontal"
-                            android:fontFamily="@font/stylish"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorPrimaryDark"/>
                     </LinearLayout>
 
 
-                </com.google.android.material.card.MaterialCardView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-            </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Schedule"
+                            android:gravity="center"
+                            android:textColor="@color/buttonred"
+                            android:layout_margin="5dp"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/aclonica">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:fontFamily="@font/stylish"
+                            android:textSize="15dp"
+                            android:layout_margin="5dp"
+                            android:text="Day to Day Responsibility of Teacher as well as Management Team."
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:rippleColor="@color/ripple"
+                android:id="@+id/management_listview"
+                android:layout_weight="1"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/list_teacher"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="List of Members"
+                            android:gravity="center"
+                            android:textColor="@color/buttonred"
+                            android:layout_margin="5dp"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/aclonica">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:fontFamily="@font/stylish"
+                            android:textSize="15dp"
+                            android:layout_margin="5dp"
+                            android:text="Detailed Information About, All The Members of SGM Family."
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Core feature"
+                android:layout_marginLeft="20dp"
+                android:textSize="18dp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/aclonica">
+            </TextView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:rippleColor="@color/ripple"
+                android:id="@+id/registration"
+                android:layout_weight="1"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/registration"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="New Member Sign Up"
+                            android:gravity="center"
+                            android:textColor="@color/buttonred"
+                            android:layout_margin="5dp"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/aclonica">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:fontFamily="@font/stylish"
+                            android:textSize="15dp"
+                            android:layout_margin="5dp"
+                            android:text="This Window allows the admin to Register new Member in Three different categories like Teacher, Management and Admin"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:rippleColor="@color/ripple"
+                android:id="@+id/schedule_management"
+                android:layout_weight="1"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/schedule"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="15dp"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Teacher schedule"
+                            android:gravity="center"
+                            android:textColor="@color/buttonred"
+                            android:layout_margin="5dp"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/aclonica">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:fontFamily="@font/stylish"
+                            android:textSize="15dp"
+                            android:layout_margin="5dp"
+                            android:text="This Window allows the admin to Register new Member in Three different categories like Teacher, Management and Admin"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:rippleColor="@color/ripple"
+                android:id="@+id/management_schedule"
+                android:layout_weight="1"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/schedule"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="15dp"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Management Schedule"
+                            android:gravity="center"
+                            android:textColor="@color/buttonred"
+                            android:layout_margin="5dp"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/aclonica">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:fontFamily="@font/stylish"
+                            android:textSize="15dp"
+                            android:layout_margin="5dp"
+                            android:text="This Window allows the admin to Register new Member in Three different categories like Teacher, Management and Admin"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:rippleColor="@color/ripple"
+                android:id="@+id/member_monitoring"
+                android:layout_weight="1"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/monitoring"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="18dp"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Members Monitoring"
+                            android:gravity="center"
+                            android:textColor="@color/buttonred"
+                            android:layout_margin="5dp"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/aclonica">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:fontFamily="@font/stylish"
+                            android:textSize="15dp"
+                            android:layout_margin="5dp"
+                            android:text="This Window allows the admin to Register new Member in Three different categories like Teacher, Management and Admin"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:rippleColor="@color/ripple"
+                android:id="@+id/management_complain"
+                android:layout_weight="1"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/complian"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="18dp"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Complains List"
+                            android:gravity="center"
+                            android:textColor="@color/buttonred"
+                            android:layout_margin="5dp"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/aclonica">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:fontFamily="@font/stylish"
+                            android:textSize="15dp"
+                            android:layout_margin="5dp"
+                            android:text="This Window allows the admin to Register new Member in Three different categories like Teacher, Management and Admin"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
 
         </LinearLayout>
 
