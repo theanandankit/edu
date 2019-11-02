@@ -4,10 +4,13 @@
     <color name="colorPrimaryDark">#4c1883</color>
     <color name="colorAccent"> #85369c</color>
     <color name="darkBlue">#14278d</color>
+    <color name="background">#D5C2E2</color>
     <color name="colourblack">#6E90D6</color>
     <color name="buttonred">#D13333</color>
     <color name="buttongreen">#4CEE47</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="ripple">#ECBB20</color>
+
 
 </resources>

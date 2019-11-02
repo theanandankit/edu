@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-public class action_screen extends AppCompatActivity implements View.OnClickListener {
+public class action_screen extends AppCompatActivity  {
     ViewFlipper viewFlipper;
 
     @Override
@@ -31,9 +31,15 @@ public class action_screen extends AppCompatActivity implements View.OnClickList
         Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.berkshireswash);
         textView.setTextColor(getResources().getColor(R.color.white));
         CardView mana= findViewById(R.id.management);
-        CardView teach=findViewById(R.id.teaching);
-        CardView admin=findViewById(R.id.admin);
-        CardView list_member=findViewById(R.id.list_teacher);
+
+        mana.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(getApplicationContext(),login_screen.class);
+                startActivity(i);
+            }
+        });
 
         viewFlipper=findViewById(R.id.flipper);
 
@@ -43,38 +49,8 @@ public class action_screen extends AppCompatActivity implements View.OnClickList
         {
             flipperimage(images);
         }
-        mana.setOnClickListener(this);
-        teach.setOnClickListener(this);
-        admin.setOnClickListener(this);
-        list_member.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View view) {
-
-        Intent i;
-
-        switch (view.getId())
-        {
-            case R.id.management:
-                i=new Intent(this,login_screen.class);
-                startActivity(i);
-                break;
-
-            case R.id.teaching:
-                 i=new Intent(this,login_screen.class);
-                 startActivity(i);
-                 break;
-            case R.id.admin:
-                i=new Intent(this,login_screen.class);
-                startActivity(i);
-                break;
-
-            case R.id.list_teacher:
-
-                break;
-        }
-    }
     public void flipperimage(int image)
     {
         ImageView imageView=new ImageView(this);
