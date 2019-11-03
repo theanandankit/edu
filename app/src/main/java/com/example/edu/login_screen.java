@@ -209,7 +209,11 @@ public class login_screen extends AppCompatActivity {
                                                                             if (checkBox.isChecked()) {
                                                                                 editor.putInt("type", 3);
                                                                             }
-                                                                            Intent i=new Intent(login_screen.this,Management_screen.class);
+                                                                            Intent i=new Intent(login_screen.this,Profile_mgmt .class);
+                                                                            i.putExtra("mail",username);
+                                                                            i.putExtra("id",userid);
+
+
 
                                                                             progressDialog.dismiss();
                                                                             startActivity(i);

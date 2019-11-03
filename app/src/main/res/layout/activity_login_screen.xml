@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/username"
         android:hint="Username"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        app:boxBackgroundColor="@color/white"
         app:endIconMode="clear_text"
         >
 
@@ -38,7 +39,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/userid"
         android:hint="SGM ID"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        app:boxBackgroundColor="@color/white"
         app:endIconMode="clear_text"
         >
 
@@ -56,7 +58,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/password"
         android:hint="Password"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        app:boxBackgroundColor="@color/white"
         app:passwordToggleEnabled="true"
         app:errorEnabled="true"
         >

@@ -30,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class new_registration extends AppCompatActivity {
@@ -173,7 +174,7 @@ public class new_registration extends AppCompatActivity {
         });
     }
 
-    public class new_user {
+    public class new_user implements Serializable {
         public String user_name;
         public String email;
         public String batch;
@@ -183,6 +184,8 @@ public class new_registration extends AppCompatActivity {
         public String extra_day;
         public String type;
 
+        public new_user() {
+        }
 
         public new_user(String user_name, String email, String batch, String contact_no, String type) {
             this.user_name = user_name;
@@ -193,6 +196,38 @@ public class new_registration extends AppCompatActivity {
             actual_day = "0";
             present = "0";
             extra_day = "0";
+        }
+
+        public String getUser_name() {
+            return user_name;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public String getBatch() {
+            return batch;
+        }
+
+        public String getContact_no() {
+            return contact_no;
+        }
+
+        public String getActual_day() {
+            return actual_day;
+        }
+
+        public String getPresent() {
+            return present;
+        }
+
+        public String getExtra_day() {
+            return extra_day;
+        }
+
+        public String getType() {
+            return type;
         }
     }
 

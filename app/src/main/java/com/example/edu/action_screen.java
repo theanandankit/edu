@@ -31,6 +31,15 @@ public class action_screen extends AppCompatActivity  {
         Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.berkshireswash);
         textView.setTextColor(getResources().getColor(R.color.white));
         CardView mana= findViewById(R.id.management);
+        CardView action_scedule=findViewById(R.id.action_schedule);
+
+        action_scedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),list_member.class);
+                startActivity(i);
+            }
+        });
 
         mana.setOnClickListener(new View.OnClickListener() {
             @Override
