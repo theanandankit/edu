@@ -44,6 +44,7 @@ public class new_registration extends AppCompatActivity {
     ArrayList<String> teacher_type = new ArrayList<>();
     public static TextView user;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

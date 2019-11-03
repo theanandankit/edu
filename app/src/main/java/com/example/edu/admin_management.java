@@ -11,7 +11,9 @@ import android.graphics.ColorSpace;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.CharArrayReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -28,6 +31,7 @@ import static com.example.edu.login_screen.pref;
 public class admin_management extends AppCompatActivity {
     public static ArrayList<String> member_list=new ArrayList<>();
     Teacher_management.Teacher admin_teacher_info=new Teacher_management.Teacher();
+    ViewFlipper viewFlipper;
 
     public static member_sgmid member_list_object=new member_sgmid();
     @Override
@@ -53,8 +57,17 @@ public class admin_management extends AppCompatActivity {
         final CardView member_management=findViewById(R.id.member_monitoring);
         final CardView list_of_member=findViewById(R.id.management_listview);
         final CardView management_complain=findViewById(R.id.management_complain);
+        final CardView admin_schedule_view=findViewById(R.id.admin_schedule_view);
 
 
+        admin_schedule_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(getApplicationContext(),schedule_view.class);
+                startActivity(i);
+            }
+        });
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,6 +146,28 @@ public class admin_management extends AppCompatActivity {
 
             }
         });
+
+        viewFlipper=findViewById(R.id.admin_flipper);
+
+        int image[]={R.drawable.admin_back,R.drawable.admin_back1};
+
+        for (int images :image)
+        {
+            flipperimage(images);
+        }
+    }
+
+    public void flipperimage(int image)
+    {
+        ImageView imageView=new ImageView(this);
+        imageView.setBackgroundResource(image);
+
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(3000);
+        viewFlipper.setAutoStart(true);
+
+        viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
+        viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
     }
 
 }

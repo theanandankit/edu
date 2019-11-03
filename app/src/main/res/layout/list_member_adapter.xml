@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ankit"
+        android:id="@+id/member_list_name"
+        android:textSize="20dp"
+        android:fontFamily="@font/aclonica"
+        android:textColor="@color/colorPrimary"
+        android:layout_margin="5dp">
+    </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018IMG-XXX"
+            android:id="@+id/member_list_roll"
+            android:textSize="15dp"
+            android:fontFamily="@font/aclonica"
+            android:textColor="@color/colorPrimary"
+            android:layout_margin="5dp">
+        </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ankitanand2909@gmail.com"
+                android:textSize="10dp"
+                android:id="@+id/member_list_email"
+                android:fontFamily="@font/aclonica"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="5dp">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:gravity="center">
+        
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/member_list_button"
+            android:background="@drawable/ic_call_black_24dp"
+            >
+        </ImageButton>
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

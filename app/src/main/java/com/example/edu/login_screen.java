@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -22,7 +23,6 @@ import android.widget.Button;
 
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +47,8 @@ public class login_screen extends AppCompatActivity {
     public static SharedPreferences pref;
     public static TextInputLayout use;
     public static String complain,complain_name;
+    ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,17 +66,15 @@ public class login_screen extends AppCompatActivity {
 
         use=findViewById(R.id.username);
         final TextInputLayout pass=findViewById(R.id.password);
-        final ProgressBar progressBar=findViewById(R.id.progress);
         final TextInputLayout id=findViewById(R.id.userid);
-        progressBar.setVisibility(View.INVISIBLE);
+        progressDialog=new ProgressDialog(this);
+
 
         // shared preference to remember the last login
         pref = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = pref.edit();
 
         firebaseAuth =FirebaseAuth.getInstance();
-
-
 
 
         String text1="Forget Password";
@@ -125,7 +125,11 @@ public class login_screen extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressBar.setVisibility(View.VISIBLE);
+
+                progressDialog.setCancelable(false);
+                progressDialog.setTitle("please Wait...");
+                progressDialog.setMessage("checking your Email address and password");
+                progressDialog.show();
                 final String username= use.getEditText().getText().toString();
                 String password= pass.getEditText().getText().toString();
                 final String userid=id.getEditText().getText().toString();
@@ -140,14 +144,15 @@ public class login_screen extends AppCompatActivity {
                 else if (userid.isEmpty())
                     id.setError("Enter SGM ID");
                 else
-                { progressBar.setVisibility(View.VISIBLE);
+                {
                     firebaseAuth.signInWithEmailAndPassword(username,password)
                             .addOnCompleteListener(login_screen.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if(task.isSuccessful())
                                     {
-                                        progressBar.setVisibility(View.GONE);
+                                        progressDialog.setMessage("Checking your SGM ID");
+
                                         Toast.makeText(getApplicationContext(),current_day,Toast.LENGTH_LONG).show();
                                         databaseReference=FirebaseDatabase.getInstance().getReference().child("teacher_info");
                                         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -160,6 +165,8 @@ public class login_screen extends AppCompatActivity {
                                                     databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                                                         @Override
                                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                                            progressDialog.setMessage("Checking Authentication");
 
                                                             if(username.equals(dataSnapshot.getValue().toString()))
                                                             {
@@ -182,8 +189,9 @@ public class login_screen extends AppCompatActivity {
                                                                             Intent i=new Intent(login_screen.this,admin_management.class);
                                                                             editor.putString("userid",userid);
                                                                             editor.commit();
+                                                                            progressDialog.dismiss();
                                                                             startActivity(i);
-                                                                            progressBar.setVisibility(View.INVISIBLE);
+
 
                                                                         }
                                                                         else if(dataSnapshot.getValue().toString().equals("Teacher")) {
@@ -193,8 +201,9 @@ public class login_screen extends AppCompatActivity {
                                                                             Intent i=new Intent(login_screen.this,Teacher_management.class);
                                                                             editor.putString("userid",userid);
                                                                             editor.commit();
+                                                                            progressDialog.dismiss();
                                                                             startActivity(i);
-                                                                            progressBar.setVisibility(View.INVISIBLE);
+
                                                                         }
                                                                         else if(dataSnapshot.getValue().toString().equals("Management")) {
                                                                             if (checkBox.isChecked()) {
@@ -202,8 +211,9 @@ public class login_screen extends AppCompatActivity {
                                                                             }
                                                                             Intent i=new Intent(login_screen.this,Management_screen.class);
 
+                                                                            progressDialog.dismiss();
                                                                             startActivity(i);
-                                                                            progressBar.setVisibility(View.INVISIBLE);
+
                                                                         }
                                                                     }
 
@@ -213,8 +223,6 @@ public class login_screen extends AppCompatActivity {
                                                                     }
                                                                 });
 
-
-                                                                Toast.makeText(getApplicationContext(),"ok",Toast.LENGTH_LONG).show();
                                                             }
                                                         }
 
@@ -226,6 +234,7 @@ public class login_screen extends AppCompatActivity {
                                                 }
                                                 else
                                                     Toast.makeText(getApplicationContext(),"incorrect SGM ID",Toast.LENGTH_LONG).show();
+                                                   progressDialog.dismiss();
 
                                             }
 
@@ -243,8 +252,8 @@ public class login_screen extends AppCompatActivity {
                                         Toast.makeText(getApplicationContext(),"Error Logging in", Toast.LENGTH_LONG).show();
 
                                         Toast.makeText(getApplicationContext(),"Invalid username or password",Toast.LENGTH_LONG).show();
+                                        progressDialog.dismiss();
 
-                                        progressBar.setVisibility(View.INVISIBLE);
                                     }
                                 }
                             });
