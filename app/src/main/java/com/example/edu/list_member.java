@@ -1,16 +1,26 @@
 package com.example.edu;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+
+import android.Manifest;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.edu.adapter.list_adapter;
+
 import com.example.edu.adapter.list_memebr_adapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +30,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import static com.example.edu.admin_management.member_list;
 
 public class list_member extends AppCompatActivity {
 
@@ -33,11 +42,13 @@ public class list_member extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_member);
 
-        final ListView listView=findViewById(R.id.recyclerView);
+        final ListView listView1 = findViewById(R.id.recyclerView);
 
-        final ArrayList<list_member_class> member_list=new ArrayList<>();
+        final ArrayList<list_member_class> member_list = new ArrayList<>();
 
-        final DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child("teacher_info");
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("teacher_info");
+
+        Toast.makeText(getApplicationContext(), "gyh", Toast.LENGTH_LONG).show();
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -54,10 +65,10 @@ public class list_member extends AppCompatActivity {
 
                                 System.out.println(snapshot.getKey());
 
-                                Teacher_management.Teacher teacher=snapshot.getValue(Teacher_management.Teacher.class);
-                                member_list.add(new list_member_class(teacher.getUser_name(),teacher.getBatch(),teacher.getEmail()));
-                                list_memebr_adapter myAdapter=new list_memebr_adapter(list_member.this,R.layout.list_member_adapter,member_list);
-                                listView.setAdapter(myAdapter);
+                                Teacher_management.Teacher teacher = snapshot.getValue(Teacher_management.Teacher.class);
+                                member_list.add(new list_member_class(teacher.getUser_name(), teacher.getBatch(), teacher.getEmail(), teacher.getContact_no()));
+                                list_memebr_adapter myAdapter = new list_memebr_adapter(list_member.this, R.layout.list_member_adapter, member_list);
+                                listView1.setAdapter(myAdapter);
 
                             }
 
@@ -69,8 +80,6 @@ public class list_member extends AppCompatActivity {
                     }
                 }
 
-           //     list_memebr_adapter myAdapter=new list_memebr_adapter(list_member.this,R.layout.list_member_adapter,member_list);
-             //   listView.setAdapter(myAdapter);
             }
 
             @Override
@@ -79,14 +88,28 @@ public class list_member extends AppCompatActivity {
             }
         });
 
-        /*
-        member_list.add(new list_member_class("ankit","551","jhu"));
-        member_list.add(new list_member_class("medhavi","jbcvuhb","jgdiu"));
+        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                TextView textView = view.findViewById(R.id.member_list_contact);
+
+                Toast.makeText(getApplicationContext(), textView.getText().toString(), Toast.LENGTH_LONG).show();
+
+                Intent i = new Intent(Intent.ACTION_CALL, Uri.fromParts("tel",textView.getText().toString(),null));
 
 
-        list_memebr_adapter myAdapter=new list_memebr_adapter(list_member.this,R.layout.list_member_adapter,member_list);
-        listView.setAdapter(myAdapter);
-         */
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(list_member.this, new String[]{Manifest.permission.CALL_PHONE},1);
+                }
+                else
+                {
+                    startActivity(i);
+                }
+           }
+       });
+
     }
 
     public class list_member_class
@@ -95,10 +118,11 @@ public class list_member extends AppCompatActivity {
         String member_batch;
         String member_phone_no;
 
-        public list_member_class(String member_name, String member_batch, String member_email) {
+        public list_member_class(String member_name, String member_batch, String member_email,String member_phone_no) {
             this.member_name = member_name;
             this.member_batch = member_batch;
             this.member_email = member_email;
+            this.member_phone_no=member_phone_no;
         }
 
         public String getMember_email() {

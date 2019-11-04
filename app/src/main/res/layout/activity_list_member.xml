@@ -8,6 +8,8 @@
 
    <ListView
        android:layout_width="match_parent"
+       android:scrollingCache="false"
+       android:smoothScrollbar="true"
        android:layout_height="wrap_content"
        android:id="@+id/recyclerView">
 

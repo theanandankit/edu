@@ -42,10 +42,11 @@ public class list_memebr_adapter extends ArrayAdapter<list_member.list_member_cl
         TextView list_email = (TextView) v.findViewById(R.id.member_list_email);
         TextView  list_name= (TextView) v.findViewById(R.id.member_list_name);
         TextView list_roll = (TextView) v.findViewById(R.id.member_list_roll);
+        TextView list_contact=v.findViewById(R.id.member_list_contact);
         list_name.setText(list_member_list.get(position).getMember_name());
         list_email.setText(list_member_list.get(position).getMember_email());
         list_roll.setText(list_member_list.get(position).getMember_batch());
+        list_contact.setText(list_member_list.get(position).getMember_phone_no());
         return v;
     }
-
 }
