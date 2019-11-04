@@ -104,7 +104,7 @@ public class Management_screen extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference().child(date).setValue(date);
+                FirebaseDatabase.getInstance().getReference().child("Dates").child(date).setValue(date);
 
                 reference.child("set").setValue("1");
                 for(final String Uid: attendance.keySet())
