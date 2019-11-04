@@ -76,7 +76,7 @@ public class Management_screen extends AppCompatActivity {
         SimpleDateFormat sdf2 = new SimpleDateFormat("EEEE");
        // String current_day = sdf2.format(new Date());
         String current_day="Wednesday";
-        Date todaysDate = new Date();
+        final Date todaysDate = new Date();
 
         DateFormat sdf1 = new SimpleDateFormat("dd-MMM-yyyy");
      final String   date= sdf1.format(todaysDate).toString();
@@ -104,6 +104,7 @@ public class Management_screen extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseDatabase.getInstance().getReference().child("Dates").child(date).setValue(date);
 
                 reference.child("set").setValue("1");
                 for(final String Uid: attendance.keySet())
