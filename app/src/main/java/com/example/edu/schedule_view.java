@@ -108,7 +108,7 @@ public class schedule_view extends AppCompatActivity {
         });
     }
 
-    public class Item {
+    public static class Item {
         String class_name;
         String student_name;
         String subject_name;

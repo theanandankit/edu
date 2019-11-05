@@ -58,7 +58,16 @@ public class admin_management extends AppCompatActivity {
         final CardView list_of_member=findViewById(R.id.management_listview);
         final CardView management_complain=findViewById(R.id.management_complain);
         final CardView admin_schedule_view=findViewById(R.id.admin_schedule_view);
+        CardView date_monitoring=findViewById(R.id.management_date_monitoring);
 
+        date_monitoring.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(getApplicationContext(), com.example.edu.date_monitoring.class);
+                startActivity(i);
+            }
+        });
 
         admin_schedule_view.setOnClickListener(new View.OnClickListener() {
             @Override
