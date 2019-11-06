@@ -32,6 +32,24 @@ public class action_screen extends AppCompatActivity  {
         textView.setTextColor(getResources().getColor(R.color.white));
         CardView mana= findViewById(R.id.management);
         CardView action_scedule=findViewById(R.id.action_schedule);
+        CardView other_activity=findViewById(R.id.other_event);
+        CardView sunday_activity=findViewById(R.id.Sunday_activity);
+
+        sunday_activity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(), com.example.edu.sunday_activity.class);
+                startActivity(i);
+            }
+        });
+
+        other_activity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),other_events.class);
+                startActivity(i);
+            }
+        });
 
         action_scedule.setOnClickListener(new View.OnClickListener() {
             @Override

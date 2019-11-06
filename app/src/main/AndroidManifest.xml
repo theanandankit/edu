@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".date_monitoring"></activity>
+        <activity android:name=".other_events"></activity>
+        <activity android:name=".sunday_activity" />
+        <activity android:name=".date_monitoring" />
         <activity android:name=".Profile_mgmt" />
         <activity android:name=".schedule_view" />
         <activity android:name=".complain_viewer_activity" />
