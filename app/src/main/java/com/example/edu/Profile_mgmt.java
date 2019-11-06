@@ -7,8 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +32,7 @@ public class Profile_mgmt extends AppCompatActivity {
     TextView extra;
     TextView present;
     DatabaseReference user;
+    ViewFlipper viewFlipper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,15 @@ public class Profile_mgmt extends AppCompatActivity {
         actual=(TextView)findViewById(R.id.actual_days);
         extra=(TextView)findViewById(R.id.extra_days);
         present=(TextView)findViewById(R.id.present_days);
+
+        viewFlipper=findViewById(R.id.management_flipper);
+        int image[]={R.drawable.management_flipper1,R.drawable.management_flipper2};
+
+        for (int images :image)
+        {
+            flipperimage(images);
+        }
+
         Intent i=getIntent();
         mail.setText(i.getStringExtra("mail"));
         String Id=i.getStringExtra("id");
@@ -90,5 +102,17 @@ public class Profile_mgmt extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    public void flipperimage(int image)
+    {
+        ImageView imageView=new ImageView(this);
+        imageView.setBackgroundResource(image);
+
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(3000);
+        viewFlipper.setAutoStart(true);
+
+        viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
+        viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
     }
 }
