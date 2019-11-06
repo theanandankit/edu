@@ -3,6 +3,7 @@ package com.example.edu;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,8 +22,8 @@ import com.google.firebase.database.ValueEventListener;
 import org.w3c.dom.Text;
 
 public class Profile_mgmt extends AppCompatActivity {
-    LinearLayout complain;
-    LinearLayout takeAttendance;
+    CardView takeAttendance;
+    CardView complains;
     TextView name;
     TextView id;
     TextView mail;
@@ -45,8 +46,7 @@ public class Profile_mgmt extends AppCompatActivity {
         View view = getSupportActionBar().getCustomView();
         TextView textView=(TextView)view.findViewById(R.id.tab_name);
         textView.setText("Management Member");
-        complain=(LinearLayout)findViewById(R.id.complain_mgmt);
-        takeAttendance=(LinearLayout)findViewById(R.id.goto_attendance);
+        takeAttendance=findViewById(R.id.goto_attendance);
         name=(TextView)findViewById(R.id.member_name);
         id=(TextView)findViewById(R.id.member_id);
         mail=(TextView)findViewById(R.id.member_mail);
@@ -55,6 +55,7 @@ public class Profile_mgmt extends AppCompatActivity {
         actual=(TextView)findViewById(R.id.actual_days);
         extra=(TextView)findViewById(R.id.extra_days);
         present=(TextView)findViewById(R.id.present_days);
+        complains=findViewById(R.id.complain_mgmt);
 
         viewFlipper=findViewById(R.id.management_flipper);
         int image[]={R.drawable.management_flipper1,R.drawable.management_flipper2};
