@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +32,7 @@ public class Profile_mgmt extends AppCompatActivity {
     TextView extra;
     TextView present;
     DatabaseReference user;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class Profile_mgmt extends AppCompatActivity {
         extra=(TextView)findViewById(R.id.extra_days);
         present=(TextView)findViewById(R.id.present_days);
         Intent i=getIntent();
+        auth=FirebaseAuth.getInstance();
         mail.setText(i.getStringExtra("mail"));
         String Id=i.getStringExtra("id");
         id.setText(Id);
@@ -91,4 +95,12 @@ public class Profile_mgmt extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed()
+    {
+        auth.signOut();
+        Toast.makeText(getApplicationContext(),"You are logged out",Toast.LENGTH_LONG).show();
+        Intent i=new Intent(Profile_mgmt.this,action_screen.class);
+    }
+
 }

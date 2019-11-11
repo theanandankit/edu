@@ -54,7 +54,8 @@ public class Management_screen extends AppCompatActivity {
 
     String teacher,batch,status;
     int k=0;
-
+    int count;
+    int c;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +81,10 @@ public class Management_screen extends AppCompatActivity {
 
         DateFormat sdf1 = new SimpleDateFormat("dd-MMM-yyyy");
      final String   date= sdf1.format(todaysDate).toString();
+     if(current_day.equals("Saturday"))
+         count=9;
+     else
+         count=10;
 
 
         reference=FirebaseDatabase.getInstance().getReference().child(date).child("Teacher-Attendance");
@@ -104,6 +109,8 @@ public class Management_screen extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(c==count)
+                {
                 FirebaseDatabase.getInstance().getReference().child("Dates").child(date).setValue(date);
 
                 reference.child("set").setValue("1");
@@ -181,6 +188,9 @@ public class Management_screen extends AppCompatActivity {
                Intent i=new Intent(Management_screen.this,Show_Attendance.class);
                 startActivity(i);
             }
+                else
+                    Toast.makeText(getApplicationContext(),"Mark complete attendance\n Attendance once marked can't be changed",Toast.LENGTH_LONG).show();
+        }
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -431,6 +441,7 @@ public class Management_screen extends AppCompatActivity {
             public void onClick(View v) {
                 teacher=name.getEditText().getText().toString();
                 batch=Batch.getEditText().getText().toString();
+                c++;
 
                 if(present.isChecked())
                 {
@@ -486,8 +497,10 @@ public class Management_screen extends AppCompatActivity {
               Toast.makeText(getApplicationContext(),status,Toast.LENGTH_LONG).show();
 
 
+
             }
-        });
+        }
+       );
         dialog.show();
         dialog.getWindow().setAttributes(lp);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -521,4 +534,5 @@ public class Management_screen extends AppCompatActivity {
     {
         d.setValue(String.valueOf(a));
     }
+
 }
