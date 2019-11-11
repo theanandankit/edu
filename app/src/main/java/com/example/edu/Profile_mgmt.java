@@ -11,8 +11,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import android.widget.ViewFlipper;
 
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +36,9 @@ public class Profile_mgmt extends AppCompatActivity {
     TextView extra;
     TextView present;
     DatabaseReference user;
+
     ViewFlipper viewFlipper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +71,7 @@ public class Profile_mgmt extends AppCompatActivity {
         }
 
         Intent i=getIntent();
+        auth=FirebaseAuth.getInstance();
         mail.setText(i.getStringExtra("mail"));
         String Id=i.getStringExtra("id");
         id.setText(Id);
@@ -104,6 +110,7 @@ public class Profile_mgmt extends AppCompatActivity {
             }
         });
     }
+
     public void flipperimage(int image)
     {
         ImageView imageView=new ImageView(this);
@@ -116,4 +123,5 @@ public class Profile_mgmt extends AppCompatActivity {
         viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
         viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
     }
+
 }
