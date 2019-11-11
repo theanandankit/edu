@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -74,11 +76,11 @@ public class new_registration extends AppCompatActivity {
 
 
         user = findViewById(R.id.user);
-        final EditText pass = findViewById(R.id.pass);
-        final EditText uname = findViewById(R.id.user_name);
-        final EditText ubatch = findViewById(R.id.user_batch);
-        final EditText ucontact = findViewById(R.id.user_contact);
-        final EditText uemail = findViewById(R.id.email);
+        final TextInputLayout pass = findViewById(R.id.pass);
+        final TextInputLayout uname = findViewById(R.id.user_name);
+        final TextInputLayout ubatch = findViewById(R.id.user_batch);
+        final TextInputLayout ucontact = findViewById(R.id.user_contact);
+        final TextInputLayout uemail = findViewById(R.id.email);
         spinner = findViewById(R.id.type);
 
         teacher_type.add("Teacher");
@@ -113,11 +115,11 @@ public class new_registration extends AppCompatActivity {
             public void onClick(View view) {
 
                 String username = user.getText().toString();
-                final String password = pass.getText().toString();
-                final String uuname = uname.getText().toString();
-                final String email = uemail.getText().toString();
-                final String uubatch = ubatch.getText().toString();
-                String uucontact = ucontact.getText().toString();
+                final String password = pass.getEditText().getText().toString();
+                final String uuname = uname.getEditText().getText().toString();
+                final String email = uemail.getEditText().getText().toString();
+                final String uubatch = ubatch.getEditText().getText().toString();
+                String uucontact = ucontact.getEditText().getText().toString();
                 String type = spinner.getSelectedItem().toString();
 
                 if (email.isEmpty()) {

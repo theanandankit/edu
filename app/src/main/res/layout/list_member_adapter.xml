@@ -10,8 +10,6 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,6 +39,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="90XXXXXXXX"
+                android:id="@+id/member_list_contact"
+                android:textSize="15dp"
+                android:fontFamily="@font/aclonica"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="5dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="ankitanand2909@gmail.com"
                 android:textSize="10dp"
                 android:id="@+id/member_list_email"
@@ -57,13 +66,13 @@
             android:layout_margin="10dp"
             android:gravity="center">
         
-        <ImageButton
+        <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:id="@+id/member_list_button"
             android:background="@drawable/ic_call_black_24dp"
             >
-        </ImageButton>
+        </ImageView>
 
         </LinearLayout>
     </RelativeLayout>

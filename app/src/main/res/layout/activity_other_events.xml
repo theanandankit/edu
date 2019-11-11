@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".other_events">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Model Art Session"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/berkshireswash">
+            </TextView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/flipper_2"
+                    >
+
+                </ImageView>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This Art Session was conducted by Dodo Bela Posse from Germany who is renowned artist with proficiency in modern art."
+                android:textColor="@color/colorPrimary"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:fontFamily="@font/aclonica"
+                android:layout_margin="15dp">
+
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="Science Model Presentation in DADI"
+                android:layout_marginLeft="20dp"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/berkshireswash">
+            </TextView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/flipper_2"
+                    >
+
+                </ImageView>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Students showed their innovation by constructing science models and put forward their knowledge in practical science. DADI provided a platform to showcase their ideas, conducted under supervision of Dr.  Anurag Srivastav. Winners won a cash prize of Rs 1000."
+                android:textColor="@color/colorPrimary"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:fontFamily="@font/aclonica"
+                android:layout_margin="15dp">
+
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Children's Day Celebration"
+                android:layout_marginLeft="20dp"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/berkshireswash">
+            </TextView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/flipper_2"
+                    >
+
+                </ImageView>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="On this occasion children were told to bring up a game or a food item they made and sell them off to students of institute. Children have fun in preparing and marketing their goods."
+                android:textColor="@color/colorPrimary"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:fontFamily="@font/aclonica"
+                android:layout_margin="15dp">
+
+
+            </TextView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
