@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.edu.adapter.schedule_adapter;
@@ -32,6 +33,9 @@ public class date_monitoring extends AppCompatActivity {
         final ArrayList<String> dates=new ArrayList<>();
         final ArrayList<schedule_view.Item> teacher_list=new ArrayList<>();
         final ListView listView=findViewById(R.id.date_monitoring_listview);
+        final TextView management1=findViewById(R.id.date_monitoring_management_name1);
+        final TextView management2=findViewById(R.id.date_monitoring_management_name1);
+
 
         DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("Dates");
 
