@@ -8,10 +8,12 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 
@@ -38,6 +40,8 @@ public class Profile_mgmt extends AppCompatActivity {
     DatabaseReference user;
 
     ViewFlipper viewFlipper;
+    FirebaseAuth auth;
+    ImageButton b;
 
 
     @Override
@@ -71,6 +75,14 @@ public class Profile_mgmt extends AppCompatActivity {
         }
 
         Intent i=getIntent();
+        b=(ImageButton)view.findViewById(R.id.home);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Profile_mgmt.this,action_screen.class);
+                startActivity(i);
+            }
+        });
         auth=FirebaseAuth.getInstance();
         mail.setText(i.getStringExtra("mail"));
         String Id=i.getStringExtra("id");
@@ -122,6 +134,14 @@ public class Profile_mgmt extends AppCompatActivity {
 
         viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
         viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
+    }
+    @Override
+    public void onBackPressed()
+    {
+        auth.signOut();
+        Toast.makeText(getApplicationContext(), "Logging you out", Toast.LENGTH_SHORT).show();
+        Intent i=new Intent(Profile_mgmt.this,action_screen.class);
+        startActivity(i);
     }
 
 }

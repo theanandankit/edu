@@ -28,6 +28,13 @@
         android:textStyle="bold"
         android:textColor="@android:color/white"
         /-->
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="3dp"
+        android:id="@+id/home"
+        android:src="@drawable/ic_home"
+        android:layout_alignParentEnd="true"/>
 
 
 </RelativeLayout>
