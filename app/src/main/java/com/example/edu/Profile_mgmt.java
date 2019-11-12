@@ -71,7 +71,6 @@ public class Profile_mgmt extends AppCompatActivity {
         }
 
         Intent i=getIntent();
-        auth=FirebaseAuth.getInstance();
         mail.setText(i.getStringExtra("mail"));
         String Id=i.getStringExtra("id");
         id.setText(Id);
