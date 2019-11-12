@@ -53,6 +53,7 @@ public class Profile_mgmt extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.general_actionbar);
         getSupportActionBar().setElevation(10);
         View view = getSupportActionBar().getCustomView();
+        b=(ImageButton)view.findViewById(R.id.home);
         TextView textView=(TextView)view.findViewById(R.id.tab_name);
         textView.setText("Management Member");
         takeAttendance=findViewById(R.id.goto_attendance);
@@ -65,6 +66,7 @@ public class Profile_mgmt extends AppCompatActivity {
         extra=(TextView)findViewById(R.id.extra_days);
         present=(TextView)findViewById(R.id.present_days);
         complains=findViewById(R.id.complain_mgmt);
+        auth=FirebaseAuth.getInstance();
 
         viewFlipper=findViewById(R.id.management_flipper);
         int image[]={R.drawable.management_flipper1,R.drawable.management_flipper2};
@@ -75,6 +77,13 @@ public class Profile_mgmt extends AppCompatActivity {
         }
 
         Intent i=getIntent();
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Profile_mgmt.this,action_screen.class);
+                startActivity(i);
+            }
+        });
 
         mail.setText(i.getStringExtra("mail"));
         String Id=i.getStringExtra("id");
