@@ -15,9 +15,11 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,13 +31,14 @@ public class Teacher_management extends AppCompatActivity {
     public  static  Teacher teacher_info;
     CardView cardView_teacher_complain;
     public static String userid;
+    ViewFlipper viewFlipper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_management);
 
-        cardView_teacher_complain=findViewById(R.id.teacher_complain_cardview);
+        cardView_teacher_complain=findViewById(R.id.teacher_complain_mgmt);
         SharedPreferences pref= PreferenceManager.getDefaultSharedPreferences(Teacher_management.this);
         userid=pref.getString("userid","000");
 
@@ -66,6 +69,14 @@ public class Teacher_management extends AppCompatActivity {
             }
         });
 
+        viewFlipper=findViewById(R.id.teacher_flipper);
+
+        int image[]={R.drawable.teacher_flipper1,R.drawable.teacher_flipper2};
+
+        for (int images :image)
+        {
+            flipperimage(images);
+        }
 
     }
     static class Teacher
@@ -160,14 +171,14 @@ public class Teacher_management extends AppCompatActivity {
     }
     public void set_value()
     {
-        TextView user_name=findViewById(R.id.teacher_user_name);
-        TextView user_phone=findViewById(R.id.teacher_user_phone);
-        TextView user_email=findViewById(R.id.teacher_user_email);
-        TextView user_batch=findViewById(R.id.teacher_user_batch);
-        TextView user_total=findViewById(R.id.teacher_total);
-        TextView user_extra=findViewById(R.id.teacher_extra);
-        TextView user_present=findViewById(R.id.teacher_present);
-        TextView user_sgm_id=findViewById(R.id.teacher_sgm_id);
+        TextView user_name=findViewById(R.id.teacher_member_name);
+        TextView user_phone=findViewById(R.id.teacher_member_contact);
+        TextView user_email=findViewById(R.id.teacher_member_mail);
+        TextView user_batch=findViewById(R.id.teacher_member_roll);
+        TextView user_total=findViewById(R.id.teacher_actual_days);
+        TextView user_extra=findViewById(R.id.teacher_extra_days);
+        TextView user_present=findViewById(R.id.teacher_present_days);
+        TextView user_sgm_id=findViewById(R.id.teacher_member_id);
 
         user_name.setText(teacher_info.getUser_name());
         user_email.setText(teacher_info.getEmail());
@@ -241,5 +252,18 @@ public class Teacher_management extends AppCompatActivity {
         dialog.setCanceledOnTouchOutside(false);
         dialog.getWindow().setAttributes(lp);
 
+    }
+
+    public void flipperimage(int image)
+    {
+        ImageView imageView=new ImageView(this);
+        imageView.setBackgroundResource(image);
+
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(4000);
+        viewFlipper.setAutoStart(true);
+
+        viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
+        viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
     }
 }
