@@ -52,7 +52,7 @@ public class list_member extends AppCompatActivity {
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {satus
 
                 for (final DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     if (!postSnapshot.getKey().equals("counter")) {

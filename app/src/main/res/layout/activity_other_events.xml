@@ -17,6 +17,29 @@
             android:layout_marginTop="20dp"
             android:orientation="vertical">
 
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SGM is continuously working in Student all around development"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/pacifico">
+
+
+                </TextView>
+            </com.google.android.material.card.MaterialCardView>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -31,21 +54,23 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/flipper_2"
+                    android:layout_height="250dp"
+                    android:background="@drawable/painting"
                     >
-
                 </ImageView>
-
-            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -61,6 +86,9 @@
 
             </TextView>
 
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,21 +103,24 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/flipper_2"
+                    android:layout_height="250dp"
+                    android:background="@drawable/science"
                     >
 
                 </ImageView>
-
-            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -105,6 +136,9 @@
 
             </TextView>
 
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
             <TextView
                 android:layout_width="match_parent"
                 android:gravity="center"
@@ -119,21 +153,24 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/flipper_2"
+                    android:layout_height="250dp"
+                    android:background="@drawable/dance"
                     >
 
                 </ImageView>
-
-            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -148,6 +185,10 @@
 
 
             </TextView>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </ScrollView>
