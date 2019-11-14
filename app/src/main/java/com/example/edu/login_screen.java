@@ -48,6 +48,7 @@ public class login_screen extends AppCompatActivity {
     public static TextInputLayout use;
     public static String complain,complain_name;
     ProgressDialog progressDialog;
+    static String type;
 
 
     @Override
@@ -127,8 +128,8 @@ public class login_screen extends AppCompatActivity {
             public void onClick(View view) {
 
                 progressDialog.setCancelable(false);
-                progressDialog.setTitle("please Wait...");
-                progressDialog.setMessage("checking your Email address and password");
+                progressDialog.setTitle("Please Wait...");
+                progressDialog.setMessage("Checking your email address and password");
                 progressDialog.show();
                 final String username= use.getEditText().getText().toString();
                 String password= pass.getEditText().getText().toString();
@@ -181,42 +182,43 @@ public class login_screen extends AppCompatActivity {
                                                                         if(dataSnapshot.getValue().toString().equals("administrator"))
                                                                         {
 
-                                                                            if (checkBox.isChecked())
-                                                                            {
+
                                                                                 editor.putInt("type",1);                       // for administrator the value of type in shared preference is 1
-                                                                            }
+
 
                                                                             Intent i=new Intent(login_screen.this,admin_management.class);
                                                                             editor.putString("userid",userid);
+                                                                            editor.putString("mail",username);
                                                                             editor.commit();
-                                                                            progressDialog.dismiss();
                                                                             startActivity(i);
+                                                                            progressDialog.dismiss();
 
 
                                                                         }
                                                                         else if(dataSnapshot.getValue().toString().equals("Teacher")) {
-                                                                            if (checkBox.isChecked()) {
+
                                                                                 editor.putInt("type", 2);
-                                                                            }
+
                                                                             Intent i=new Intent(login_screen.this,Teacher_management.class);
                                                                             editor.putString("userid",userid);
+                                                                            editor.putString("mail",username);
                                                                             editor.commit();
-                                                                            progressDialog.dismiss();
                                                                             startActivity(i);
+                                                                            progressDialog.dismiss();
 
                                                                         }
                                                                         else if(dataSnapshot.getValue().toString().equals("Management")) {
-                                                                            if (checkBox.isChecked()) {
+
                                                                                 editor.putInt("type", 3);
-                                                                            }
+
                                                                             Intent i=new Intent(login_screen.this,Profile_mgmt .class);
-                                                                            i.putExtra("mail",username);
-                                                                            i.putExtra("id",userid);
-
-
-
-                                                                            progressDialog.dismiss();
+                                                                            editor.putString("userid",userid);
+                                                                            editor.putString("mail",username);
+                                                                            editor.commit();
+                                                                            //i.putExtra("mail",username);
+                                                                            //i.putExtra("id",userid);
                                                                             startActivity(i);
+                                                                            progressDialog.dismiss();
 
                                                                         }
                                                                     }
