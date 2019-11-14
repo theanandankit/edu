@@ -10,6 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Management Schedule"
+            android:layout_marginLeft="20dp"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/aclonica">
+        </TextView>
+
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,8 +30,6 @@
             app:cardCornerRadius="30dp"
             app:cardElevation="20dp"
             app:cardBackgroundColor="@color/white">
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,6 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
+                    android:layout_margin="5dp"
                     android:text="1."
                     android:id="@+id/monday_no.1"/>
                 <TextView
@@ -87,12 +98,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:layout_margin="5dp"
                         android:text="2."
                         android:id="@+id/monday_no.2"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name: "
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/monday_no.2"
 
                         android:id="@+id/monday2"
@@ -102,6 +115,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/monday2"
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/monday_no.2"
                         android:orientation="horizontal">
                         <TextView
@@ -120,10 +134,6 @@
                             android:textAllCaps="true"/>
 
                     </LinearLayout>
-
-
-
-
 
                 </RelativeLayout>
 
@@ -163,12 +173,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:layout_margin="5dp"
                         android:text="1."
                         android:id="@+id/tuesday_no.1"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name: "
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/tuesday_no.1"
 
                         android:id="@+id/tuesday1"
@@ -178,6 +190,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tuesday1"
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/tuesday_no.1"
                         android:orientation="horizontal">
                         <TextView
@@ -197,10 +210,6 @@
 
                     </LinearLayout>
 
-
-
-
-
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -210,15 +219,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:text="2."
+                        android:layout_margin="5dp"
                         android:id="@+id/tuesday_no.2"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name: "
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/tuesday_no.2"
-
                         android:id="@+id/tuesday2"
                         android:textAllCaps="true"
                         />
@@ -226,6 +235,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tuesday2"
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/tuesday_no.2"
                         android:orientation="horizontal">
                         <TextView
@@ -244,11 +254,6 @@
                             android:textAllCaps="true"/>
 
                     </LinearLayout>
-
-
-
-
-
                 </RelativeLayout>
 
             </LinearLayout>
@@ -261,8 +266,6 @@
             app:cardCornerRadius="30dp"
             app:cardElevation="20dp"
             app:cardBackgroundColor="@color/white">
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -286,12 +289,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:layout_margin="5dp"
                         android:text="1."
                         android:id="@+id/wednesday_no.1"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name: "
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/wednesday_no.1"
 
                         android:id="@+id/wednesday1"
@@ -301,6 +306,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/wednesday1"
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/wednesday_no.1"
                         android:orientation="horizontal">
                         <TextView
@@ -320,10 +326,6 @@
 
                     </LinearLayout>
 
-
-
-
-
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -334,10 +336,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:layout_margin="5dp"
                         android:text="2."
                         android:id="@+id/wednesday_no.2"/>
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_margin="5dp"
                         android:layout_height="wrap_content"
                         android:text="Name: "
                         android:layout_toEndOf="@id/wednesday_no.2"
@@ -349,6 +353,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/wednesday2"
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/wednesday_no.2"
                         android:orientation="horizontal">
                         <TextView
@@ -368,10 +373,6 @@
 
                     </LinearLayout>
 
-
-
-
-
                 </RelativeLayout>
 
             </LinearLayout>
@@ -385,8 +386,6 @@
             app:cardCornerRadius="30dp"
             app:cardElevation="20dp"
             app:cardBackgroundColor="@color/white">
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -410,12 +409,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:layout_margin="5dp"
                         android:text="1."
                         android:id="@+id/thursday_no.1"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name: "
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/thursday_no.1"
 
                         android:id="@+id/thursday1"
@@ -425,6 +426,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/thursday1"
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/thursday_no.1"
                         android:orientation="horizontal">
                         <TextView
@@ -444,10 +446,6 @@
 
                     </LinearLayout>
 
-
-
-
-
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -456,6 +454,7 @@
                     >
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_margin="5dp"
                         android:layout_height="wrap_content"
 
                         android:text="2."
@@ -464,7 +463,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name: "
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/thursday_no.2"
+
 
                         android:id="@+id/thursday2"
                         android:textAllCaps="true"
@@ -473,6 +474,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/thursday2"
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/thursday_no.2"
                         android:orientation="horizontal">
                         <TextView
@@ -492,10 +494,6 @@
 
                     </LinearLayout>
 
-
-
-
-
                 </RelativeLayout>
 
             </LinearLayout>
@@ -508,8 +506,6 @@
             app:cardCornerRadius="30dp"
             app:cardElevation="20dp"
             app:cardBackgroundColor="@color/white">
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -533,12 +529,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:layout_margin="5dp"
                         android:text="1."
                         android:id="@+id/friday_no.1"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name: "
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/friday_no.1"
 
                         android:id="@+id/friday1"
@@ -548,6 +546,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/friday1"
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/friday_no.1"
                         android:orientation="horizontal">
                         <TextView
@@ -567,10 +566,6 @@
 
                     </LinearLayout>
 
-
-
-
-
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -581,6 +576,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:layout_margin="5dp"
                         android:text="2."
                         android:id="@+id/friday_no.2"/>
                     <TextView
@@ -589,12 +585,14 @@
                         android:text="Name: "
                         android:layout_toEndOf="@id/friday_no.2"
 
+                        android:layout_margin="5dp"
                         android:id="@+id/friday2"
                         android:textAllCaps="true"
                         />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:layout_below="@id/friday2"
                         android:layout_toEndOf="@id/friday_no.2"
                         android:orientation="horizontal">
@@ -614,13 +612,7 @@
                             android:textAllCaps="true"/>
 
                     </LinearLayout>
-
-
-
-
-
                 </RelativeLayout>
-
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
         <com.google.android.material.card.MaterialCardView
@@ -631,8 +623,6 @@
             app:cardCornerRadius="30dp"
             app:cardElevation="20dp"
             app:cardBackgroundColor="@color/white">
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -649,13 +639,13 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    >
+                    android:layout_margin="5dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:layout_margin="5dp"
                         android:text="1."
                         android:id="@+id/saturday_no.1"/>
                     <TextView
@@ -664,6 +654,7 @@
                         android:text="Name: "
                         android:layout_toEndOf="@id/saturday_no.1"
 
+                        android:layout_margin="5dp"
                         android:id="@+id/saturday1"
                         android:textAllCaps="true"
                         />
@@ -671,6 +662,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/saturday1"
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/saturday_no.1"
                         android:orientation="horizontal">
                         <TextView
@@ -689,11 +681,6 @@
                             android:textAllCaps="true"/>
 
                     </LinearLayout>
-
-
-
-
-
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -704,6 +691,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:layout_margin="5dp"
                         android:text="2."
                         android:id="@+id/saturday_no.2"/>
                     <TextView
@@ -712,6 +700,7 @@
                         android:text="Name: "
                         android:layout_toEndOf="@id/saturday_no.2"
 
+                        android:layout_margin="5dp"
                         android:id="@+id/saturday2"
                         android:textAllCaps="true"
                         />
@@ -719,6 +708,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/saturday2"
+                        android:layout_margin="5dp"
                         android:layout_toEndOf="@id/saturday_no.2"
                         android:orientation="horizontal">
                         <TextView
@@ -735,13 +725,10 @@
                             android:text="Batch: "
                             android:id="@+id/saturday_batch2"
                             android:textAllCaps="true"/>
+
                     </LinearLayout>
-
                 </RelativeLayout>
-
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
-
     </LinearLayout>
-
 </ScrollView>
