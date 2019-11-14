@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background"
+    android:background="@drawable/bg"
     tools:context=".action_screen"
     >
     <ScrollView
@@ -180,7 +180,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    app:rippleColor="@color/ripple"
+                    app:rippleColor="@color/background"
                     android:layout_weight="1"
                     android:id="@+id/action_schedule"
                     app:cardCornerRadius="50dp"
@@ -304,6 +304,7 @@
                         android:textColor="@color/buttonred"
                         android:layout_margin="5dp"
                         android:textSize="15dp"
+                        android:id="@+id/login_text"
                         android:fontFamily="@font/aclonica">
                     </TextView>
 

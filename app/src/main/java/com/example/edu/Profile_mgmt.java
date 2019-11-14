@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -42,6 +44,7 @@ public class Profile_mgmt extends AppCompatActivity {
     ViewFlipper viewFlipper;
     FirebaseAuth auth;
     ImageButton b;
+    SharedPreferences pref;
 
 
     @Override
@@ -67,6 +70,7 @@ public class Profile_mgmt extends AppCompatActivity {
         present=(TextView)findViewById(R.id.present_days);
         complains=findViewById(R.id.complain_mgmt);
         auth=FirebaseAuth.getInstance();
+        pref= PreferenceManager.getDefaultSharedPreferences(Profile_mgmt.this);
 
         viewFlipper=findViewById(R.id.management_flipper);
         int image[]={R.drawable.management_flipper1,R.drawable.management_flipper2};
@@ -85,8 +89,8 @@ public class Profile_mgmt extends AppCompatActivity {
             }
         });
 
-        mail.setText(i.getStringExtra("mail"));
-        String Id=i.getStringExtra("id");
+        mail.setText(pref.getString("mail","000"));
+        String Id=pref.getString("userid","000");
         id.setText(Id);
         user= FirebaseDatabase.getInstance().getReference().child("teacher_info").child(Id);
         user.addValueEventListener(new ValueEventListener() {
@@ -143,6 +147,7 @@ public class Profile_mgmt extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Logging you out", Toast.LENGTH_SHORT).show();
         Intent i=new Intent(Profile_mgmt.this,action_screen.class);
         startActivity(i);
+        pref.edit().clear();
     }
 
 }
