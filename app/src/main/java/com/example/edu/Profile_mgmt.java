@@ -58,7 +58,7 @@ public class Profile_mgmt extends AppCompatActivity {
         View view = getSupportActionBar().getCustomView();
         b=(ImageButton)view.findViewById(R.id.home);
         TextView textView=(TextView)view.findViewById(R.id.tab_name);
-        textView.setText("Management Member");
+        textView.setText("Management ");
         takeAttendance=findViewById(R.id.goto_attendance);
         name=(TextView)findViewById(R.id.member_name);
         id=(TextView)findViewById(R.id.member_id);
