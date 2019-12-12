@@ -15,7 +15,7 @@
         <activity android:name=".other_events"></activity>
         <activity android:name=".sunday_activity" />
         <activity android:name=".date_monitoring" />
-        <activity android:name=".Profile_mgmt" />
+        <activity android:name=".Profile_mgmt" android:screenOrientation="fullSensor" />
         <activity android:name=".schedule_view" />
         <activity android:name=".complain_viewer_activity" />
         <activity android:name=".member_monitoring" />
@@ -34,8 +34,8 @@
         <activity
             android:name=".Management_screen"
             android:label="Teacher Attendance" />
-        <activity android:name=".login_screen" />
-        <activity android:name=".action_screen" />
+        <activity android:name=".login_screen" android:screenOrientation="fullSensor"/>
+        <activity android:name=".action_screen" android:screenOrientation="fullSensor" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/full_screen">

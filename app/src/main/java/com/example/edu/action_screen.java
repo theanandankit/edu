@@ -1,5 +1,6 @@
 package com.example.edu;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -12,12 +13,14 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class action_screen extends AppCompatActivity  {
     ViewFlipper viewFlipper;
@@ -29,6 +32,9 @@ public class action_screen extends AppCompatActivity  {
     CardView action_scedule;
     CardView other_activity;
     CardView sunday_activity;
+    Button logout;
+   FirebaseAuth.AuthStateListener authStateListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +43,11 @@ public class action_screen extends AppCompatActivity  {
         this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
         getSupportActionBar().setCustomView(R.layout.general_actionbar);
-        getSupportActionBar().setElevation(10);
+        getSupportActionBar().setElevation(200);
         View view = getSupportActionBar().getCustomView();
+        logout=(Button)view.findViewById(R.id.logout);
+        logout.setVisibility(View.INVISIBLE);
+        logout.setEnabled(false);
         TextView textView=(TextView)view.findViewById(R.id.tab_name);
         textView.setText("Home");
         Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.berkshireswash);
@@ -60,7 +69,21 @@ public class action_screen extends AppCompatActivity  {
         {
             flipperimage(images);
         }
+        authStateListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                 FirebaseUser user=firebaseAuth.getCurrentUser();
+                if(user==null)
+                {
+                    login_text.setText("Login");
+                    logout.setVisibility(View.INVISIBLE);
+                    logout.setEnabled(false);
+                }
+
+            }
+        };
     }
+
 
     public void flipperimage(int image)
     {
@@ -78,6 +101,7 @@ public class action_screen extends AppCompatActivity  {
     @Override
     protected void onStart() {
         super.onStart();
+        auth.addAuthStateListener(authStateListener);
 
 
 
@@ -107,10 +131,22 @@ public class action_screen extends AppCompatActivity  {
                 startActivity(i);
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.signOut();
+
+            }
+        });
         if(auth.getCurrentUser()!=null)
         {
             login_text.setText("Visit your page");
+            logout.setVisibility(View.VISIBLE);
+            logout.setEnabled(true);
+
+
         }
+
         mana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
