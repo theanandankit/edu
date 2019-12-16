@@ -1,395 +1,446 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/bg_profile_mgmt"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Profile_mgmt">
-
+    android:background="@drawable/listviewbg">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_margin="15dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="20dp"
-        app:cardBackgroundColor="@color/white">
-
-        <ViewFlipper
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/management_flipper">
-
-        </ViewFlipper>
-
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="The Secret in Education Lies in Respecting the Student \n -Ralph Waldo Emerson"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="18dp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/stylish">
-    </TextView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Personal Information"
-        android:layout_marginLeft="20dp"
-        android:textSize="18dp"
-        android:textColor="@color/colorPrimary"
-        android:fontFamily="@font/aclonica">
-    </TextView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="50dp"
-        app:rippleColor="@color/ripple"
-        android:id="@+id/management"
-        app:cardElevation="20dp"
-        app:cardBackgroundColor="@color/white">
+        >
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:id="@+id/member_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:fontFamily="@font/aclonica"
-                android:layout_gravity="center_horizontal"
-                android:textSize="30sp"
-                android:text="Ankit"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
-
-
-            <TextView
-                android:id="@+id/member_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:fontFamily="@font/aclonica"
-                android:layout_gravity="center_horizontal"
-                android:textSize="15dp"
-                android:text="SGM-XX"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
-
-            <TextView
-                android:id="@+id/member_roll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/aclonica"
-                android:textSize="15sp"
-                android:text="2018IMg-XXX"
-                android:layout_gravity="center_horizontal"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
-
-            <TextView
-                android:id="@+id/member_mail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/aclonica"
-                android:layout_gravity="center_horizontal"
-                android:textSize="15sp"
-                android:text="pata_nai@kuchbhi.com"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
-
-            <TextView
-                android:id="@+id/member_contact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/aclonica"
-                android:layout_gravity="center_horizontal"
-                android:textSize="15sp"
-                android:text="10 digit no"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Progress"
-        android:layout_marginLeft="20dp"
-        android:textSize="18dp"
-        android:textColor="@color/colorPrimary"
-        android:fontFamily="@font/aclonica">
-    </TextView>
-
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="50dp"
-        app:rippleColor="@color/ripple"
-        app:cardElevation="20dp"
-        app:cardBackgroundColor="@color/white">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:layout_margin="10dp">
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical">
-        <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:text="Actual Days"
-            android:fontFamily="@font/above"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-            android:textSize="20sp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:id="@+id/actual_days"
-                android:text="0"
-                android:textAlignment="center"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:text="Present Days"
-                android:fontFamily="@font/above"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textAlignment="center"
-                android:textColor="@color/black"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:id="@+id/present_days"
-                android:textAlignment="center"
-                android:text="0"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:text="Extra \nDays"
-                android:fontFamily="@font/above"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textAlignment="center"
-                android:textColor="@color/black"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:id="@+id/extra_days"
-                android:textAlignment="center"
-                android:inputType="number"
-                android:text="0"/>
-        </LinearLayout>
-
-    </LinearLayout>
 
 
-    </com.google.android.material.card.MaterialCardView>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Management Feature"
-                android:layout_marginLeft="20dp"
-                android:textSize="18dp"
-                android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/aclonica">
-            </TextView>
-
-
-            <com.google.android.material.card.MaterialCardView
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:id="@+id/goto_attendance"
-                android:layout_weight="1"
-                app:cardCornerRadius="50dp"
-                app:cardElevation="20dp"
-                app:cardBackgroundColor="@color/white">
+                android:layout_marginTop="-40dp"
+                >
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:background="@drawable/reverse_bg" />
                 <LinearLayout
+                    android:id="@+id/rl_two_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="50dp"
+                    android:orientation="vertical"
+                    >
 
-                    <LinearLayout
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:orientation="vertical">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_margin="15dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="20dp"
+                        app:cardBackgroundColor="@color/white">
 
-                        <ImageView
+                        <ViewFlipper
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/ic_assignment"
                             android:layout_gravity="center_horizontal"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            />
+                            android:id="@+id/management_flipper">
+
+                        </ViewFlipper>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="The Secret in Education Lies in Respecting the Student \n -Ralph Waldo Emerson"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/stylish">
+                    </TextView>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/gloria_hallelujah"
+                    android:text="Personal Information"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    app:cardCornerRadius="25dp"
+                    app:rippleColor="@color/ripple"
+                    android:id="@+id/management"
+                    app:cardElevation="20dp"
+                    app:cardBackgroundColor="@color/white">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/member_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/architects_daughter"
+                            android:text="Ankit"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                            android:textColor="@color/black"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/member_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/architects_daughter"
+                            android:text="SGM-XX"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/member_roll"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/architects_daughter"
+                            android:text="2018IMg-XXX"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/member_mail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/architects_daughter"
+                            android:text="pata_nai@kuchbhi.com"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/member_contact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/architects_daughter"
+                            android:text="10 digit no"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
                     </LinearLayout>
 
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/gloria_hallelujah"
+                    android:text="Progress"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="50dp"
+                    app:rippleColor="@color/ripple"
+                    app:cardElevation="20dp"
+                    app:cardBackgroundColor="@color/white">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-
-                        <TextView
-                            android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:layout_margin="10dp">
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Take Attendance"
-                            android:gravity="center"
-                            android:textColor="@color/buttonred"
-                            android:layout_margin="5dp"
-                            android:textSize="15dp"
-                            android:fontFamily="@font/aclonica">
-                        </TextView>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:gravity="center"
-                            android:fontFamily="@font/stylish"
-                            android:textSize="15dp"
-                            android:layout_margin="5dp"
-                            android:text="Day to Day Responsibility of Teacher as well as Management Team."
-                            android:layout_height="wrap_content">
-
-                        </TextView>
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:text="Actual Days"
+                                android:fontFamily="@font/above"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textAlignment="center"
+                                android:textSize="20sp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/actual_days"
+                                android:text="0"
+                                android:textAlignment="center"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:text="Present Days"
+                                android:fontFamily="@font/above"
+                                android:textStyle="bold"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/present_days"
+                                android:textAlignment="center"
+                                android:text="0"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:text="Extra \nDays"
+                                android:fontFamily="@font/above"
+                                android:textStyle="bold"
+                                android:textSize="20sp"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/extra_days"
+                                android:textAlignment="center"
+                                android:inputType="number"
+                                android:text="0"/>
+                        </LinearLayout>
 
                     </LinearLayout>
 
-                </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
 
-            </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Management Feature"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/gloria_hallelujah"
+                    android:textStyle="bold">
+                </TextView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:id="@+id/complain_mgmt"
-                android:layout_weight="1"
-                app:cardCornerRadius="50dp"
-                app:cardElevation="20dp"
-                app:cardBackgroundColor="@color/white">
-                <LinearLayout
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/complian"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            />
-                    </LinearLayout>
-
-
+                    android:layout_margin="5dp"
+                    android:id="@+id/goto_attendance"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="20dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:rippleColor="@color/background"
+                    android:stateListAnimator="@animator/card">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="horizontal"
+                       >
+
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ic_assignment"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                />
+                        </LinearLayout>
 
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Complain"
-                            android:gravity="center"
-                            android:textColor="@color/buttonred"
-                            android:layout_margin="5dp"
-                            android:textSize="15dp"
-                            android:fontFamily="@font/aclonica">
-                        </TextView>
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:gravity="center"
-                            android:fontFamily="@font/stylish"
-                            android:textSize="15dp"
-                            android:layout_margin="5dp"
-                            android:text="Day to Day Responsibility of Teacher as well as Management Team."
-                            android:layout_height="wrap_content">
 
-                        </TextView>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Take Attendance"
+                                android:gravity="center"
+                                android:textColor="@color/buttonred"
+                                android:layout_margin="5dp"
+                                android:textSize="18dp"
+                                android:fontFamily="@font/above"
+                                android:textStyle="bold">
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:gravity="center"
+                                android:fontFamily="@font/stylish"
+                                android:textSize="15dp"
+                                android:layout_margin="5dp"
+                                android:text="Day to Day Responsibility of Teacher as well as Management Team."
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
-                </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:id="@+id/complain_mgmt"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="20dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:rippleColor="@color/background"
+                    android:stateListAnimator="@animator/card">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/complian"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Complain"
+                                android:gravity="center"
+                                android:textColor="@color/buttonred"
+                                android:layout_margin="5dp"
+                                android:textSize="18dp"
+                                android:fontFamily="@font/above"
+                                android:textStyle="bold">
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:gravity="center"
+                                android:fontFamily="@font/stylish"
+                                android:textSize="15dp"
+                                android:layout_margin="5dp"
+                                android:text="Day to Day Responsibility of Teacher as well as Management Team."
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+
 
         </LinearLayout>
     </ScrollView>
+
+
 
 </LinearLayout>
