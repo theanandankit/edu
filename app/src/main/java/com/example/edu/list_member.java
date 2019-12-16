@@ -2,20 +2,24 @@ package com.example.edu;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,11 +40,32 @@ public class list_member extends AppCompatActivity {
     public static int counter;
     public static String name;
     TextView nam;
+    ImageButton b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_member);
+        this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.general_actionbar);
+        getSupportActionBar().setElevation(10);
+        View view = getSupportActionBar().getCustomView();
+        view.findViewById(R.id.logout).setVisibility(View.INVISIBLE);
+        view.findViewById(R.id.logout).setEnabled(false);
+        b=(ImageButton)view.findViewById(R.id.home);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(list_member.this,action_screen.class);
+                startActivity(i);
+            }
+        });
+        TextView textView=(TextView)view.findViewById(R.id.tab_name);
+        textView.setText("Members");
+        Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.pacifico);
+        textView.setTextColor(getResources().getColor(R.color.white));
+        textView.setTypeface(typeface);
 
         final ListView listView1 = findViewById(R.id.recyclerView);
 

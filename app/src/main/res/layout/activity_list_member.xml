@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".list_member">
+    tools:context=".list_member"
+    android:background="@drawable/listmember_bg">
 
    <ListView
        android:layout_width="match_parent"
        android:scrollingCache="false"
        android:smoothScrollbar="true"
        android:layout_height="wrap_content"
-       android:id="@+id/recyclerView">
+       android:id="@+id/recyclerView"
+       android:layout_margin="4dp"
+       android:background="@android:color/transparent">
 
    </ListView>
 

@@ -22,14 +22,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Student Gyan \n Movement"
-                android:layout_margin="15dp"
-                android:textSize="30dp"
-                android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/berkshireswash"
                 android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:fontFamily="@font/rock_salt"
+                android:textStyle="bold"
                 android:gravity="center"
-                >
+                android:text="Student Gyan Movement"
+                android:textColor="@color/colorPrimary"
+                android:textSize="33dp">
+
             </TextView>
 
 
@@ -55,12 +56,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="About SGM"
                 android:layout_marginLeft="20dp"
-                android:textSize="18dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/give_you_glory"
+                android:text="About SGM"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/aclonica">
+                android:textSize="25sp"
+                android:textStyle="bold">
+
             </TextView>
 
 
@@ -108,10 +111,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="General Features"
-                android:layout_marginLeft="20dp"
-                android:textSize="18dp"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/aclonica">
+                android:layout_marginLeft="20dp"
+                android:textSize="25sp"
+                android:fontFamily="@font/give_you_glory"
+                android:textStyle="bold">
             </TextView>
 
                 <com.google.android.material.card.MaterialCardView
@@ -153,22 +157,24 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Schedule"
-                                android:gravity="center"
-                                android:textColor="@color/buttonred"
                                 android:layout_margin="5dp"
-                                android:textSize="15dp"
-                                android:fontFamily="@font/aclonica">
+                                android:fontFamily="@font/amatica_sc_bold"
+                                android:gravity="center"
+                                android:text="Schedule"
+                                android:textColor="@color/buttonred"
+                                android:textSize="30dp"
+                                android:textStyle="bold">
+
                             </TextView>
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:gravity="center"
-                                android:fontFamily="@font/stylish"
-                                android:textSize="15dp"
+                                android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
+                                android:fontFamily="@font/stylish"
+                                android:gravity="center"
                                 android:text="Day to Day Responsibility of Teacher as well as Management Team."
-                                android:layout_height="wrap_content">
+                                android:textSize="15dp">
 
                             </TextView>
 
@@ -226,8 +232,10 @@
                                 android:gravity="center"
                                 android:textColor="@color/buttonred"
                                 android:layout_margin="5dp"
-                                android:textSize="15dp"
-                                android:fontFamily="@font/aclonica">
+
+                                android:fontFamily="@font/amatica_sc_bold"
+                                android:textSize="30dp"
+                                android:textStyle="bold">
                             </TextView>
 
                             <TextView
@@ -254,9 +262,10 @@
                 android:layout_marginTop="20dp"
                 android:text="Member Features"
                 android:layout_marginLeft="20dp"
-                android:textSize="18dp"
+                android:textSize="25sp"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/aclonica">
+                android:fontFamily="@font/give_you_glory"
+                android:textStyle="bold">
             </TextView>
 
 
@@ -308,9 +317,10 @@
                         android:gravity="center"
                         android:textColor="@color/buttonred"
                         android:layout_margin="5dp"
-                        android:textSize="15dp"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
                         android:id="@+id/login_text"
-                        android:fontFamily="@font/aclonica">
+                        android:fontFamily="@font/amatica_sc_bold">
                     </TextView>
 
                     <TextView
@@ -337,9 +347,10 @@
                 android:layout_marginTop="20dp"
                 android:text="Activities"
                 android:layout_marginLeft="20dp"
-                android:textSize="18dp"
+                android:textSize="25sp"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/aclonica">
+                android:fontFamily="@font/give_you_glory"
+                android:textStyle="bold">
             </TextView>
 
             <com.google.android.material.card.MaterialCardView
@@ -389,8 +400,9 @@
                             android:gravity="center"
                             android:textColor="@color/buttonred"
                             android:layout_margin="5dp"
-                            android:textSize="15dp"
-                            android:fontFamily="@font/aclonica">
+                            android:textSize="30dp"
+                            android:fontFamily="@font/amatica_sc_bold"
+                            android:textStyle="bold">
                         </TextView>
 
                         <TextView
@@ -458,8 +470,9 @@
                             android:gravity="center"
                             android:textColor="@color/buttonred"
                             android:layout_margin="5dp"
-                            android:textSize="15dp"
-                            android:fontFamily="@font/aclonica">
+                            android:textSize="30sp"
+                            android:fontFamily="@font/amatica_sc_bold"
+                            android:textStyle="bold">
                         </TextView>
 
                         <TextView
@@ -484,5 +497,7 @@
         </LinearLayout>
 
     </ScrollView>
+
+
 
 </LinearLayout>
