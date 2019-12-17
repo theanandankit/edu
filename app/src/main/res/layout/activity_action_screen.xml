@@ -119,6 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
+                    android:id="@+id/action_schedule_main"
                     app:cardCornerRadius="50dp"
                     app:cardElevation="20dp"
                     app:cardBackgroundColor="@color/white"

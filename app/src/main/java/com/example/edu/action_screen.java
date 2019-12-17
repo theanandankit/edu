@@ -42,6 +42,7 @@ public class action_screen extends AppCompatActivity  {
         setContentView(R.layout.activity_action_screen);
         this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
+        CardView action_schedule=findViewById(R.id.action_schedule_main);
         getSupportActionBar().setCustomView(R.layout.general_actionbar);
         getSupportActionBar().setElevation(200);
         View view = getSupportActionBar().getCustomView();
@@ -59,7 +60,14 @@ public class action_screen extends AppCompatActivity  {
         auth=FirebaseAuth.getInstance();
         login_text=(TextView)findViewById(R.id.login_text);
 
+action_schedule.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
 
+        Intent i=new Intent(getApplicationContext(),schedule_view.class);
+        startActivity(i);
+    }
+});
 
         viewFlipper=findViewById(R.id.flipper);
 
