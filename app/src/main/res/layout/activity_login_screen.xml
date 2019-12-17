@@ -44,12 +44,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="@font/covered_by_your_grace"
                         android:text="H O L A!"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="32sp"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/sofia"/>
+                        android:textSize="45sp"
+                        android:textStyle="bold" />
 
                     <!--TextView
                         android:layout_width="match_parent"
@@ -97,12 +98,13 @@
                     android:id="@+id/cv_one_login"
                     android:layout_margin="5dp"
                     app:cardBackgroundColor="@color/white"
-                    app:strokeWidth="2dp"
-                    android:padding="30dp"
+                    app:strokeWidth="0dp"
                     app:strokeColor="@color/colorPrimary"
-                    app:cardElevation="100dp"
-                    android:outlineProvider="none"
-                    app:cardCornerRadius="37dp">
+                    android:layout_weight="1"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="4.2dp"
+
+                    android:stateListAnimator="@animator/card">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -172,7 +174,7 @@
                                 android:layout_gravity="center_horizontal"
 
                                 />
-                            <com.google.android.material.button.MaterialButton
+                            <!--com.google.android.material.button.MaterialButton
                                 android:id="@+id/login"
                                 android:layout_width="wrap_content"
                                 android:layout_gravity="center"
@@ -189,7 +191,31 @@
                                 app:cornerRadius="17dp"
 
                                 app:elevation="200dp"
-                                style="@style/Widget.MaterialComponents.Button"/>
+                                style="@style/Widget.MaterialComponents.Button"/-->
+
+
+                            <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+                                android:id="@+id/btn_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/roundbutton"
+                                android:fontFamily="@font/covered_by_your_grace"
+                                android:paddingStart="70dp"
+                                android:paddingTop="-45dp"
+                                android:paddingEnd="70dp"
+                                android:paddingBottom="-45dp"
+                                android:text="L o g i n"
+                                android:textColor="@color/white"
+                                android:textSize="17sp"
+
+                                android:textStyle="bold"
+                                app:initialCornerAngle="60dp"
+                                app:spinning_bar_color="@color/black" />
+
+
+
                             <com.google.android.material.checkbox.MaterialCheckBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -247,5 +273,7 @@
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
+
+
 
 </LinearLayout>

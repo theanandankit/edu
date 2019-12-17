@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e72d356c-5dc1-4305-97da-e24bcafae914" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/crop.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/polygons.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../font/rock_salt.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../values/font_certs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../values/preloaded_fonts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/edu/Profile_mgmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/edu/Profile_mgmt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/edu/list_member.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/edu/list_member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/example/edu/login_screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/example/edu/login_screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../drawable/roundbutton.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../drawable/roundbutton.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layout/activity_action_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layout/activity_action_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layout/activity_list_member.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layout/activity_list_member.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layout/activity_login_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layout/activity_login_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layout/activity_profile_mgmt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layout/activity_profile_mgmt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layout/activity_show__attendance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layout/activity_show__attendance.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../layout/list_member_adapter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../layout/list_member_adapter.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../build.gradle" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="83" />
+    <option name="y" value="77" />
+    <option name="width" value="770" />
+    <option name="height" value="625" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="drawable-v24" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drawable-v24" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="drawable-v24" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drawable-v24" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="drawable-v24" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\medhavi\Documents\GitEdu\edu\app\src\main\res\drawable-v24" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e72d356c-5dc1-4305-97da-e24bcafae914" name="Default Changelist" comment="" />
+      <created>1576433615322</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576433615322</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="67" y="62" width="616" height="500" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.88309354" />
+      <window_info id="Structure" side_tool="true" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="Resources Explorer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Captures" order="0" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="TODO" />
+      <window_info anchor="bottom" id="Run" />
+      <window_info anchor="bottom" id="Debug" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Flutter Performance" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Flutter Inspector" />
+      <window_info anchor="right" id="Flutter Outline" />
+      <window_info anchor="right" id="Palette&#9;" />
+    </layout>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

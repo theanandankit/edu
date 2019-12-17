@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/amatica_sc_bold</item>
+        <item>@font/architects_daughter</item>
+        <item>@font/cormorant_upright_bold</item>
+        <item>@font/covered_by_your_grace</item>
+        <item>@font/give_you_glory</item>
+        <item>@font/gloria_hallelujah</item>
+        <item>@font/luckiest_guy</item>
+        <item>@font/over_the_rainbow</item>
+        <item>@font/rock_salt</item>
+    </array>
+</resources>

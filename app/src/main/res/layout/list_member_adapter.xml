@@ -1,67 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:layout_marginBottom="2dp"
+    android:padding="3dp">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:elevation="3dp">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="5dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ankit"
-        android:id="@+id/member_list_name"
-        android:textSize="20dp"
-        android:fontFamily="@font/aclonica"
-        android:textColor="@color/colorPrimary"
-        android:layout_margin="5dp">
-    </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2018IMG-XXX"
-            android:id="@+id/member_list_roll"
-            android:textSize="15dp"
-            android:fontFamily="@font/aclonica"
-            android:textColor="@color/colorPrimary"
+            android:orientation="vertical"
             android:layout_margin="5dp">
-        </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="90XXXXXXXX"
-                android:id="@+id/member_list_contact"
-                android:textSize="15dp"
-                android:fontFamily="@font/aclonica"
-                android:textColor="@color/colorPrimary"
+                android:orientation="horizontal"
+                android:layout_weight="1"
                 android:layout_margin="5dp">
-            </TextView>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_insert_emoticon_black_24dp"
+                    android:layout_gravity="center"
+                    />
 
-            <TextView
+                <TextView
+                    android:id="@+id/member_list_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/luckiest_guy"
+                    android:text="Ankit"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20dp"
+                   >
+
+                </TextView>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_portrait_black_24dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/member_list_roll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="casual"
+                    android:text="2018IMG-XXX"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="17sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_margin="5dp">
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ankitanand2909@gmail.com"
-                android:textSize="10dp"
+                android:src="@drawable/ic_contact_mail_black_24dp"
+                android:layout_gravity="center"/>
+
+            <TextView
                 android:id="@+id/member_list_email"
-                android:fontFamily="@font/aclonica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="casual"
+                android:text="ankitanand2909@gmail.com"
                 android:textColor="@color/colorPrimary"
-                android:layout_margin="5dp">
+                android:textSize="17sp"
+                android:textStyle="bold">
+
             </TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_margin="5dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_contact_phone_black_24dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/member_list_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="casual"
+                android:text="90XXXXXXXX"
+                android:textColor="@color/colorPrimary"
+                android:textSize="17sp"
+                android:textStyle="bold">
+
+            </TextView>
+        </LinearLayout>
+
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_margin="10dp"
             android:gravity="center">
@@ -76,4 +152,6 @@
 
         </LinearLayout>
     </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
 </LinearLayout>

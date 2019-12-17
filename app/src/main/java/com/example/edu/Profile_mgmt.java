@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,6 +21,7 @@ import android.widget.ViewFlipper;
 
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,6 +47,8 @@ public class Profile_mgmt extends AppCompatActivity {
     FirebaseAuth auth;
     ImageButton b;
     SharedPreferences pref;
+    Button logout;
+    FirebaseAuth.AuthStateListener authStateListener;
 
 
     @Override
@@ -57,6 +61,28 @@ public class Profile_mgmt extends AppCompatActivity {
         getSupportActionBar().setElevation(10);
         View view = getSupportActionBar().getCustomView();
         b=(ImageButton)view.findViewById(R.id.home);
+        logout=(Button)view.findViewById(R.id.logout);
+        authStateListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user=firebaseAuth.getCurrentUser();
+                if(user==null)
+                {
+                   Intent i=new Intent(Profile_mgmt.this, action_screen.class);
+                   startActivity(i);
+                }
+
+            }
+        };
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Logging you out", Toast.LENGTH_SHORT).show();
+                auth.signOut();
+
+            }
+        });
+
         TextView textView=(TextView)view.findViewById(R.id.tab_name);
         textView.setText("Management ");
         takeAttendance=findViewById(R.id.goto_attendance);
@@ -143,11 +169,16 @@ public class Profile_mgmt extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
-        auth.signOut();
-        Toast.makeText(getApplicationContext(), "Logging you out", Toast.LENGTH_SHORT).show();
+        //auth.signOut();
+        //Toast.makeText(getApplicationContext(), "Logging you out", Toast.LENGTH_SHORT).show();
         Intent i=new Intent(Profile_mgmt.this,action_screen.class);
         startActivity(i);
-        pref.edit().clear();
+        //pref.edit().clear();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        auth.addAuthStateListener(authStateListener);
+    }
 }
