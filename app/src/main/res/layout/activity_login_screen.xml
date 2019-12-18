@@ -28,8 +28,8 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="450dp"
-                    android:background="@drawable/bg" />
+                    android:layout_height="420dp"
+                    android:background="@drawable/loginbg" />
 
                 <LinearLayout
                     android:id="@+id/rl_two_login"

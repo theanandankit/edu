@@ -85,9 +85,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/gloria_hallelujah"
                     android:text="Personal Information"
                     android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/gloria_hallelujah"
                     android:textSize="25sp"
                     android:textStyle="bold">
 
@@ -116,9 +116,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:fontFamily="@font/architects_daughter"
                             android:text="Ankit"
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                            android:fontFamily="@font/architects_daughter"
                             android:textColor="@color/black"
                             android:textSize="30sp"
                             android:textStyle="bold" />

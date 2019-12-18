@@ -1,12 +1,15 @@
 package com.example.edu;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -15,12 +18,15 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,11 +38,54 @@ public class Teacher_management extends AppCompatActivity {
     CardView cardView_teacher_complain;
     public static String userid;
     ViewFlipper viewFlipper;
+    ImageButton b;
+    Button logout;
+    FirebaseAuth auth;
+    FirebaseAuth.AuthStateListener authStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_management);
+        this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.general_actionbar);
+        getSupportActionBar().setElevation(10);
+        View view = getSupportActionBar().getCustomView();
+        b=(ImageButton)view.findViewById(R.id.home);
+        logout=(Button)view.findViewById(R.id.logout);
+        TextView textView=(TextView)view.findViewById(R.id.tab_name);
+        textView.setText("Teacher");
+        Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.berkshireswash);
+        textView.setTextColor(getResources().getColor(R.color.white));
+        auth=FirebaseAuth.getInstance();
+        authStateListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user=firebaseAuth.getCurrentUser();
+                if(user==null)
+                {
+                    Intent i=new Intent(Teacher_management.this, action_screen.class);
+                    startActivity(i);
+                }
+
+            }
+        };
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Logging you out", Toast.LENGTH_SHORT).show();
+                auth.signOut();
+
+            }
+        });
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Teacher_management.this,action_screen.class);
+                startActivity(i);
+            }
+        });
 
         cardView_teacher_complain=findViewById(R.id.teacher_complain_mgmt);
         SharedPreferences pref= PreferenceManager.getDefaultSharedPreferences(Teacher_management.this);
@@ -265,5 +314,11 @@ public class Teacher_management extends AppCompatActivity {
 
         viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
         viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        auth.addAuthStateListener(authStateListener);
     }
 }

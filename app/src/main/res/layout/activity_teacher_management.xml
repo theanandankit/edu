@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Teacher_management">
+    tools:context=".Teacher_management"
+    android:background="@drawable/listviewbg">
 
 
     <ScrollView
@@ -14,57 +15,80 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.card.MaterialCardView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_margin="15dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="20dp"
-                app:cardBackgroundColor="@color/white">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-40dp"
+                >
 
-                <ViewFlipper
+
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/teacher_flipper">
+                    android:layout_height="400dp"
+                    android:background="@drawable/reverse_bg"
+                     />
+                <LinearLayout
+                    android:id="@+id/rl_two_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:orientation="vertical"
+                    >
 
-                </ViewFlipper>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_margin="15dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="20dp"
+                        app:cardBackgroundColor="@color/white">
+
+                        <ViewFlipper
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:id="@+id/teacher_flipper">
+
+                        </ViewFlipper>
 
 
-            </com.google.android.material.card.MaterialCardView>
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="The Secret in Education Lies in Respecting the Student \n -Ralph Waldo Emerson"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/stylish">
+                    </TextView>
+                </LinearLayout>
 
+
+            </RelativeLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="The Secret in Education Lies in Respecting the Student \n -Ralph Waldo Emerson"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textSize="18dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/stylish">
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="personal Information"
+                android:text="Personal Information"
                 android:layout_marginLeft="20dp"
-                android:textSize="18dp"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/aclonica">
+                android:fontFamily="@font/gloria_hallelujah"
+                android:textSize="25sp"
+                android:textStyle="bold">
             </TextView>
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="50dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="25dp"
                 app:rippleColor="@color/ripple"
                 android:id="@+id/management"
                 app:cardElevation="20dp"
@@ -81,11 +105,13 @@
                         android:id="@+id/teacher_member_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/architects_daughter"
                         android:textColor="@color/black"
-                        android:fontFamily="@font/aclonica"
-                        android:layout_gravity="center_horizontal"
                         android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"
                         android:text="Ankit"
+                        android:textAlignment="center"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
 
 
@@ -93,10 +119,12 @@
                         android:id="@+id/teacher_member_id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/aclonica"
                         android:layout_gravity="center_horizontal"
-                        android:textSize="15dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/architects_daughter"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
                         android:text="SGM-XX"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
 
@@ -105,9 +133,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/architects_daughter"
                         android:textColor="@color/black"
-                        android:fontFamily="@font/aclonica"
-                        android:textSize="15sp"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
                         android:text="2018IMg-XXX"
                         android:layout_gravity="center_horizontal"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
@@ -117,10 +147,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/aclonica"
                         android:layout_gravity="center_horizontal"
-                        android:textSize="15sp"
+                        android:fontFamily="@font/architects_daughter"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
                         android:text="pata_nai@kuchbhi.com"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
 
@@ -129,11 +161,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/aclonica"
                         android:layout_gravity="center_horizontal"
-                        android:textSize="15sp"
+                        android:fontFamily="@font/architects_daughter"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
                         android:text="10 digit no"
+                        android:textAlignment="center"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
                 </LinearLayout>
 
@@ -146,9 +180,10 @@
                 android:text="Progress"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="10dp"
-                android:textSize="18dp"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/aclonica">
+                android:fontFamily="@font/gloria_hallelujah"
+                android:textSize="25sp"
+                android:textStyle="bold">
             </TextView>
 
 
@@ -260,6 +295,8 @@
                 android:layout_weight="1"
                 app:cardCornerRadius="50dp"
                 app:cardElevation="20dp"
+                android:stateListAnimator="@animator/card"
+                app:rippleColor="@color/background"
                 app:cardBackgroundColor="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -295,8 +332,9 @@
                             android:gravity="center"
                             android:textColor="@color/buttonred"
                             android:layout_margin="5dp"
-                            android:textSize="15dp"
-                            android:fontFamily="@font/aclonica">
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:fontFamily="@font/above">
                         </TextView>
 
                         <TextView
