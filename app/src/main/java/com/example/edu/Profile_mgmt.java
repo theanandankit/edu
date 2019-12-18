@@ -42,7 +42,6 @@ public class Profile_mgmt extends AppCompatActivity {
     TextView extra;
     TextView present;
     DatabaseReference user;
-
     ViewFlipper viewFlipper;
     FirebaseAuth auth;
     ImageButton b;
@@ -62,6 +61,8 @@ public class Profile_mgmt extends AppCompatActivity {
         View view = getSupportActionBar().getCustomView();
         b=(ImageButton)view.findViewById(R.id.home);
         logout=(Button)view.findViewById(R.id.logout);
+
+        auth=FirebaseAuth.getInstance();
         authStateListener=new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -95,7 +96,7 @@ public class Profile_mgmt extends AppCompatActivity {
         extra=(TextView)findViewById(R.id.extra_days);
         present=(TextView)findViewById(R.id.present_days);
         complains=findViewById(R.id.complain_mgmt);
-        auth=FirebaseAuth.getInstance();
+
         pref= PreferenceManager.getDefaultSharedPreferences(Profile_mgmt.this);
 
         viewFlipper=findViewById(R.id.management_flipper);

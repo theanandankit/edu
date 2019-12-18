@@ -189,7 +189,7 @@ public class Management_screen extends AppCompatActivity {
                 startActivity(i);
             }
                 else
-                    Toast.makeText(getApplicationContext(),"Mark complete attendance\n Attendance once marked can't be changed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Mark complete attendance\nAttendance once marked can't be changed",Toast.LENGTH_LONG).show();
         }
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -441,10 +441,11 @@ public class Management_screen extends AppCompatActivity {
             public void onClick(View v) {
                 teacher=name.getEditText().getText().toString();
                 batch=Batch.getEditText().getText().toString();
-                c++;
+
+
 
                 if(present.isChecked())
-                {
+                {  c++;
                     status="Present";
                     attendance.put(key,"1");
                     adaptor_class obj=class_name.get(i);
@@ -459,7 +460,8 @@ public class Management_screen extends AppCompatActivity {
                 }
 
                else if(absent.isChecked())
-                { attendance.put(key,"0");
+                {   c++;
+                    attendance.put(key,"0");
                     if(substitute_sent.isChecked() && !substitute_not_sent.isChecked())
                     {
                         status="Substitute sent";
