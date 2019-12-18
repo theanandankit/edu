@@ -59,6 +59,7 @@ public class admin_management extends AppCompatActivity {
         final CardView management_complain=findViewById(R.id.management_complain);
         final CardView admin_schedule_view=findViewById(R.id.admin_schedule_view);
         CardView date_monitoring=findViewById(R.id.management_date_monitoring);
+        CardView notification_create=findViewById(R.id.member_notification);
 
         date_monitoring.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +124,15 @@ public class admin_management extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i=new Intent(getApplicationContext(),complain_viewer_activity.class);
+                startActivity(i);
+            }
+        });
+
+        notification_create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(getApplicationContext(),Notification_genrater.class);
                 startActivity(i);
             }
         });

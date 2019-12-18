@@ -707,6 +707,75 @@
 
             </com.google.android.material.card.MaterialCardView>
 
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:rippleColor="@color/ripple"
+                android:id="@+id/member_notification"
+                android:layout_weight="1"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/monitoring"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="18dp"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Members Monitoring"
+                            android:gravity="center"
+                            android:textColor="@color/buttonred"
+                            android:layout_margin="5dp"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/aclonica">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:fontFamily="@font/stylish"
+                            android:textSize="15dp"
+                            android:layout_margin="5dp"
+                            android:text="This Window allows the admin to Register new Member in Three different categories like Teacher, Management and Admin"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
 
         </LinearLayout>
 

@@ -104,7 +104,6 @@ public class list_member extends AppCompatActivity {
                         });
                     }
                 }
-
             }
 
             @Override

@@ -14,6 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".other_events"></activity>
         <activity android:name=".sunday_activity" />
+        <activity android:name=".Notification_genrater"/>
         <activity android:name=".date_monitoring" />
         <activity android:name=".Profile_mgmt" android:screenOrientation="fullSensor" />
         <activity android:name=".schedule_view" />
