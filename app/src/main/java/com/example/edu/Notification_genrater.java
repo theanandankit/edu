@@ -1,8 +1,10 @@
 package com.example.edu;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,10 +20,17 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +43,8 @@ public class Notification_genrater extends AppCompatActivity {
     String contentType = "application/json";
     final public String TAG = "NOTIFICATION TAG";
 
+    int counter_in;
+    String counter;
     String NOTIFICATION_TITLE;
     String NOTIFICATION_MESSAGE;
     String TOPIC;
@@ -46,6 +57,23 @@ public class Notification_genrater extends AppCompatActivity {
         edtTitle = findViewById(R.id.notification_title);
         edtMessage = findViewById(R.id.notification_body);
         Button btnSend = findViewById(R.id.notification_ok);
+
+        final DatabaseReference databaseReference_counter=FirebaseDatabase.getInstance().getReference().child("notice").child("counter");
+        databaseReference_counter.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                counter=dataSnapshot.getValue().toString();
+                Toast.makeText(getApplicationContext(),counter,Toast.LENGTH_LONG).show();
+                counter_in=dataSnapshot.getValue().hashCode();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +97,16 @@ public class Notification_genrater extends AppCompatActivity {
 
                 sendNotification(notification);
 
+
+
+
+                DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("notice").child(counter);
+                databaseReference.setValue(edtTitle.getText().toString()+" - "+new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
+
+                counter_in=counter_in+1;
+
+
+                databaseReference_counter.setValue(counter_in);
             }
         });
     }

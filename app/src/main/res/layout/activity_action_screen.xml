@@ -8,6 +8,7 @@
     android:background="@drawable/bg"
     tools:context=".action_screen"
     >
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,6 +104,101 @@
                 </TextView>
 
             </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Notice Board"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginLeft="20dp"
+                android:textSize="25sp"
+                android:fontFamily="@font/give_you_glory"
+                android:textStyle="bold">
+            </TextView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+
+                app:cardCornerRadius="5dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white"
+                android:stateListAnimator="@animator/card">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp"
+                    >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/notice_date1"
+                    android:fontFamily="@font/amatica_sc_bold"
+                    android:textSize="15dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_margin="10dp"
+                    android:id="@+id/notice_data1"
+                    android:layout_marginLeft="10dp"
+                    >
+
+                </TextView>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/notice_date2"
+                        android:fontFamily="@font/amatica_sc_bold"
+                        android:textSize="15dp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"
+                        android:id="@+id/notice_data2"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                    </TextView>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/notice_date3"
+                        android:fontFamily="@font/amatica_sc_bold"
+                        android:textSize="15dp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:textStyle="bold"
+                        android:id="@+id/notice_data3"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 

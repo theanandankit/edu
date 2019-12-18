@@ -21,11 +21,17 @@ import android.widget.ViewFlipper;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class action_screen extends AppCompatActivity  {
     ViewFlipper viewFlipper;
     FirebaseAuth auth;
     int type;
+    int counter;
     TextView login_text;
     SharedPreferences pref;
     CardView mana;
@@ -33,7 +39,7 @@ public class action_screen extends AppCompatActivity  {
     CardView other_activity;
     CardView sunday_activity;
     Button logout;
-   FirebaseAuth.AuthStateListener authStateListener;
+    FirebaseAuth.AuthStateListener authStateListener;
 
 
     @Override
@@ -59,6 +65,7 @@ public class action_screen extends AppCompatActivity  {
          sunday_activity=findViewById(R.id.Sunday_activity);
         auth=FirebaseAuth.getInstance();
         login_text=(TextView)findViewById(R.id.login_text);
+
 
 action_schedule.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -90,6 +97,65 @@ action_schedule.setOnClickListener(new View.OnClickListener() {
 
             }
         };
+
+        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("notice").child("counter");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                counter=dataSnapshot.getValue().hashCode();
+                Toast.makeText(getApplicationContext(),String.valueOf(counter),Toast.LENGTH_LONG).show();
+                int q = 3;
+                counter--;
+                while (q>0) {
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("notice").child(String.valueOf(counter));
+                    final int finalQ = q;
+                    databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+
+                            if(finalQ ==3)
+                            {
+                                TextView textView=findViewById(R.id.notice_data1);
+                                TextView textView1=findViewById(R.id.notice_date1);
+                                String[] data = dataSnapshot.getValue().toString().split("-");
+                                textView.setText(data[0]);
+                                textView1.setText(data[1]);
+                            }
+                            if(finalQ ==2)
+                            {
+                                TextView textView1=findViewById(R.id.notice_date2);
+                                TextView textView=findViewById(R.id.notice_data2);
+                                String[] data = dataSnapshot.getValue().toString().split("-");
+                                textView.setText(data[0]);
+                                textView1.setText(data[1]);
+                            }
+                            if(finalQ ==1)
+                            {
+                                TextView textView1=findViewById(R.id.notice_date3);
+                                TextView textView=findViewById(R.id.notice_data3);
+                                String[] data = dataSnapshot.getValue().toString().split("-");
+                                textView.setText(data[0]);
+                                textView1.setText(data[1]);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                    q--;
+                    counter--;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
 
