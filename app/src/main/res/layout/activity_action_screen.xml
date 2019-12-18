@@ -116,7 +116,8 @@
                 android:layout_marginLeft="20dp"
                 android:textSize="25sp"
                 android:fontFamily="@font/give_you_glory"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                >
             </TextView>
 
             <com.google.android.material.card.MaterialCardView
@@ -124,8 +125,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:layout_weight="1"
-
-                app:cardCornerRadius="5dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp"
+                app:cardCornerRadius="6dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white"
                 android:stateListAnimator="@animator/card">
@@ -141,7 +143,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/notice_date1"
                     android:fontFamily="@font/amatica_sc_bold"
-                    android:textSize="15dp">
+                    android:textSize="18dp"
+                    android:textStyle="bold">
 
                 </TextView>
 
@@ -162,7 +165,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/notice_date2"
                         android:fontFamily="@font/amatica_sc_bold"
-                        android:textSize="15dp">
+                        android:textSize="18dp"
+                        android:textStyle="bold">
 
                     </TextView>
 
@@ -183,7 +187,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/notice_date3"
                         android:fontFamily="@font/amatica_sc_bold"
-                        android:textSize="15dp">
+                        android:textSize="18dp"
+                        android:textStyle="bold">
 
                     </TextView>
 
