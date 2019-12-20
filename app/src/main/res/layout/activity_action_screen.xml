@@ -40,6 +40,8 @@
                 android:layout_height="250dp"
                 android:layout_margin="15dp"
                 app:cardCornerRadius="10dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white"
                 android:stateListAnimator="@animator/card">
@@ -74,7 +76,8 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 app:cardCornerRadius="50dp"
-
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white"
                 android:stateListAnimator="@animator/card">
@@ -126,11 +129,19 @@
                 android:layout_margin="15dp"
                 android:layout_weight="1"
                 app:strokeColor="@color/black"
-                app:strokeWidth="2dp"
+                app:strokeWidth="3dp"
                 app:cardCornerRadius="6dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white"
                 android:stateListAnimator="@animator/card">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/notice_progress_box">
+
+                </ProgressBar>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -151,7 +162,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/notice_date1"
-                    android:fontFamily="@font/amatica_sc_bold"
+                    android:fontFamily="@font/pacifico"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="18dp"
                     android:layout_alignParentLeft="true"
                     android:textStyle="bold">
@@ -162,6 +174,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="MORE"
+                            android:textColor="@color/buttonred"
                             android:layout_alignParentRight="true"
                             android:textSize="16dp"
                             android:padding="2dp"
@@ -189,8 +202,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
                         android:id="@+id/notice_date2"
-                        android:fontFamily="@font/amatica_sc_bold"
+                        android:fontFamily="@font/pacifico"
                         android:textSize="18dp"
                         android:textStyle="bold">
 
@@ -212,7 +226,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/notice_date3"
-                        android:fontFamily="@font/amatica_sc_bold"
+                        android:fontFamily="@font/pacifico"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="18dp"
                         android:textStyle="bold">
 
@@ -251,6 +266,8 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:id="@+id/action_schedule_main"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="3dp"
                     app:cardCornerRadius="50dp"
                     app:cardElevation="20dp"
                     app:cardBackgroundColor="@color/white"
@@ -319,6 +336,8 @@
                     android:layout_margin="5dp"
                     app:rippleColor="@color/background"
                     android:layout_weight="1"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="3dp"
                     android:id="@+id/action_schedule"
                     app:cardCornerRadius="50dp"
                     app:cardElevation="20dp"
@@ -402,6 +421,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="5dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp"
             app:cardCornerRadius="50dp"
             android:stateListAnimator="@animator/card"
 
@@ -485,6 +506,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
                 android:layout_margin="5dp"
                 app:cardCornerRadius="50dp"
                 android:stateListAnimator="@animator/card"
@@ -507,9 +530,9 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/teacher1"
+                            android:background="@drawable/fun1"
                             android:layout_gravity="center_horizontal"
-                            android:layout_margin="10dp"
+                            android:layout_margin="15dp"
                             android:layout_weight="1"
                             />
                     </LinearLayout>
@@ -559,7 +582,516 @@
                 app:cardCornerRadius="50dp"
                 android:stateListAnimator="@animator/card"
                 app:rippleColor="@color/background"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
                 android:id="@+id/other_event"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/fun"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="15dp"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Event"
+                            android:gravity="center"
+                            android:textColor="@color/buttonred"
+                            android:layout_margin="5dp"
+                            android:textSize="30sp"
+                            android:fontFamily="@font/amatica_sc_bold"
+                            android:textStyle="bold">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:fontFamily="@font/stylish"
+                            android:textSize="15dp"
+                            android:layout_margin="5dp"
+                            android:text="All The Member Required To Login With Their Respective Email and SGM ID."
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="About SGM classes"
+                android:layout_marginLeft="20dp"
+                android:textSize="25sp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/give_you_glory"
+                android:textStyle="bold">
+            </TextView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white"
+                android:stateListAnimator="@animator/card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:layout_weight="1"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="3dp"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="20dp"
+                        app:cardBackgroundColor="@color/white"
+                        android:stateListAnimator="@animator/card">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="5dp"
+                                    android:fontFamily="@font/amatica_sc_bold"
+                                    android:gravity="center"
+                                    android:text="Regular Class Timing"
+                                    android:textColor="@color/buttonred"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold">
+
+                                </TextView>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/stylish"
+                                    android:textSize="25dp"
+                                    android:layout_margin="5dp"
+                                    android:text="10-15">
+
+                                </TextView>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sunday Activity Timing"
+                                    android:gravity="center"
+                                    android:textColor="@color/buttonred"
+                                    android:layout_margin="5dp"
+                                    android:layout_gravity="center"
+                                    android:textSize="20dp"
+                                    android:fontFamily="@font/amatica_sc_bold"
+                                    android:textStyle="bold">
+
+                                </TextView>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/stylish"
+                                    android:textSize="25dp"
+                                    android:layout_margin="5dp"
+                                    android:text="10-11">
+
+                                </TextView>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/stylish"
+                                    android:textSize="15dp"
+                                    android:layout_margin="5dp"
+                                    android:text="Every sunday">
+
+                                </TextView>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:layout_weight="1"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="3dp"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="20dp"
+                        app:cardBackgroundColor="@color/white"
+                        android:stateListAnimator="@animator/card">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:fontFamily="@font/amatica_sc_bold"
+                                android:gravity="center"
+                                android:text="Total No. of student"
+                                android:textColor="@color/buttonred"
+                                android:textSize="20dp"
+                                android:textStyle="bold">
+
+                            </TextView>
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:fontFamily="@font/stylish"
+                                android:textSize="25dp"
+                                android:layout_margin="5dp"
+                                android:text="150">
+
+                            </TextView>
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:fontFamily="@font/stylish"
+                                android:textSize="15dp"
+                                android:layout_margin="5dp"
+                                android:text="Before dec'19">
+
+                            </TextView>
+
+
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:layout_weight="1"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="3dp"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="20dp"
+                        app:cardBackgroundColor="@color/white"
+                        android:stateListAnimator="@animator/card">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="5dp"
+                                    android:fontFamily="@font/amatica_sc_bold"
+                                    android:gravity="center"
+                                    android:text="Teacher count"
+                                    android:textColor="@color/buttonred"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold">
+
+                                </TextView>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/stylish"
+                                    android:textSize="25dp"
+                                    android:layout_margin="5dp"
+                                    android:text="100">
+
+                                </TextView>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Management count"
+                                    android:gravity="center"
+                                    android:textColor="@color/buttonred"
+                                    android:layout_margin="5dp"
+                                    android:layout_gravity="center"
+                                    android:textSize="20dp"
+                                    android:fontFamily="@font/amatica_sc_bold"
+                                    android:textStyle="bold">
+
+                                </TextView>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/stylish"
+                                    android:textSize="25dp"
+                                    android:layout_margin="5dp"
+                                    android:text="150">
+
+                                </TextView>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:layout_weight="1"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="3dp"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="20dp"
+                        app:cardBackgroundColor="@color/white"
+                        android:stateListAnimator="@animator/card">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_margin="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:fontFamily="@font/amatica_sc_bold"
+                            android:gravity="center"
+                            android:text="Location"
+                            android:textColor="@color/buttonred"
+                            android:textSize="20dp"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:fontFamily="@font/stylish"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:text="Ground and first floor, B Block \n ABV IIITM \n Gwalior (Madhya Pradesh) \n 474015">
+
+                        </TextView>
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Join Us"
+                android:layout_marginLeft="20dp"
+                android:textSize="25sp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/give_you_glory"
+                android:textStyle="bold">
+            </TextView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="50dp"
+                android:stateListAnimator="@animator/card"
+                app:rippleColor="@color/background"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/hand"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="15dp"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Event"
+                            android:gravity="center"
+                            android:textColor="@color/buttonred"
+                            android:layout_margin="5dp"
+                            android:textSize="30sp"
+                            android:fontFamily="@font/amatica_sc_bold"
+                            android:textStyle="bold">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:fontFamily="@font/stylish"
+                            android:textSize="15dp"
+                            android:layout_margin="5dp"
+                            android:text="All The Member Required To Login With Their Respective Email and SGM ID."
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="About App"
+                android:layout_marginLeft="20dp"
+                android:textSize="25sp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/give_you_glory"
+                android:textStyle="bold">
+            </TextView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="50dp"
+                android:stateListAnimator="@animator/card"
+                app:rippleColor="@color/background"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white">
                 <LinearLayout
@@ -625,7 +1157,5 @@
         </LinearLayout>
 
     </ScrollView>
-
-
 
 </LinearLayout>

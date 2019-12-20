@@ -32,6 +32,13 @@
         <activity android:name=".not_able" />
         <activity android:name=".Teacher_management" />
         <activity android:name=".class_management" />
+        <service
+            android:name=".service.mymesseging"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
         <activity
             android:name=".Management_screen"
             android:label="Teacher Attendance" />
@@ -51,6 +58,10 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon"
+
+            android:resource="@drawable/ic_home" />
     </application>
 
 </manifest>

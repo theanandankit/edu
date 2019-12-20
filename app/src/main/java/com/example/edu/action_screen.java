@@ -56,6 +56,7 @@ public class action_screen extends AppCompatActivity  {
     Button logout;
     FirebaseAuth.AuthStateListener authStateListener;
     ArrayList<notice> list=new ArrayList<>();
+    ProgressBar progressBar;
 
 
     @Override
@@ -82,6 +83,7 @@ public class action_screen extends AppCompatActivity  {
         auth=FirebaseAuth.getInstance();
         login_text=(TextView)findViewById(R.id.login_text);
         TextView textView1=findViewById(R.id.action_more);
+        progressBar=findViewById(R.id.notice_progress_box);
 
         SpannableString spannableString=new SpannableString("MORE");
 
@@ -144,6 +146,7 @@ public class action_screen extends AppCompatActivity  {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                            progressBar.setVisibility(View.INVISIBLE);
 
 
                             if(finalQ ==3)

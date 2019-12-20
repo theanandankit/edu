@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,7 +25,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         //Notification service
+
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O)
         {
             NotificationChannel channel1=new NotificationChannel("mynotification","mynotification", NotificationManager.IMPORTANCE_DEFAULT);
