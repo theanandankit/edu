@@ -6,19 +6,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 import android.widget.ViewFlipper;
 
+import com.example.edu.adapter.notice_adapter;
+import com.example.edu.adapter.schedule_adapter;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +39,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class action_screen extends AppCompatActivity  {
     ViewFlipper viewFlipper;
@@ -40,6 +55,7 @@ public class action_screen extends AppCompatActivity  {
     CardView sunday_activity;
     Button logout;
     FirebaseAuth.AuthStateListener authStateListener;
+    ArrayList<notice> list=new ArrayList<>();
 
 
     @Override
@@ -65,9 +81,24 @@ public class action_screen extends AppCompatActivity  {
          sunday_activity=findViewById(R.id.Sunday_activity);
         auth=FirebaseAuth.getInstance();
         login_text=(TextView)findViewById(R.id.login_text);
+        TextView textView1=findViewById(R.id.action_more);
+
+        SpannableString spannableString=new SpannableString("MORE");
 
 
-action_schedule.setOnClickListener(new View.OnClickListener() {
+        ClickableSpan clickableSpan=new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+
+                notice_popup_message();
+            }
+        };
+
+        spannableString.setSpan(clickableSpan,0,4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        textView1.setText(spannableString);
+        textView1.setMovementMethod(LinkMovementMethod.getInstance());
+
+        action_schedule.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 
@@ -263,5 +294,76 @@ action_schedule.setOnClickListener(new View.OnClickListener() {
 
 
 
+    }
+
+    public void notice_popup_message()
+    {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.notice_popup);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        final ListView listView=dialog.findViewById(R.id.notice_list);
+        final ProgressBar progressBar=dialog.findViewById(R.id.notice_progress);
+
+        DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child("notice");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(!list.isEmpty())
+                {
+                    list.clear();
+                }
+
+                for(final DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    String n = postSnapshot.getValue().toString();
+                    String[] data = postSnapshot.getValue().toString().split("-");
+                    Log.e("yvhubj", data[0]);
+                    if (!postSnapshot.getKey().equals("counter")) {
+                        list.add(new notice(data[1], data[0]));
+
+                    }
+                }
+
+                progressBar.setVisibility(View.GONE);
+                notice_adapter myAdapter=new notice_adapter(getApplicationContext(),R.layout.notice_view,list);
+                listView.setAdapter(myAdapter);
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setAttributes(lp);
+    }
+
+  public class notice
+    {
+        String date;
+        String message;
+
+        public String getDate() {
+            return date;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public notice(String date, String message) {
+            this.date = date;
+            this.message = message;
+        }
     }
 }

@@ -101,7 +101,7 @@ public class Notification_genrater extends AppCompatActivity {
 
 
                 DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("notice").child(counter);
-                databaseReference.setValue(edtTitle.getText().toString()+" - "+new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
+                databaseReference.setValue(edtTitle.getText().toString()+" - "+new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
 
                 counter_in=counter_in+1;
 
