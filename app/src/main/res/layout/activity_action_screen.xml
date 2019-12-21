@@ -20,20 +20,20 @@
             android:orientation="vertical"
             >
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="15dp"
                 android:fontFamily="@font/rock_salt"
-                android:textStyle="bold"
                 android:gravity="center"
                 android:text="Student Gyan Movement"
                 android:textColor="@color/colorPrimary"
-                android:textSize="33dp">
+                android:textSize="33dp"
+                android:textStyle="bold">
 
             </TextView>
-
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -723,6 +723,7 @@
                                     android:gravity="center"
                                     android:fontFamily="@font/stylish"
                                     android:textSize="25dp"
+                                    android:id="@+id/action_regular"
                                     android:layout_margin="5dp"
                                     android:text="10-15">
 
@@ -756,6 +757,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
+                                    android:id="@+id/action_suday"
                                     android:fontFamily="@font/stylish"
                                     android:textSize="25dp"
                                     android:layout_margin="5dp"
@@ -818,6 +820,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
+                                android:id="@+id/action_total_student"
                                 android:fontFamily="@font/stylish"
                                 android:textSize="25dp"
                                 android:layout_margin="5dp"
@@ -888,6 +891,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
+                                    android:id="@+id/action_total_teacher"
                                     android:fontFamily="@font/stylish"
                                     android:textSize="25dp"
                                     android:layout_margin="5dp"
@@ -923,6 +927,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
+                                    android:id="@+id/action_total_management"
                                     android:fontFamily="@font/stylish"
                                     android:textSize="25dp"
                                     android:layout_margin="5dp"

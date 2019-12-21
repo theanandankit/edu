@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".basic_info"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Regular classes timing"
+        android:layout_marginLeft="20dp"
+        android:textSize="25sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/give_you_glory"
+        android:textStyle="bold">
+    </TextView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:id="@+id/action_schedule_main"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="@color/white"
+        android:stateListAnimator="@animator/card">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/basic_regular_timing"
+            android:fontFamily="@font/stylish"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:text="10-15">
+
+        </TextView>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="reset"
+                android:id="@+id/basic_regular_button"
+                android:layout_marginRight="10dp"
+                app:rippleColor="@color/background"
+                app:cornerRadius="20dp"
+                android:layout_weight=".1">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Sunday activity timing"
+        android:layout_marginLeft="20dp"
+        android:textSize="25sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/give_you_glory"
+        android:textStyle="bold">
+    </TextView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="@color/white"
+        android:stateListAnimator="@animator/card">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/basic_sunday_timing"
+                android:fontFamily="@font/stylish"
+                android:textSize="25dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="10-15">
+
+            </TextView>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="reset"
+                android:id="@+id/basic_sunday_button"
+                android:layout_marginRight="10dp"
+                app:rippleColor="@color/background"
+                app:cornerRadius="20dp"
+                android:layout_weight=".1">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="other statistic"
+        android:layout_marginLeft="20dp"
+        android:textSize="25sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/give_you_glory"
+        android:textStyle="bold">
+    </TextView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="@color/white"
+        android:stateListAnimator="@animator/card">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="@font/stylish"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:text="Total no. of student">
+
+        </TextView>
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:digits="123456789"
+                android:id="@+id/basic_student"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:inputType="number"
+                android:textColor="@color/buttonred">
+
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:fontFamily="@font/stylish"
+                android:textSize="25dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="Management team">
+
+            </TextView>
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="number"
+                android:digits="123456789"
+                android:id="@+id/basic_management"
+                android:gravity="center"
+                android:textColor="@color/buttonred">
+
+            </EditText>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/stylish"
+                    android:textSize="25dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:text="Teaching Team">
+
+                </TextView>
+
+                <EditText
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:id="@+id/basic_teacher"
+                    android:digits="123456789"
+                    android:textColor="@color/buttonred">
+
+                </EditText>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="reset"
+                android:id="@+id/basic_final"
+                app:cornerRadius="20dp"
+                android:layout_margin="10dp">
+
+
+            </com.google.android.material.button.MaterialButton>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>

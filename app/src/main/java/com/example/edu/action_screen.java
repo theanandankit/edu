@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -40,6 +41,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class action_screen extends AppCompatActivity  {
@@ -48,6 +51,7 @@ public class action_screen extends AppCompatActivity  {
     int type;
     int counter;
     TextView login_text;
+    public static SharedPreferences pref_1;
     SharedPreferences pref;
     CardView mana;
     CardView action_scedule;
@@ -57,6 +61,8 @@ public class action_screen extends AppCompatActivity  {
     FirebaseAuth.AuthStateListener authStateListener;
     ArrayList<notice> list=new ArrayList<>();
     ProgressBar progressBar;
+    SharedPreferences.Editor basic;
+
 
 
     @Override
@@ -85,6 +91,8 @@ public class action_screen extends AppCompatActivity  {
         TextView textView1=findViewById(R.id.action_more);
         progressBar=findViewById(R.id.notice_progress_box);
         CardView about_app=findViewById(R.id.about_app_card);
+        pref_1 = PreferenceManager.getDefaultSharedPreferences(this);
+        basic = pref_1.edit();
 
         about_app.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,6 +200,60 @@ public class action_screen extends AppCompatActivity  {
                     q--;
                     counter--;
                 }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        final TextView regular=findViewById(R.id.action_regular);
+        final TextView sunday=findViewById(R.id.action_suday);
+        final TextView student=findViewById(R.id.action_total_student);
+        final TextView teacher=findViewById(R.id.action_total_teacher);
+        final TextView management=findViewById(R.id.action_total_management);
+
+        DatabaseReference databaseReference1=FirebaseDatabase.getInstance().getReference().child("basic_info");
+        databaseReference1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (final DataSnapshot postSnapshot : dataSnapshot.getChildren())
+                {
+                    if(postSnapshot.getKey().equals("management"))
+                    {
+                        management.setText(postSnapshot.getValue().toString());
+                        basic.putString("management",postSnapshot.getValue().toString());
+                    }
+
+                    if(postSnapshot.getKey().equals("regular"))
+                    {
+                        regular.setText(postSnapshot.getValue().toString());
+                        basic.putString("regular",postSnapshot.getValue().toString());
+                    }
+
+                    if(postSnapshot.getKey().equals("student"))
+                    {
+                        student.setText(postSnapshot.getValue().toString());
+                        basic.putString("student",postSnapshot.getValue().toString());
+                    }
+
+                    if(postSnapshot.getKey().equals("sunday"))
+                    {
+                        sunday.setText(postSnapshot.getValue().toString());
+                        basic.putString("sunday",postSnapshot.getValue().toString());
+
+                    }
+
+                    if(postSnapshot.getKey().equals("total_teacher"))
+                    {
+                        teacher.setText(postSnapshot.getValue().toString());
+                        basic.putString("teacher",postSnapshot.getValue().toString());
+                    }
+                }
+                 basic.commit();
+
             }
 
             @Override
@@ -396,6 +458,47 @@ public class action_screen extends AppCompatActivity  {
         public notice(String date, String message) {
             this.date = date;
             this.message = message;
+        }
+    }
+
+    public class basic_info_class
+    {
+        public basic_info_class(String regular, String sunday, String total_teacher, String management, String student) {
+            this.regular = regular;
+            this.sunday = sunday;
+            this.total_teacher = total_teacher;
+            this.management = management;
+            this.student = student;
+        }
+      public basic_info_class()
+        {
+
+        }
+
+        String regular;
+        String sunday;
+        String total_teacher;
+        String management;
+        String student;
+
+        public String getRegular() {
+            return regular;
+        }
+
+        public String getSunday() {
+            return sunday;
+        }
+
+        public String getTotal_teacher() {
+            return total_teacher;
+        }
+
+        public String getManagement() {
+            return management;
+        }
+
+        public String getStudent() {
+            return student;
         }
     }
 }

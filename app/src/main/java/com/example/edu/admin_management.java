@@ -11,6 +11,7 @@ import android.graphics.ColorSpace;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import static com.example.edu.login_screen.id;
 import static com.example.edu.login_screen.pref;
 
 public class admin_management extends AppCompatActivity {
@@ -60,6 +62,15 @@ public class admin_management extends AppCompatActivity {
         final CardView admin_schedule_view=findViewById(R.id.admin_schedule_view);
         CardView date_monitoring=findViewById(R.id.management_date_monitoring);
         CardView notification_create=findViewById(R.id.member_notification);
+        CardView basic_info=findViewById(R.id.basic_info);
+
+        basic_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(getApplicationContext(), com.example.edu.basic_info.class);
+                startActivity(i);
+            }
+        });
 
         date_monitoring.setOnClickListener(new View.OnClickListener() {
             @Override
