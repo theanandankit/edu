@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +42,7 @@ public class list_member extends AppCompatActivity {
     public static String name;
     TextView nam;
     ImageButton b;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,10 @@ public class list_member extends AppCompatActivity {
         view.findViewById(R.id.logout).setVisibility(View.INVISIBLE);
         view.findViewById(R.id.logout).setEnabled(false);
         b=(ImageButton)view.findViewById(R.id.home);
+
+        progressBar=findViewById(R.id.list_progress);
+        progressBar.setProgress(10);
+
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +85,8 @@ public class list_member extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                progressBar.setProgress(50);
+
                 for (final DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     if (!postSnapshot.getKey().equals("counter")) {
 
@@ -88,6 +96,10 @@ public class list_member extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                                if(progressBar.getProgress()==50)
+                                {
+                                    progressBar.setProgress(80);
+                                }
                                 System.out.println(snapshot.getKey());
 
                                 Teacher_management.Teacher teacher = snapshot.getValue(Teacher_management.Teacher.class);
@@ -104,6 +116,8 @@ public class list_member extends AppCompatActivity {
                         });
                     }
                 }
+
+                progressBar.setVisibility(View.INVISIBLE);
             }
 
             @Override

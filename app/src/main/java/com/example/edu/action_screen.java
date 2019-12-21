@@ -84,6 +84,15 @@ public class action_screen extends AppCompatActivity  {
         login_text=(TextView)findViewById(R.id.login_text);
         TextView textView1=findViewById(R.id.action_more);
         progressBar=findViewById(R.id.notice_progress_box);
+        CardView about_app=findViewById(R.id.about_app_card);
+
+        about_app.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                about_app_fun();
+            }
+        });
 
         SpannableString spannableString=new SpannableString("MORE");
 
@@ -349,6 +358,26 @@ public class action_screen extends AppCompatActivity  {
         dialog.show();
         dialog.setCanceledOnTouchOutside(false);
         dialog.getWindow().setAttributes(lp);
+    }
+
+    public void about_app_fun()
+    {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.about_app);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        final ListView listView=dialog.findViewById(R.id.notice_list);
+        final ProgressBar progressBar=dialog.findViewById(R.id.notice_progress);
+
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setAttributes(lp);
+
     }
 
   public class notice
