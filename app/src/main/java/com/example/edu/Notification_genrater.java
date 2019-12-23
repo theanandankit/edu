@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -66,7 +65,6 @@ public class Notification_genrater extends AppCompatActivity {
                 counter=dataSnapshot.getValue().toString();
                 Toast.makeText(getApplicationContext(),counter,Toast.LENGTH_LONG).show();
                 counter_in=dataSnapshot.getValue().hashCode();
-
             }
 
             @Override
@@ -96,8 +94,7 @@ public class Notification_genrater extends AppCompatActivity {
                 }
 
                 sendNotification(notification);
-
-
+                
 
 
                 DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("notice").child(counter);

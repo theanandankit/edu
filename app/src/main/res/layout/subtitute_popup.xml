@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fitsSystemWindows="true"
     app:cardCornerRadius="20dp"
-    app:cardBackgroundColor="@android:color/transparent"
+    app:strokeWidth="5dp"
+    app:strokeColor="@color/black"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,8 +17,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-
+        android:layout_margin="5dp"
         >
 
         <RelativeLayout
@@ -36,9 +35,8 @@
                 app:shapeAppearance="@color/white"
                 app:shapeAppearanceOverlay="@color/white"
                 android:layout_alignParentStart="true"
-                app:iconTint="@color/white"
-
-                app:icon="@drawable/ic_clear_white" />
+                app:iconTint="@color/black"
+                app:icon="@drawable/ic_close_black_24dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -165,6 +163,19 @@
             android:layout_margin="20dp"
             android:background="@color/white"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/sofia"
+            android:text="select Member"
+            android:textColor="@color/buttonred"
+            android:textSize="15sp"
+            android:textStyle="bold">
+
+        </TextView>
+
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -206,7 +217,6 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_margin="20dp"
                 android:layout_gravity="center_horizontal"
                 />

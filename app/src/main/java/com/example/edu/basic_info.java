@@ -9,9 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.Calendar;
 
@@ -66,6 +68,9 @@ public class basic_info extends AppCompatActivity  {
 
                 DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference().child("basic_info").child("total_teacher");
                 databaseReference2.setValue(teacher.getText().toString());
+
+                Toast.makeText(getApplicationContext(),"changes Successfully updated",Toast.LENGTH_LONG).show();
+                finish();
             }
         });
     }

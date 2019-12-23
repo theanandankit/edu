@@ -52,6 +52,144 @@
                 android:fontFamily="@font/stylish">
             </TextView>
 
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Notice Board"
+                android:layout_marginLeft="20dp"
+                android:textSize="18dp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/aclonica">
+            </TextView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white"
+                android:stateListAnimator="@animator/card">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/notice_admin_progress">
+
+                </ProgressBar>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/notice_date1"
+                                android:fontFamily="@font/pacifico"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="18dp"
+                                android:layout_alignParentLeft="true"
+                                android:textStyle="bold">
+
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="MORE"
+                                android:textColor="@color/buttonred"
+                                android:layout_alignParentRight="true"
+                                android:textSize="16dp"
+                                android:padding="2dp"
+                                android:id="@+id/action_admin_more"
+                                android:fontFamily="@font/aclonica">
+
+                            </TextView>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"
+                        android:id="@+id/notice_data1"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                    </TextView>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:id="@+id/notice_date2"
+                        android:fontFamily="@font/pacifico"
+                        android:textSize="18dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"
+                        android:id="@+id/notice_data2"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                    </TextView>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/notice_date3"
+                        android:fontFamily="@font/pacifico"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:textStyle="bold"
+                        android:id="@+id/notice_data3"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -6,20 +6,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.ColorSpace;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.example.edu.adapter.notice_adapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.CharArrayReader;
@@ -34,6 +46,9 @@ public class admin_management extends AppCompatActivity {
     public static ArrayList<String> member_list=new ArrayList<>();
     Teacher_management.Teacher admin_teacher_info=new Teacher_management.Teacher();
     ViewFlipper viewFlipper;
+    ProgressBar progressBar;
+    ArrayList<action_screen.notice> list=new ArrayList<>();
+
 
     public static member_sgmid member_list_object=new member_sgmid();
     @Override
@@ -48,9 +63,74 @@ public class admin_management extends AppCompatActivity {
         getSupportActionBar().setElevation(10);
         View view = getSupportActionBar().getCustomView();
         final TextView textView=(TextView)view.findViewById(R.id.tab_name);
+        progressBar=findViewById(R.id.notice_admin_progress);
         textView.setText("Admin");
         Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.berkshireswash);
         textView.setTextColor(getResources().getColor(R.color.white));
+        SpannableString spannableString=new SpannableString("MORE");
+        TextView textView1=findViewById(R.id.action_admin_more);
+        ClickableSpan clickableSpan=new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+
+                notice_popup_message();
+            }
+        };
+
+        spannableString.setSpan(clickableSpan,0,4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        textView1.setText(spannableString);
+        textView1.setMovementMethod(LinkMovementMethod.getInstance());
+
+        DatabaseReference databaseReference5=FirebaseDatabase.getInstance().getReference().child("notice_admin");
+        Query l=databaseReference5.orderByKey().limitToLast(3);
+        l.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.e("ihg","jh");
+
+                int finalQ=1;
+                for (final DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+
+                    Log.e("fghj","hgf");
+                    if(finalQ ==1)
+                    {
+                        TextView textView=findViewById(R.id.notice_data1);
+                        TextView textView1=findViewById(R.id.notice_date1);
+                        String[] data = postSnapshot.getValue().toString().split("-");
+                        textView.setText(data[0]);
+                        textView1.setText(data[1]);
+                        finalQ=2;
+                        continue;
+                    }
+                    if(finalQ ==2)
+                    {
+                        TextView textView1=findViewById(R.id.notice_date2);
+                        TextView textView=findViewById(R.id.notice_data2);
+                        String[] data = postSnapshot.getValue().toString().split("-");
+                        textView.setText(data[0]);
+                        textView1.setText(data[1]);
+                        finalQ=3;
+                        continue;
+                    }
+                    if(finalQ ==3)
+                    {
+                        TextView textView1=findViewById(R.id.notice_date3);
+                        TextView textView=findViewById(R.id.notice_data3);
+                        String[] data = postSnapshot.getValue().toString().split("-");
+                        textView.setText(data[0]);
+                        textView1.setText(data[1]);
+                    }
+                    Log.e("hj", dataSnapshot.getValue().toString());
+                }
+
+                progressBar.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
         CardView registration =findViewById(R.id.registration);
@@ -200,4 +280,52 @@ public class admin_management extends AppCompatActivity {
         viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
     }
 
+    public void notice_popup_message()
+    {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.notice_popup);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        final ListView listView=dialog.findViewById(R.id.notice_list);
+        final ProgressBar progressBar=dialog.findViewById(R.id.notice_progress);
+
+        DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child("notice_admin");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(!list.isEmpty())
+                {
+                    list.clear();
+                }
+
+                for(final DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    String[] data = postSnapshot.getValue().toString().split("-");
+                    if (!postSnapshot.getKey().equals("counter")) {
+                        list.add(new action_screen.notice(data[1], data[0]));
+                    }
+                }
+
+                progressBar.setVisibility(View.GONE);
+                notice_adapter myAdapter=new notice_adapter(getApplicationContext(),R.layout.notice_view,list);
+                listView.setAdapter(myAdapter);
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setAttributes(lp);
+    }
 }

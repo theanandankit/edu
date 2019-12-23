@@ -2,10 +2,11 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
+    app:strokeWidth="5dp"
+    app:strokeColor="@color/black"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="25dp"
-    app:cardBackgroundColor="@android:color/transparent"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -15,8 +16,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent">
+        android:layout_height="wrap_content">
 
 
 
@@ -30,7 +30,7 @@
                 style="@style/Widget.MaterialComponents.FloatingActionButton"
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_marginLeft="5dp"
+                android:layout_margin="5dp"
                 app:backgroundTint="@color/colorPrimary"
                 app:shapeAppearance="@color/white"
                 app:shapeAppearanceOverlay="@color/white"
@@ -56,7 +56,7 @@
                 style="@style/Widget.MaterialComponents.FloatingActionButton"
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_marginLeft="5dp"
+                android:layout_margin="5dp"
                 app:backgroundTint="@color/colorPrimary"
                 app:shapeAppearance="@color/white"
                 app:shapeAppearanceOverlay="@color/white"
@@ -70,10 +70,24 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/sofia"
+            android:text="select Member"
+            android:textColor="@color/buttonred"
+            android:textSize="15sp"
+            android:textStyle="bold">
+
+        </TextView>
+
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="15dp"
             android:id="@+id/techer_schedule_spinner"
             android:spinnerMode="dialog">
         </Spinner>
@@ -81,7 +95,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="5dp"
         android:id="@+id/set_teacher_name"
         android:hint="Name of teacher"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
@@ -92,12 +106,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center_horizontal"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
+        android:layout_margin="5dp"
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         app:boxBackgroundColor="@color/white"
@@ -110,14 +125,14 @@
             android:layout_height="wrap_content"
 
             android:inputType="text"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center_horizontal"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_margin="5dp"
         android:id="@+id/set_batch"
         android:hint="Batch"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
@@ -128,7 +143,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:layout_gravity="center_horizontal"
         />
     </com.google.android.material.textfield.TextInputLayout>
@@ -138,6 +153,7 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         app:boxBackgroundColor="@color/white"
+        android:layout_margin="5dp"
         android:id="@+id/set_subject"
         android:hint="Subject">
 
@@ -147,7 +163,7 @@
             android:layout_height="wrap_content"
 
             android:inputType="text"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center_horizontal"
             />
     </com.google.android.material.textfield.TextInputLayout>

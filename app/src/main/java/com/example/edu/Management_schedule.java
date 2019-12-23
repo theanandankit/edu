@@ -11,9 +11,11 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -32,6 +34,8 @@ public class Management_schedule extends AppCompatActivity {
     String s;
     DatabaseReference databaseReference;
     ArrayList<String> teacher_name=new ArrayList<>();
+    public static member_sgmid attendance_list=new member_sgmid();
+    ArrayList<String> list_of_student=new ArrayList<>();
     Spinner spinner;
     CardView mgmt_card1,mgmt_card2,mgmt_card3,mgmt_card4,mgmt_card5,mgmt_card6;
     final String days[]={"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
@@ -52,6 +56,9 @@ public class Management_schedule extends AppCompatActivity {
         //String current_day="Wednesday";
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Schedule");//.child(current_day).child("Management");
         textView.setText("Set schedule");
+
+        list_of_student=attendance_list.spinner_setter();
+
         mgmt_card1=(CardView)findViewById(R.id.mgmt_card1);
         mgmt_card2=(CardView)findViewById(R.id.mgmt_card2);
         mgmt_card3=(CardView)findViewById(R.id.mgmt_card3);
@@ -132,6 +139,21 @@ public class Management_schedule extends AppCompatActivity {
                 TextInputLayout Uid2=(TextInputLayout)dialog.findViewById(R.id.set_uid2);
                 TextInputLayout Batch1=(TextInputLayout)dialog.findViewById(R.id.set_batch1);
                 TextInputLayout Batch2=(TextInputLayout)dialog.findViewById(R.id.set_batch2);
+                final Spinner pop_spinner=dialog.findViewById(R.id.management_popup_spinner1);
+
+                Spinner spinner1=dialog.findViewById(R.id.management_popup_spinner2);
+
+                ArrayList<String> list_list=new ArrayList<>();
+
+                list_list.add("tfygh");
+                list_list.add("ghb");
+
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,list_list);
+                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                pop_spinner.setAdapter(arrayAdapter);
+
+
+
                 member1_name=member1.getEditText().getText().toString();
                 uid1=Uid1.getEditText().getText().toString();
                 batch1=Batch1.getEditText().getText().toString();

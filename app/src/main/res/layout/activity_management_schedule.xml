@@ -28,6 +28,8 @@
             android:layout_margin="10dp"
             android:id="@+id/mgmt_card1"
             app:cardCornerRadius="30dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="5dp"
             app:cardElevation="20dp"
             app:cardBackgroundColor="@color/white">
 
@@ -43,52 +45,120 @@
                     android:fontFamily="@font/pacifico"
                     android:textSize="20dp"
                     android:textAlignment="center"/>
-                <RelativeLayout
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    app:cardCornerRadius="10dp"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="3dp"
+                    app:cardElevation="20dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:stateListAnimator="@animator/card">
 
-                    android:layout_margin="5dp"
-                    android:text="1."
-                    android:id="@+id/monday_no.1"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Name: "
-                    android:layout_toEndOf="@id/monday_no.1"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="10dp">
 
-                    android:layout_margin="5dp"
-                    android:id="@+id/monday1"
-                    android:textAllCaps="true"
-                    />
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_below="@id/monday1"
-                   android:layout_margin="5dp"
-                   android:layout_toEndOf="@id/monday_no.1"
-                   android:orientation="horizontal">
-                   <TextView
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:text="UID: "
-                       android:id="@+id/monday_uid1"
-                       android:textAllCaps="true"/>
-                   <TextView
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:text="Batch: "
-                       android:id="@+id/monday_batch1"
-                       android:textAllCaps="true"/>
 
-               </LinearLayout>
-            </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Name: "
+                                android:fontFamily="@font/pacifico"
+                                android:textStyle="bold"
+                                android:layout_margin="5dp">
+
+
+
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="Ankit kumar"
+                                android:layout_margin="5dp"
+                                android:id="@+id/monday_no.1"
+                                android:fontFamily="@font/above">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SGM ID: "
+
+                                android:textSize="15dp"
+                                android:fontFamily="@font/pacifico"
+                                android:textStyle="bold"
+                                android:layout_margin="5dp">
+                            </TextView>
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="----"
+                                android:layout_margin="5dp"
+                                android:id="@+id/monday_uid1"
+                                android:fontFamily="@font/above">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Batch:"
+
+                                android:textSize="15dp"
+                                android:fontFamily="@font/pacifico"
+                                android:textStyle="bold"
+                                android:layout_margin="5dp">
+
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="----"
+                                android:layout_margin="5dp"
+                                android:id="@+id/monday_batch1"
+                                android:fontFamily="@font/above">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

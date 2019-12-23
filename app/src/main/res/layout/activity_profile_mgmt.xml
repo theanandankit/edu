@@ -43,6 +43,8 @@
                         android:layout_height="250dp"
                         android:layout_margin="15dp"
                         app:cardCornerRadius="10dp"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="3dp"
                         app:cardElevation="20dp"
                         app:cardBackgroundColor="@color/white">
 
@@ -71,14 +73,148 @@
 
 
             </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Notice Board"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/give_you_glory"
+                android:textSize="25sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white"
+                android:stateListAnimator="@animator/card">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/notice_management_progress">
+
+                </ProgressBar>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/notice_date1"
+                                android:fontFamily="@font/pacifico"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="18dp"
+                                android:layout_alignParentLeft="true"
+                                android:textStyle="bold">
+
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="MORE"
+                                android:textColor="@color/buttonred"
+                                android:layout_alignParentRight="true"
+                                android:textSize="16dp"
+                                android:padding="2dp"
+                                android:id="@+id/action_more"
+                                android:fontFamily="@font/aclonica">
+
+                            </TextView>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"
+                        android:id="@+id/notice_data1"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                    </TextView>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:id="@+id/notice_date2"
+                        android:fontFamily="@font/pacifico"
+                        android:textSize="18dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"
+                        android:id="@+id/notice_data2"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                    </TextView>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/notice_date3"
+                        android:fontFamily="@font/pacifico"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:textStyle="bold"
+                        android:id="@+id/notice_data3"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
-
-
-
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -87,7 +223,7 @@
                     android:layout_marginTop="20dp"
                     android:text="Personal Information"
                     android:textColor="@color/colorPrimary"
-                    android:fontFamily="@font/gloria_hallelujah"
+                    android:fontFamily="@font/give_you_glory"
                     android:textSize="25sp"
                     android:textStyle="bold">
 
@@ -97,6 +233,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="3dp"
                     android:layout_margin="15dp"
                     app:cardCornerRadius="25dp"
                     app:rippleColor="@color/ripple"
@@ -179,7 +317,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/gloria_hallelujah"
+                    android:fontFamily="@font/give_you_glory"
                     android:text="Progress"
                     android:textColor="@color/colorPrimary"
                     android:textSize="25sp"
@@ -192,6 +330,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="3dp"
                     android:layout_margin="5dp"
                     app:cardCornerRadius="50dp"
                     app:rippleColor="@color/ripple"
@@ -305,6 +445,8 @@
                     android:id="@+id/goto_attendance"
                     android:layout_weight="1"
                     app:cardCornerRadius="50dp"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="3dp"
                     app:cardElevation="20dp"
                     app:cardBackgroundColor="@color/white"
                     app:rippleColor="@color/background"
@@ -372,6 +514,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:id="@+id/complain_mgmt"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="3dp"
                     android:layout_weight="1"
                     app:cardCornerRadius="50dp"
                     app:cardElevation="20dp"

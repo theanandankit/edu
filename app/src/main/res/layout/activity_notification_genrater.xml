@@ -5,13 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
+    android:orientation="vertical"
     tools:context=".Notification_genrater">
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="for notigication "
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/buttonred"
+        android:fontFamily="@font/aclonica">
+    </TextView>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_weight="1"
+        app:strokeWidth="5dp"
+        app:strokeColor="@color/black"
         app:cardCornerRadius="50dp"
         app:cardElevation="20dp"
         app:cardBackgroundColor="@color/white"
@@ -19,32 +44,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Set title"
-            android:layout_marginLeft="20dp"
-            android:textSize="18dp"
-            android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/aclonica">
-        </TextView>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/notification_title">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/buttonred"
+                android:layout_marginRight="20dp"
+                android:text="This body is use as the main body od the notification so make sure that content is minimum as possible "
+                android:fontFamily="@font/sofia"
+                android:layout_marginLeft="20dp">
+            </TextView>
 
-        </EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Set main message"
+                android:text="Set main message *"
                 android:layout_marginLeft="20dp"
                 android:textSize="18dp"
                 android:textColor="@color/colorPrimary"
@@ -53,22 +72,220 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:id="@+id/notification_body">
 
             </EditText>
 
-            <Button
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/buttonred"
+                android:text="please make as short as possible like 'Regarding Meeting'"
+                android:fontFamily="@font/sofia"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Set title *"
+                android:layout_marginLeft="20dp"
+                android:textSize="18dp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/aclonica">
+            </TextView>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/notification_title">
+            </EditText>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/buttonred"
+                android:layout_marginTop="10dp"
+                android:text="Sometime it may be possible that notification can't be send due to server congestion so please make it sure"
+                android:fontFamily="@font/sofia"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp">
+            </TextView>
+
+
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/notification_ok"
+                android:layout_margin="20dp"
+                app:rippleColor="@color/background"
+                app:cornerRadius="20dp"
                 android:text="send notification">
 
-            </Button>
+            </com.google.android.material.button.MaterialButton>
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="For Notice board "
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/buttonred"
+        android:fontFamily="@font/aclonica">
+    </TextView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:strokeWidth="5dp"
+        app:strokeColor="@color/black"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="@color/white"
+        android:stateListAnimator="@animator/card">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/buttonred"
+            android:layout_marginRight="20dp"
+            android:text="This body is use as the main body od the notification so make sure that content is minimum as possible "
+            android:fontFamily="@font/sofia"
+            android:layout_marginLeft="20dp">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Set main message *"
+            android:layout_marginLeft="20dp"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/aclonica">
+        </TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/notice_board_message">
+            </EditText>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:strokeWidth="5dp"
+                app:strokeColor="@color/black"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white"
+                android:stateListAnimator="@animator/card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="To Whom message send !"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="18dp"
+                        android:textColor="@color/colorPrimary"
+                        android:fontFamily="@font/aclonica">
+                    </TextView>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="Management Notice Board"
+                        android:fontFamily="@font/berkshireswash"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+                    </com.google.android.material.radiobutton.MaterialRadioButton>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="Teacher Notice Board"
+                        android:fontFamily="@font/berkshireswash"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+                    </com.google.android.material.radiobutton.MaterialRadioButton>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="Admin Notice Board"
+                        android:fontFamily="@font/berkshireswash"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+                    </com.google.android.material.radiobutton.MaterialRadioButton>
+
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="Common Notice Board"
+                        android:fontFamily="@font/berkshireswash"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+                    </RadioButton>>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/notice_ok"
+                android:layout_margin="20dp"
+                app:rippleColor="@color/background"
+                app:cornerRadius="20dp"
+                android:text="send Message">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+       </LinearLayout>
+   </ScrollView>
 
 </LinearLayout>

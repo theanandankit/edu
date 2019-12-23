@@ -5,30 +5,44 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 
+import com.example.edu.adapter.notice_adapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class Profile_mgmt extends AppCompatActivity {
     CardView takeAttendance;
@@ -48,6 +62,8 @@ public class Profile_mgmt extends AppCompatActivity {
     SharedPreferences pref;
     Button logout;
     FirebaseAuth.AuthStateListener authStateListener;
+    ProgressBar progressBar;
+    ArrayList<action_screen.notice> list=new ArrayList<>();
 
 
     @Override
@@ -61,6 +77,22 @@ public class Profile_mgmt extends AppCompatActivity {
         View view = getSupportActionBar().getCustomView();
         b=(ImageButton)view.findViewById(R.id.home);
         logout=(Button)view.findViewById(R.id.logout);
+
+        progressBar=findViewById(R.id.notice_management_progress);
+        SpannableString spannableString=new SpannableString("MORE");
+        TextView textView1=findViewById(R.id.action_more);
+        ClickableSpan clickableSpan=new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+
+                notice_popup_message();
+            }
+        };
+
+        spannableString.setSpan(clickableSpan,0,4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        textView1.setText(spannableString);
+        textView1.setMovementMethod(LinkMovementMethod.getInstance());
+
 
         auth=FirebaseAuth.getInstance();
         authStateListener=new FirebaseAuth.AuthStateListener() {
@@ -83,6 +115,55 @@ public class Profile_mgmt extends AppCompatActivity {
 
             }
         });
+
+        DatabaseReference databaseReference5=FirebaseDatabase.getInstance().getReference().child("notice_management");
+        Query l=databaseReference5.orderByKey().limitToLast(3);
+        l.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                int finalQ=1;
+                for (final DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    if(finalQ ==1)
+                    {
+                        TextView textView=findViewById(R.id.notice_data1);
+                        TextView textView1=findViewById(R.id.notice_date1);
+                        String[] data = postSnapshot.getValue().toString().split("-");
+                        textView.setText(data[0]);
+                        textView1.setText(data[1]);
+                        finalQ=2;
+                        continue;
+                    }
+                    if(finalQ ==2)
+                    {
+                        TextView textView1=findViewById(R.id.notice_date2);
+                        TextView textView=findViewById(R.id.notice_data2);
+                        String[] data = postSnapshot.getValue().toString().split("-");
+                        textView.setText(data[0]);
+                        textView1.setText(data[1]);
+                        finalQ=3;
+                        continue;
+                    }
+                    if(finalQ ==3)
+                    {
+                        TextView textView1=findViewById(R.id.notice_date3);
+                        TextView textView=findViewById(R.id.notice_data3);
+                        String[] data = postSnapshot.getValue().toString().split("-");
+                        textView.setText(data[0]);
+                        textView1.setText(data[1]);
+                    }
+                    Log.e("hj", dataSnapshot.getValue().toString());
+                }
+
+                progressBar.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         TextView textView=(TextView)view.findViewById(R.id.tab_name);
         textView.setText("Management ");
@@ -181,5 +262,53 @@ public class Profile_mgmt extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         auth.addAuthStateListener(authStateListener);
+    }
+    public void notice_popup_message()
+    {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.notice_popup);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        final ListView listView=dialog.findViewById(R.id.notice_list);
+        final ProgressBar progressBar=dialog.findViewById(R.id.notice_progress);
+
+        DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child("notice_management");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(!list.isEmpty())
+                {
+                    list.clear();
+                }
+
+                for(final DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    String[] data = postSnapshot.getValue().toString().split("-");
+                    if (!postSnapshot.getKey().equals("counter")) {
+                        list.add(new action_screen.notice(data[1], data[0]));
+                    }
+                }
+
+                progressBar.setVisibility(View.GONE);
+                notice_adapter myAdapter=new notice_adapter(getApplicationContext(),R.layout.notice_view,list);
+                listView.setAdapter(myAdapter);
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setAttributes(lp);
     }
 }

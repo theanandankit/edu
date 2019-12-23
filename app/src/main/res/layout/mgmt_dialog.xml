@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     android:layout_width="match_parent"
+    app:strokeColor="@color/black"
+    app:strokeWidth="5dp"
     android:layout_height="wrap_content"
     app:cardCornerRadius="25dp"
-    app:cardBackgroundColor="@android:color/transparent"
 
     android:fitsSystemWindows="true">
     <LinearLayout
@@ -22,6 +23,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:orientation="horizontal">
 
 
@@ -48,7 +50,7 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/sofia"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:padding="5dp"
 
                     />
@@ -81,11 +83,56 @@
             android:orientation="vertical">
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/give_you_glory"
+                android:text="First Management Member"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/sofia"
+                        android:text="select Member"
+                        android:textColor="@color/buttonred"
+                        android:textSize="15sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:spinnerMode="dialog"
+                    android:id="@+id/management_popup_spinner1">
+
+                </Spinner>
+
+
+
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_margin="5dp"
             android:id="@+id/set_member1_name"
             android:hint="Member Name"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
@@ -95,33 +142,32 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:layout_gravity="center_horizontal"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             app:boxBackgroundColor="@color/white"
             android:id="@+id/set_uid1"
-            android:hint="UID">
+            android:hint="SGM ID">
 
             <com.google.android.material.textfield.TextInputEditText
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:inputType="text"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:layout_gravity="center_horizontal"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_margin="5dp"
             android:id="@+id/set_batch1"
             android:hint="Batch"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
@@ -132,14 +178,67 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:layout_gravity="center_horizontal"
                 />
-        </com.google.android.material.textfield.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/give_you_glory"
+                android:text="Second Management Member"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white"
+                android:stateListAnimator="@animator/card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/sofia"
+                        android:text="select Member"
+                        android:textColor="@color/buttonred"
+                        android:textSize="15sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:id="@+id/management_popup_spinner2">
+                    </Spinner>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_margin="5dp"
             android:id="@+id/set_member2_name"
             android:hint="Member Name"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
@@ -150,7 +249,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:layout_gravity="center_horizontal"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -160,7 +259,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             app:boxBackgroundColor="@color/white"
             android:id="@+id/set_uid2"
-            android:hint="UID">
+            android:layout_margin="5dp"
+            android:hint="SGM ID">
 
             <com.google.android.material.textfield.TextInputEditText
 
@@ -168,14 +268,14 @@
                 android:layout_height="wrap_content"
 
                 android:inputType="text"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:layout_gravity="center_horizontal"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_margin="5dp"
             android:id="@+id/set_batch2"
             android:hint="Batch"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
@@ -186,10 +286,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:layout_gravity="center_horizontal"
                 />
         </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
         </ScrollView>
 
