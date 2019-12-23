@@ -19,39 +19,50 @@
             android:orientation="vertical">
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Select Your date:"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="10dp"
-                android:textSize="18dp"
-                android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/aclonica">
-            </TextView>
-
-
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:id="@+id/complain_mgmt"
                 android:layout_weight="1"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    >
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Your date:"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="18dp"
+                        android:layout_margin="5dp"
+                        android:textColor="@color/buttonred"
+                        android:fontFamily="@font/aclonica"
+                        android:textStyle="bold">
+                    </TextView>
+
     <Spinner
         android:layout_width="match_parent"
         android:layout_gravity="center"
-
         android:spinnerMode="dialog"
+        android:layout_margin="5dp"
         android:gravity="center"
         android:layout_height="wrap_content"
         android:id="@+id/spinner2">
 
     </Spinner>
+
+                </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
         <LinearLayout
@@ -63,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Change the current Teacher schedule"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="10dp"
                 android:textSize="18dp"
@@ -71,10 +82,12 @@
                 android:fontFamily="@font/aclonica">
             </TextView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
+                app:cardCornerRadius="20dp"
                 android:id="@+id/card1"
                 android:layout_margin="10dp">
 
@@ -88,6 +101,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class: 1-2"
+                        android:fontFamily="@font/pacifico"
+                        android:textStyle="bold"
                         android:textSize="20dp"
                         android:layout_gravity="center_horizontal"/>
 
@@ -97,6 +112,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Teacher:"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:id="@+id/teacher1"
                         android:textSize="20dp"
                         android:layout_margin="5dp"
@@ -107,6 +124,8 @@
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:text="UID:"
@@ -122,6 +141,8 @@
                         android:text="Batch:"
                         android:layout_margin="5dp"
                         android:id="@+id/batch1"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:textSize="20dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -137,6 +158,8 @@
                         android:id="@+id/sub1"
                         android:layout_margin="5dp"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
                         android:textColor="@color/colorPrimaryDark"/>
@@ -144,11 +167,13 @@
 
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
+                app:cardCornerRadius="20dp"
                 android:id="@+id/card3"
                 android:layout_margin="10dp">
 
@@ -162,6 +187,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/pacifico"
+                        android:textStyle="bold"
                         android:text="Class: 3-4"
                         android:textSize="20dp"
                         android:layout_gravity="center_horizontal">
@@ -176,6 +203,8 @@
                         android:text="Teacher:"
                         android:layout_margin="5dp"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:id="@+id/teacher3"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -187,6 +216,8 @@
                         android:layout_margin="5dp"
                         android:textSize="20dp"
                         android:id="@+id/uid3"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
                         android:textColor="@color/colorPrimaryDark"/>
@@ -197,6 +228,8 @@
                         android:layout_margin="5dp"
                         android:id="@+id/batch3"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
                         android:textColor="@color/colorPrimaryDark"/>
@@ -211,17 +244,21 @@
                         android:layout_margin="5dp"
                         android:textSize="20dp"
                         android:id="@+id/sub3"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
                         android:textColor="@color/colorPrimaryDark"/>
                 </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
+                app:cardCornerRadius="20dp"
                 android:id="@+id/card5"
                 android:layout_margin="10dp">
 
@@ -235,6 +272,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class: 5"
+                        android:fontFamily="@font/pacifico"
+                        android:textStyle="bold"
                         android:textSize="20dp"
                         android:layout_gravity="center_horizontal">
 
@@ -246,6 +285,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Teacher:"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:textSize="20dp"
                         android:layout_margin="5dp"
                         android:id="@+id/teacher5"
@@ -257,6 +298,8 @@
                         android:layout_height="wrap_content"
                         android:text="UID:"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:id="@+id/uid5"
                         android:gravity="center_horizontal"
@@ -269,6 +312,8 @@
                         android:layout_margin="5dp"
                         android:id="@+id/batch5"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
                         android:textColor="@color/colorPrimaryDark"/>
@@ -282,6 +327,8 @@
                         android:text="Subject:"
                         android:textSize="20dp"
                         android:id="@+id/sub5"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -289,11 +336,13 @@
                 </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
+                app:cardCornerRadius="20dp"
                 android:id="@+id/card6"
                 android:layout_margin="10dp">
 
@@ -304,6 +353,8 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:fontFamily="@font/pacifico"
+                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class: 6"
@@ -318,6 +369,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Teacher:"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:textSize="20dp"
                         android:id="@+id/teacher6"
@@ -330,6 +383,8 @@
                         android:text="UID:"
                         android:textSize="20dp"
                         android:id="@+id/uid6"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -340,6 +395,8 @@
                         android:text="Batch:"
                         android:id="@+id/batch6"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -352,6 +409,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Subject:"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:textSize="20dp"
                         android:id="@+id/sub6"
                         android:layout_margin="5dp"
@@ -361,15 +420,19 @@
                 </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
+                app:cardCornerRadius="20dp"
                 android:id="@+id/card7"
                 android:layout_margin="10dp">
 
                 <LinearLayout
+                    android:fontFamily="@font/pacifico"
+                    android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="20dp"
@@ -379,6 +442,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class: 7"
+                        android:fontFamily="@font/pacifico"
+                        android:textStyle="bold"
                         android:textSize="20dp"
                         android:layout_gravity="center_horizontal">
 
@@ -390,6 +455,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Teacher:"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:textSize="20dp"
                         android:id="@+id/teacher7"
@@ -402,6 +469,8 @@
                         android:text="UID:"
                         android:textSize="20dp"
                         android:id="@+id/uid7"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -412,6 +481,8 @@
                         android:text="Batch:"
                         android:id="@+id/batch7"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -427,17 +498,21 @@
                         android:textSize="20dp"
                         android:layout_margin="5dp"
                         android:id="@+id/sub7"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
                         android:textColor="@color/colorPrimaryDark"/>
                 </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
+                app:cardCornerRadius="20dp"
                 android:id="@+id/card8"
                 android:layout_margin="10dp">
 
@@ -448,6 +523,8 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:fontFamily="@font/pacifico"
+                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class: 8"
@@ -464,6 +541,8 @@
                         android:text="Teacher:"
                         android:layout_margin="5dp"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:id="@+id/teacher8"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -473,6 +552,8 @@
                         android:layout_height="wrap_content"
                         android:text="UID:"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:id="@+id/uid8"
                         android:gravity="center_horizontal"
@@ -484,6 +565,8 @@
                         android:text="Batch:"
                         android:layout_margin="5dp"
                         android:id="@+id/batch8"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:textSize="20dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -498,6 +581,8 @@
                         android:text="Subject:"
                         android:layout_margin="5dp"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:id="@+id/sub8"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -505,11 +590,13 @@
                 </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
+                app:cardCornerRadius="20dp"
                 android:id="@+id/card9"
                 android:layout_margin="10dp">
 
@@ -520,6 +607,8 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:fontFamily="@font/pacifico"
+                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class: 9"
@@ -535,6 +624,8 @@
                         android:layout_height="wrap_content"
                         android:text="Teacher:"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:id="@+id/teacher9"
                         android:gravity="center_horizontal"
@@ -545,6 +636,8 @@
                         android:layout_height="wrap_content"
                         android:text="UID:"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:id="@+id/uid9"
                         android:gravity="center_horizontal"
@@ -556,6 +649,8 @@
                         android:text="Batch:"
                         android:id="@+id/batch9"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -570,6 +665,8 @@
                         android:text="Subject:"
                         android:textSize="20dp"
                         android:id="@+id/sub9"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -577,11 +674,13 @@
                 </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
+                app:cardCornerRadius="20dp"
                 android:id="@+id/card10"
                 android:layout_margin="10dp">
 
@@ -592,6 +691,8 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:fontFamily="@font/pacifico"
+                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class: 10"
@@ -617,6 +718,8 @@
                         android:layout_height="wrap_content"
                         android:text="UID:"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:id="@+id/uid10"
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
@@ -628,6 +731,8 @@
                         android:text="Batch:"
                         android:id="@+id/batch10"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -643,17 +748,21 @@
                         android:textSize="20dp"
                         android:layout_margin="5dp"
                         android:id="@+id/sub10"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
                         android:textColor="@color/colorPrimaryDark"/>
                 </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
+                app:cardCornerRadius="20dp"
                 android:id="@+id/card11"
                 android:layout_margin="10dp">
 
@@ -664,6 +773,8 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:fontFamily="@font/pacifico"
+                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class: 11"
@@ -678,6 +789,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Teacher:"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:textSize="20dp"
                         android:id="@+id/teacher11"
@@ -691,6 +804,8 @@
                         android:textSize="20dp"
                         android:layout_margin="5dp"
                         android:id="@+id/uid11"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
                         android:textColor="@color/colorPrimaryDark"/>
@@ -700,6 +815,8 @@
                         android:text="Batch:"
                         android:id="@+id/batch11"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -714,6 +831,8 @@
                         android:text="Subject:"
                         android:textSize="20dp"
                         android:id="@+id/sub11"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -721,11 +840,13 @@
                 </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
+                app:cardCornerRadius="20dp"
                 android:id="@+id/card12"
                 android:layout_margin="10dp">
 
@@ -736,6 +857,8 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:fontFamily="@font/pacifico"
+                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class: 12"
@@ -752,6 +875,8 @@
                         android:text="Teacher:"
                         android:textSize="20dp"
                         android:layout_margin="5dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:id="@+id/teacher12"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -761,6 +886,8 @@
                         android:layout_height="wrap_content"
                         android:text="UID:"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:id="@+id/uid12"
                         android:gravity="center_horizontal"
@@ -772,6 +899,8 @@
                         android:text="Batch:"
                         android:id="@+id/batch12"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -784,6 +913,8 @@
                         android:text="Subject:"
                         android:layout_margin="5dp"
                         android:textSize="20dp"
+                        android:fontFamily="@font/give_you_glory"
+                        android:textStyle="bold"
                         android:id="@+id/sub12"
                         android:gravity="center_horizontal"
                         android:layout_gravity="start"
@@ -791,7 +922,7 @@
                 </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
         </LinearLayout>

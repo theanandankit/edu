@@ -15,12 +15,39 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/give_you_glory"
+                android:text="Sunday Activity"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/pacifico"
+                android:text="Every sunday 10:00 AM to 11:30 AM at B Blobk "
+                android:textColor="@color/buttonred"
+                android:textSize="15dp"
+                android:textStyle="bold">
+
+            </TextView>
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_margin="15dp"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="20dp"
         app:cardElevation="20dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="5dp"
         app:cardBackgroundColor="@color/white">
 
         <ImageView

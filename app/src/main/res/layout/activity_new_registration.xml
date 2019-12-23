@@ -32,6 +32,7 @@
                         android:layout_margin="5dp"
                         android:textColor="@color/buttonred"
                         android:layout_width="wrap_content"
+                        android:fontFamily="@font/pacifico"
                         android:layout_height="wrap_content"
                         android:text="NOTE:">
 
@@ -46,6 +47,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_margin="2dp"
+                        android:fontFamily="@font/pacifico"
                         android:textColor="@color/buttonred"
                         android:layout_height="wrap_content"
                         android:text="SGM ID is assign automatically.">
@@ -56,6 +58,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
+                        android:fontFamily="@font/pacifico"
                         android:layout_margin="2dp"
                         android:textColor="@color/buttonred"
                         android:text="Please enter the password More than 8 word.">
@@ -66,6 +69,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
+                        android:fontFamily="@font/pacifico"
                         android:layout_margin="2dp"
                         android:textColor="@color/buttonred"
                         android:text="Please not assign any space at last of any String."
@@ -78,6 +82,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
+                        android:fontFamily="@font/pacifico"
                         android:layout_margin="2dp"
                         android:textColor="@color/buttonred"
                         android:text="It may take few second , So please wait for a while."
@@ -98,7 +103,7 @@
                 android:layout_marginBottom="10dp"
                 android:textSize="18dp"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/aclonica">
+                android:fontFamily="@font/berkshireswash">
             </TextView>
 
             <com.google.android.material.card.MaterialCardView
@@ -107,6 +112,8 @@
                 android:layout_margin="5dp"
                 android:id="@+id/complain_mgmt"
                 android:layout_weight="1"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white">
@@ -121,7 +128,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SGM ID:"
-                    android:fontFamily="@font/stylish"
+                    android:fontFamily="@font/aclonica"
                     android:gravity="center_horizontal"
                     android:layout_weight="1"
                     android:textSize="30dp"
@@ -164,7 +171,7 @@
                 android:layout_marginBottom="10dp"
                 android:textSize="18dp"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/aclonica">
+                android:fontFamily="@font/berkshireswash">
             </TextView>
 
 
@@ -172,7 +179,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="20dp"
+                android:layout_marginBottom="50dp"
                 android:layout_margin="10dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white">
 
@@ -313,10 +323,12 @@
 
             </Spinner>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="register"
+                app:cornerRadius="20dp"
+                app:rippleColor="@color/ripple"
                 android:layout_margin="30dp"
                 android:layout_marginBottom="40dp"
                 android:layout_gravity="center_horizontal"

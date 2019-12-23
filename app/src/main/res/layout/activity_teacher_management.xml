@@ -38,13 +38,17 @@
                     android:orientation="vertical"
                     >
 
+
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
                         android:layout_margin="15dp"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="3dp"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="20dp"
-                        app:cardBackgroundColor="@color/white">
+                        app:cardBackgroundColor="@color/white"
+                        android:stateListAnimator="@animator/card">
 
                         <ViewFlipper
                             android:layout_width="match_parent"
@@ -214,16 +218,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="15dp"
-                app:cardCornerRadius="25dp"
-                app:rippleColor="@color/ripple"
-                android:id="@+id/management"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
+                app:cardCornerRadius="10dp"
                 app:cardElevation="20dp"
-                app:cardBackgroundColor="@color/white">
+                app:cardBackgroundColor="@color/white"
+                android:stateListAnimator="@animator/card">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
+                    android:layout_margin="20dp"
                     android:orientation="vertical">
 
 
@@ -231,7 +236,7 @@
                         android:id="@+id/teacher_member_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/architects_daughter"
+                        android:fontFamily="@font/aclonica"
                         android:textColor="@color/black"
                         android:textSize="30sp"
                         android:textStyle="bold"
@@ -247,7 +252,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
-                        android:fontFamily="@font/architects_daughter"
+                        android:fontFamily="@font/aclonica"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -260,7 +265,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:textAlignment="center"
-                        android:fontFamily="@font/architects_daughter"
+                        android:fontFamily="@font/aclonica"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -274,7 +279,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/architects_daughter"
+                        android:fontFamily="@font/aclonica"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -288,7 +293,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/architects_daughter"
+                        android:fontFamily="@font/aclonica"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -318,10 +323,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
-                app:cardCornerRadius="50dp"
-                app:rippleColor="@color/ripple"
+                app:strokeColor="@color/black"
+                app:strokeWidth="3dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
-                app:cardBackgroundColor="@color/white">
+                app:cardBackgroundColor="@color/white"
+                android:stateListAnimator="@animator/card">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -417,6 +424,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="20dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
                 android:id="@+id/teacher_complain_mgmt"
                 android:layout_weight="1"
                 app:cardCornerRadius="50dp"

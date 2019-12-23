@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"
     android:layout_marginBottom="2dp"
@@ -8,6 +10,10 @@
     android:padding="3dp">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
+        app:strokeWidth="5dp"
+        app:strokeColor="@color/black"
+        app:cardCornerRadius="20dp"
+        app:rippleColor="@color/ripple"
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
         android:elevation="3dp">
@@ -43,8 +49,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
-                    android:fontFamily="@font/luckiest_guy"
-                    android:text="Ankit"
+                    android:fontFamily="@font/pacifico"
+                    android:textStyle="bold"
+                    android:text="-----"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp"
                    >
@@ -72,8 +79,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
-                    android:fontFamily="casual"
-                    android:text="2018IMG-XXX"
+                    android:fontFamily="@font/sofia"
+                    android:text="20--IM-----"
                     android:textColor="@color/colorPrimary"
                     android:textSize="17sp"
                     android:textStyle="bold">
@@ -98,8 +105,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:fontFamily="casual"
-                android:text="ankitanand2909@gmail.com"
+                android:fontFamily="@font/sofia"
+                android:text="--------@gmail.com"
                 android:textColor="@color/colorPrimary"
                 android:textSize="17sp"
                 android:textStyle="bold">
@@ -124,8 +131,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:fontFamily="casual"
-                android:text="90XXXXXXXX"
+                android:fontFamily="@font/sofia"
+                android:text="90--------"
                 android:textColor="@color/colorPrimary"
                 android:textSize="17sp"
                 android:textStyle="bold">

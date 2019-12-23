@@ -15,13 +15,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"
             android:orientation="vertical">
 
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_margin="25dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white">
@@ -56,6 +59,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="5dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
                 app:cardBackgroundColor="@color/white">
@@ -80,7 +85,8 @@
                 android:textSize="15dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:fontFamily="@font/aclonica"
+                android:fontFamily="@font/give_you_glory"
+                android:textStyle="bold"
                 android:layout_margin="15dp">
 
 
@@ -107,6 +113,8 @@
                 android:layout_margin="15dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="5dp"
                 app:cardBackgroundColor="@color/white">
 
                 <LinearLayout
@@ -130,7 +138,8 @@
                 android:textSize="15dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:fontFamily="@font/aclonica"
+                android:fontFamily="@font/give_you_glory"
+                android:textStyle="bold"
                 android:layout_margin="15dp">
 
 
@@ -157,6 +166,8 @@
                 android:layout_margin="15dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="5dp"
                 app:cardBackgroundColor="@color/white">
 
                 <LinearLayout
@@ -180,7 +191,8 @@
                 android:textSize="15dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:fontFamily="@font/aclonica"
+                android:fontFamily="@font/give_you_glory"
+                android:textStyle="bold"
                 android:layout_margin="15dp">
 
 

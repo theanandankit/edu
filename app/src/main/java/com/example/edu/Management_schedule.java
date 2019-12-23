@@ -81,7 +81,7 @@ public class Management_schedule extends AppCompatActivity {
         mgmt_card3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showCustomDialog("Wednesday",R.id.wednesday1,R.id.wednesday2,R.id.wednesday_uid1,R.id.wednesday_uid2,R.id.wednesday_batch1,R.id.wednesday_batch2);
+                showCustomDialog("Wednesday",R.id.Wednesday1,R.id.Wednesday2,R.id.Wednesday_uid1,R.id.Wednesday_uid2,R.id.Wednesday_batch1,R.id.Wednesday_batch2);
             }
         });
         mgmt_card4.setOnClickListener(new View.OnClickListener() {
@@ -108,12 +108,12 @@ public class Management_schedule extends AppCompatActivity {
     {
         final TextView m1=(TextView)findViewById(name1);
         final TextView m2=(TextView)findViewById(name2);
-         final TextView u1=(TextView)findViewById(uid1);
+        final TextView u1=(TextView)findViewById(uid1);
         final TextView u2=(TextView)findViewById(uid2);
         final TextView b1=(TextView)findViewById(batch1);
         final TextView b2=(TextView)findViewById(batch2);
         final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.mgmt_dialog);
         dialog.setCancelable(true);
 
@@ -199,7 +199,7 @@ public class Management_schedule extends AppCompatActivity {
                              setvalue(R.id.tuesday1,R.id.tuesday2,R.id.tuesday_uid1,R.id.tuesday_uid2,R.id.tuesday_batch1,R.id.tuesday_batch2,a);
                              break;
                          case 2:
-                             setvalue(R.id.wednesday1,R.id.wednesday2,R.id.wednesday_uid1,R.id.wednesday_uid2,R.id.wednesday_batch1,R.id.wednesday_batch2,a);
+                             setvalue(R.id.Wednesday1,R.id.Wednesday2,R.id.Wednesday_uid1,R.id.Wednesday_uid2,R.id.Wednesday_batch1,R.id.Wednesday_batch2,a);
                              break;
                          case 3:
                              setvalue(R.id.thursday1,R.id.thursday2,R.id.thursday_uid1,R.id.thursday_uid2,R.id.thursday_batch1,R.id.thursday_batch2,a);
@@ -229,18 +229,18 @@ public class Management_schedule extends AppCompatActivity {
     public void setvalue(final int a,final int b, final int c, final int d, final int e,final int f,int i)
     {
         TextView mgmt_name1 = findViewById(a);
-        TextView mgmt_uid1 = findViewById(b);
-        TextView mgmt_batch1=findViewById(c);
-        TextView mgmt_name2 = findViewById(d);
-        TextView mgmt_uid2 = findViewById(e);
+        TextView mgmt_uid1 = findViewById(c);
+        TextView mgmt_batch1=findViewById(e);
+        TextView mgmt_name2 = findViewById(b);
+        TextView mgmt_uid2 = findViewById(d);
         TextView mgmt_batch2=findViewById(f);
 
-        String name1="Name: ";
-        String u_id1="UID: ";
-        String Batch1="Batch: ";
-        String name2="Name: ";
-        String u_id2="UID: ";
-        String Batch2="Batch: ";
+        String name1="";
+        String u_id1="";
+        String Batch1="";
+        String name2="";
+        String u_id2="";
+        String Batch2="";
 
 
         if(i==1)
@@ -272,9 +272,6 @@ public class Management_schedule extends AppCompatActivity {
         mgmt_batch2.setText(Batch2);
         mgmt_batch2.setTypeface(typeface);
         mgmt_batch2.setTextColor(Color.BLACK);
-
-
-
     }
 
 }
