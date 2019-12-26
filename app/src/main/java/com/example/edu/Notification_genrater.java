@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -56,8 +58,9 @@ public class Notification_genrater extends AppCompatActivity {
         edtTitle = findViewById(R.id.notification_title);
         edtMessage = findViewById(R.id.notification_body);
         Button btnSend = findViewById(R.id.notification_ok);
+        Button btn_notice_ok=findViewById(R.id.notice_ok);
 
-        final DatabaseReference databaseReference_counter=FirebaseDatabase.getInstance().getReference().child("notice").child("counter");
+        final DatabaseReference databaseReference_counter=FirebaseDatabase.getInstance().getReference().child("notice_counter");
         databaseReference_counter.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -72,6 +75,106 @@ public class Notification_genrater extends AppCompatActivity {
 
             }
         });
+
+        final RadioButton managemennt_radio=findViewById(R.id.notice_management_check);
+        final RadioButton teacher_radio=findViewById(R.id.notice_teacher_check);
+        final RadioButton admin_radio=findViewById(R.id.notice_admin_check);
+        final RadioButton common_radio=findViewById(R.id.notice_common_check);
+
+      /*  managemennt_radio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                {
+                    managemennt_radio.setChecked(false);
+                }
+            }
+        });
+
+        teacher_radio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!teacher_radio.isChecked())
+                {
+                    teacher_radio.setChecked(false);
+                }
+            }
+        });
+
+
+        admin_radio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked)
+                {
+                   admin_radio.setChecked(false);
+                }
+            }
+        });
+
+        common_radio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked)
+                {
+                    common_radio.setChecked(false);
+                }
+            }
+        });
+
+       */
+
+      btn_notice_ok.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+
+              EditText editText = findViewById(R.id.notice_board_message);
+
+
+              if (!editText.getText().toString().isEmpty()) {
+
+                  if (managemennt_radio.isChecked() || teacher_radio.isChecked() || admin_radio.isChecked() || common_radio.isChecked()) {
+
+                      if (managemennt_radio.isChecked()) {
+                          DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("notice_management").child(counter);
+                          databaseReference.setValue(editText.getText().toString() + " - " + new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+                      }
+
+                      if (teacher_radio.isChecked()) {
+                          DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("notice_teacher").child(counter);
+                          databaseReference.setValue(editText.getText().toString() + " - " + new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+                      }
+
+
+                      if (admin_radio.isChecked()) {
+                          DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("notice_admin").child(counter);
+                          databaseReference.setValue(editText.getText().toString() + " - " + new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+                      }
+                      if (common_radio.isChecked()) {
+                          DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("notice").child(counter);
+                          databaseReference.setValue(editText.getText().toString() + " - " + new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+                      }
+
+                      counter_in = counter_in + 1;
+
+
+                      databaseReference_counter.setValue(counter_in);
+
+
+                      Toast.makeText(getApplicationContext(),"Message successfully send, Thank you",Toast.LENGTH_LONG).show();
+
+                      finish();
+
+                  } else
+
+                      Toast.makeText(getApplicationContext(), "Please select atleast one Check box", Toast.LENGTH_LONG).show();
+              }
+              else
+                  Toast.makeText(getApplicationContext(),"Please enter message",Toast.LENGTH_LONG).show();
+          }
+      });
+
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,17 +196,17 @@ public class Notification_genrater extends AppCompatActivity {
                     Log.e(TAG, "onCreate: " + e.getMessage());
                 }
 
-                sendNotification(notification);
-                
+                if (!NOTIFICATION_TITLE.isEmpty()) {
 
+                    if (!NOTIFICATION_MESSAGE.isEmpty()) {
 
-                DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("notice").child(counter);
-                databaseReference.setValue(edtTitle.getText().toString()+" - "+new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
-
-                counter_in=counter_in+1;
-
-
-                databaseReference_counter.setValue(counter_in);
+                        sendNotification(notification);
+                    }
+                    else
+                        Toast.makeText(getApplicationContext(),"Message field can't be empty",Toast.LENGTH_LONG).show();
+                }
+                else
+                    Toast.makeText(getApplicationContext(),"Title field can't be empty",Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -119,6 +222,10 @@ public class Notification_genrater extends AppCompatActivity {
                         Log.i(TAG, "onResponse: " + response.toString());
                         edtTitle.setText("");
                         edtMessage.setText("");
+
+                        Toast.makeText(getApplicationContext(),"Notification successfully send, thank you",Toast.LENGTH_LONG).show();
+
+                        finish();
                     }
                 },
                 new Response.ErrorListener() {

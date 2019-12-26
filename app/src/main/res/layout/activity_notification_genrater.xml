@@ -228,6 +228,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
+                        android:id="@+id/notice_management_check"
                         android:text="Management Notice Board"
                         android:fontFamily="@font/berkshireswash"
                         android:textSize="15dp"
@@ -238,6 +239,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
+                        android:id="@+id/notice_teacher_check"
                         android:text="Teacher Notice Board"
                         android:fontFamily="@font/berkshireswash"
                         android:textSize="15dp"
@@ -248,6 +250,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
+                        android:id="@+id/notice_admin_check"
                         android:text="Admin Notice Board"
                         android:fontFamily="@font/berkshireswash"
                         android:textSize="15dp"
@@ -255,15 +258,16 @@
                     </com.google.android.material.radiobutton.MaterialRadioButton>
 
 
-                    <RadioButton
+                    <com.google.android.material.radiobutton.MaterialRadioButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
+                        android:id="@+id/notice_common_check"
                         android:text="Common Notice Board"
                         android:fontFamily="@font/berkshireswash"
                         android:textSize="15dp"
                         android:textStyle="bold">
-                    </RadioButton>>
+                    </com.google.android.material.radiobutton.MaterialRadioButton>>
 
                 </LinearLayout>
 
