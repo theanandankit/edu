@@ -52,29 +52,6 @@
                         android:textSize="45sp"
                         android:textStyle="bold" />
 
-                    <!--TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tv_one_login"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="#ffffff"
-                        android:textSize="15sp" /-->
-                    <!--ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:src="@drawable/profile"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="-20dp"
-                        android:layout_marginTop="5dp"
-                        android:elevation="150dp"
-                        android:translationZ="10dp"
-                        android:outlineProvider="none"
-                        >
-
-                    </ImageView-->
-
                 </LinearLayout>
             </RelativeLayout>
 
@@ -98,8 +75,8 @@
                     android:id="@+id/cv_one_login"
                     android:layout_margin="5dp"
                     app:cardBackgroundColor="@color/white"
-                    app:strokeWidth="0dp"
-                    app:strokeColor="@color/colorPrimary"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/black"
                     android:layout_weight="1"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="4.2dp"
@@ -119,6 +96,8 @@
                             android:background="@android:color/transparent"
                             app:boxBackgroundColor="@color/white"
                             app:endIconMode="clear_text"
+                            app:counterMaxLength="40"
+                            app:counterEnabled="true"
                             app:startIconDrawable="@drawable/ic_email_black_24dp"
                             >
 
@@ -126,7 +105,7 @@
 
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
+                                android:maxLength="25"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_margin="10dp" />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -136,6 +115,8 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/userid"
                             android:hint="SGM ID"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="5"
                             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                             app:boxBackgroundColor="@color/white"
                             app:startIconDrawable="@drawable/ic_portrait_black_24dp"
@@ -147,6 +128,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="10dp"
+                                android:maxLength="5"
                                 android:layout_gravity="center_horizontal"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -156,6 +138,8 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/password"
                             android:hint="Password"
+                            app:counterMaxLength="30"
+                            app:counterEnabled="true"
                             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                             app:boxBackgroundColor="@color/white"
                             app:passwordToggleEnabled="true"
@@ -168,6 +152,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
 
+                                android:maxLines="1"
                                 android:inputType="textPassword"
                                 android:layout_margin="10dp"
                                 android:layout_marginBottom="10dp"

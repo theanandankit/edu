@@ -191,7 +191,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="10dp"
                     android:id="@+id/notice_data1"
                     android:layout_marginLeft="10dp"
                     >
@@ -214,7 +215,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="10dp"
                         android:id="@+id/notice_data2"
                         android:layout_marginLeft="10dp"
                         >
@@ -236,7 +238,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="10dp"
                         android:textStyle="bold"
                         android:id="@+id/notice_data3"
                         android:layout_marginLeft="10dp"
@@ -1158,6 +1161,32 @@
 
                 </LinearLayout>
 
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:strokeWidth="3dp"
+                android:layout_marginTop="30dp"
+                app:rippleColor="@color/ripple"
+                android:layout_marginBottom="60dp"
+                app:strokeColor="@color/black"
+                android:id="@+id/action_contact"
+                app:cardCornerRadius="50dp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Us"
+                    android:gravity="center"
+                    android:textColor="@color/buttonred"
+                    android:layout_margin="20dp"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/amatica_sc_bold"
+                    android:textStyle="bold">
+                </TextView>
 
             </com.google.android.material.card.MaterialCardView>
 

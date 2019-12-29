@@ -4,28 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@color/background"
     android:layout_height="match_parent"
     tools:context=".date_monitoring">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Select Date"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:textSize="18dp"
-        android:textColor="@color/colorPrimary"
-        android:fontFamily="@font/aclonica">
-    </TextView>
-
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
+        app:strokeWidth="3dp"
+        app:strokeColor="@color/black"
+        app:cardCornerRadius="20dp"
         app:cardElevation="20dp"
         app:cardBackgroundColor="@color/white"
         android:layout_margin="15dp">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,12 +28,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/stylish"
+                android:textColor="@color/buttonred"
                 android:gravity="center_horizontal"
+                android:fontFamily="@font/aclonica"
                 android:textSize="15dp"
-                android:text="Select Date"
+                android:text="Select Day"
                 android:layout_weight="2">
-
             </TextView>
 
             <Spinner
@@ -57,25 +49,28 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Teacher and Management Schedule"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:textSize="18dp"
+        android:textStyle="bold"
         android:textColor="@color/colorPrimary"
-        android:fontFamily="@font/aclonica">
+        android:fontFamily="@font/give_you_glory">
     </TextView>
 
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
+        app:strokeWidth="3dp"
+        app:strokeColor="@color/black"
+        app:cardCornerRadius="20dp"
         app:cardElevation="20dp"
         app:cardBackgroundColor="@color/white"
         android:layout_margin="15dp">
@@ -84,6 +79,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_margin="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -142,6 +147,18 @@
                 </LinearLayout>
             </LinearLayout>
 
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/black"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_margin="15dp">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -173,8 +190,10 @@
 
             </LinearLayout>
 
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
