@@ -4,13 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".complain_viewer_activity">
+    tools:context=".complain_viewer_activity"
+    android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Complete List"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginLeft="20dp"
+        android:textSize="25sp"
+        android:fontFamily="@font/give_you_glory"
+        android:textStyle="bold">
+    </TextView>
+
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/complain_recycle_view"
-        >
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:id="@+id/action_schedule_main"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="@color/white"
+        android:stateListAnimator="@animator/card">
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/complain_recycle_view">
     </androidx.recyclerview.widget.RecyclerView>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

@@ -35,7 +35,6 @@
         <activity android:name=".list_member" android:screenOrientation="portrait"/>
         <activity android:name=".new_registration" android:screenOrientation="portrait"/>
         <activity android:name=".admin_management" android:screenOrientation="portrait"/>
-        <activity android:name=".not_able" android:screenOrientation="portrait"/>
         <activity android:name=".Teacher_management" android:screenOrientation="portrait"/>
         <activity android:name=".class_management" android:screenOrientation="portrait"/>
 
