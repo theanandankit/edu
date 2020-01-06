@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">edu</string>
+    <string name="app_name">SGM</string>
     <string name="status_today">Status Today</string>
     <string name="title_activity_schedule_view">schedule_view</string>
     <string name="title_home">Home</string>

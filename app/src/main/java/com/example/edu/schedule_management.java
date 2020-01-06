@@ -229,7 +229,6 @@ public class schedule_management extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, final int i, long l) {
 
-
               member_sgmid mm=new member_sgmid();
 
               final String id=mm.get_uid(adapterView.getItemAtPosition(i).toString());

@@ -11,6 +11,7 @@ import androidx.core.content.res.ResourcesCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
@@ -18,7 +19,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -132,8 +136,11 @@ public class list_member extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 TextView textView = view.findViewById(R.id.member_list_contact);
+                TextView name=view.findViewById(R.id.member_list_name);
 
-                Toast.makeText(getApplicationContext(), textView.getText().toString(), Toast.LENGTH_LONG).show();
+                call_permission(name.getText().toString(),textView.getText().toString());
+
+               /* Toast.makeText(getApplicationContext(), textView.getText().toString(), Toast.LENGTH_LONG).show();
 
                 Intent i = new Intent(Intent.ACTION_CALL, Uri.fromParts("tel",textView.getText().toString(),null));
 
@@ -144,7 +151,7 @@ public class list_member extends AppCompatActivity {
                 else
                 {
                     startActivity(i);
-                }
+                }*/
            }
        });
 
@@ -215,4 +222,57 @@ public class list_member extends AppCompatActivity {
             this.member_contact_button = member_contact_button;
         }
     }
-}
+    public void call_permission(String name, final String number)
+    {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.phone_popup);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+        Button cancel=dialog.findViewById(R.id.call_cancel);
+        Button call=dialog.findViewById(R.id.call_confirm);
+        TextView textView=dialog.findViewById(R.id.call_text);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+            }
+        });
+
+        textView.setText("Do you want to call "+name+" ??");
+
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(), number, Toast.LENGTH_LONG).show();
+
+                Intent i = new Intent(Intent.ACTION_CALL, Uri.fromParts("tel",number,null));
+
+
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(list_member.this, new String[]{Manifest.permission.CALL_PHONE},1);
+                }
+                else
+                {
+                    startActivity(i);
+                }
+
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setAttributes(lp);
+
+            }
+    }
+

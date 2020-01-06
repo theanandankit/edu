@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkBlue"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CALL INFO"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:fontFamily="@font/sofia"
+            >
+
+        </TextView>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/call_text"
+            android:text="Noting to show"
+            android:textSize="20dp"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/give_you_glory"
+            android:textStyle="bold"
+            >
+        </TextView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/call_cancel"
+                android:text="cancel"
+                android:layout_margin="5dp"
+                app:cornerRadius="20dp">
+
+            </com.google.android.material.button.MaterialButton>
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/call_confirm"
+                android:text="call"
+                android:layout_margin="5dp"
+                app:cornerRadius="20dp">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
