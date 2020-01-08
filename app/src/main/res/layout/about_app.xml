@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    app:strokeWidth="5dp"
+    app:strokeColor="@color/black">
 
 
 
@@ -35,8 +37,7 @@
             app:cardCornerRadius="5dp"
             android:stateListAnimator="@animator/card"
             app:rippleColor="@color/background"
-            app:cardElevation="20dp"
-            app:cardBackgroundColor="@color/background">
+            app:cardElevation="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -116,6 +117,7 @@
 
                             <ImageButton
                                 android:layout_width="30dp"
+                                android:id="@+id/m_phone"
                                 android:layout_height="30dp"
                                 android:layout_gravity="center"
                                 android:background="@drawable/ic_call_black_24dp">
@@ -134,6 +136,7 @@
                             <ImageButton
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
+                                android:id="@+id/m_git"
                                 android:background="@drawable/github">
                             </ImageButton>
 
@@ -148,21 +151,8 @@
                             <ImageButton
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
+                                android:id="@+id/m_insta"
                                 android:background="@drawable/insta">
-                            </ImageButton>
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-
-                            <ImageButton
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:background="@drawable/facebook">
                             </ImageButton>
 
                         </LinearLayout>
@@ -184,8 +174,7 @@
             app:cardCornerRadius="5dp"
             android:stateListAnimator="@animator/card"
             app:rippleColor="@color/background"
-            app:cardElevation="20dp"
-            app:cardBackgroundColor="@color/background">
+            app:cardElevation="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -264,6 +253,7 @@
                             <ImageButton
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
+                                android:id="@+id/a_phone"
                                 android:layout_gravity="center"
                                 android:background="@drawable/ic_call_black_24dp">
 
@@ -281,6 +271,7 @@
                         <ImageButton
                             android:layout_width="35dp"
                             android:layout_height="35dp"
+                            android:id="@+id/a_git"
                             android:background="@drawable/github">
                         </ImageButton>
 
@@ -295,22 +286,9 @@
                         <ImageButton
                             android:layout_width="30dp"
                             android:layout_height="30dp"
+                            android:id="@+id/a_insta"
                             android:background="@drawable/insta">
                         </ImageButton>
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-
-                            <ImageButton
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:background="@drawable/facebook">
-                            </ImageButton>
 
                         </LinearLayout>
 
@@ -323,4 +301,4 @@
 
     </LinearLayout>
 
-</ScrollView>
+</com.google.android.material.card.MaterialCardView>

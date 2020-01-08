@@ -8,33 +8,35 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".basic_info"></activity>
-        <activity android:name=".other_events" />
-        <activity android:name=".sunday_activity" />
-        <activity android:name=".Notification_genrater" />
-        <activity android:name=".date_monitoring" />
+        <activity android:name=".basic_info"
+            android:screenOrientation="portrait" />
+        <activity android:name=".other_events" android:screenOrientation="portrait"/>
+        <activity android:name=".sunday_activity" android:screenOrientation="portrait"/>
+        <activity android:name=".Notification_genrater" android:screenOrientation="portrait"/>
+        <activity android:name=".date_monitoring" android:screenOrientation="portrait"/>
         <activity
             android:name=".Profile_mgmt"
-            android:screenOrientation="fullSensor" />
-        <activity android:name=".schedule_view" />
-        <activity android:name=".complain_viewer_activity" />
-        <activity android:name=".member_monitoring" />
-        <activity android:name=".Management_schedule" />
+            android:screenOrientation="portrait" />
+        <activity android:name=".schedule_view" android:screenOrientation="portrait"/>
+        <activity android:name=".complain_viewer_activity" android:screenOrientation="portrait"/>
+        <activity android:name=".member_monitoring" android:screenOrientation="portrait"/>
+        <activity android:name=".Management_schedule" android:screenOrientation="portrait"/>
         <activity
             android:name=".Show_Attendance"
-            android:label="Status Today" />
-        <activity android:name=".Management_main_page" />
-        <activity android:name=".schedule_management" />
-        <activity android:name=".list_member" />
-        <activity android:name=".new_registration" />
-        <activity android:name=".admin_management" />
-        <activity android:name=".not_able" />
-        <activity android:name=".Teacher_management" />
-        <activity android:name=".class_management" />
+            android:label="Status Today"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Management_main_page" android:screenOrientation="portrait"/>
+        <activity android:name=".schedule_management" android:screenOrientation="portrait"/>
+        <activity android:name=".list_member" android:screenOrientation="portrait"/>
+        <activity android:name=".new_registration" android:screenOrientation="portrait"/>
+        <activity android:name=".admin_management" android:screenOrientation="portrait"/>
+        <activity android:name=".Teacher_management" android:screenOrientation="portrait"/>
+        <activity android:name=".class_management" android:screenOrientation="portrait"/>
 
         <service
             android:name=".service.mymesseging"
@@ -46,16 +48,17 @@
 
         <activity
             android:name=".Management_screen"
-            android:label="Teacher Attendance" />
+            android:label="Teacher Attendance" android:screenOrientation="portrait"/>
         <activity
             android:name=".login_screen"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".action_screen"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/full_screen">
+            android:theme="@style/full_screen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

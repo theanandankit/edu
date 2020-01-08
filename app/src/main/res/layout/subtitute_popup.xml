@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fitsSystemWindows="true"
-    app:cardCornerRadius="20dp"
+
     app:strokeWidth="5dp"
     app:strokeColor="@color/black"
     >

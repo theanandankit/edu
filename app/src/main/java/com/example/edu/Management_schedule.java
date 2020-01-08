@@ -15,9 +15,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
@@ -36,10 +38,11 @@ public class Management_schedule extends AppCompatActivity {
     ArrayList<String> teacher_name=new ArrayList<>();
     public static member_sgmid attendance_list=new member_sgmid();
     ArrayList<String> list_of_student=new ArrayList<>();
-    Spinner spinner;
+    Spinner pop_spinner,spinner1;
     CardView mgmt_card1,mgmt_card2,mgmt_card3,mgmt_card4,mgmt_card5,mgmt_card6;
     final String days[]={"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
     Management_class mgmt;
+    member_sgmid list=new member_sgmid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +107,7 @@ public class Management_schedule extends AppCompatActivity {
         });
 
     }
-    public void showCustomDialog(final String s,int name1,int name2,int uid1,int uid2 , int batch1, int batch2 )
+    public void showCustomDialog(final String s,final int name1,int name2,int uid1,int uid2 ,int batch1,int batch2 )
     {
         final TextView m1=(TextView)findViewById(name1);
         final TextView m2=(TextView)findViewById(name2);
@@ -122,7 +125,80 @@ public class Management_schedule extends AppCompatActivity {
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
+        final TextInputLayout member1=(TextInputLayout)dialog.findViewById(R.id.set_member1_name);
+        final TextInputLayout member2=(TextInputLayout)dialog.findViewById(R.id.set_member2_name);
+        final TextInputLayout Uid1=(TextInputLayout)dialog.findViewById(R.id.set_uid1);
+        final TextInputLayout Uid2=(TextInputLayout)dialog.findViewById(R.id.set_uid2);
+        final TextInputLayout Batch1=(TextInputLayout)dialog.findViewById(R.id.set_batch1);
+        final TextInputLayout Batch2=(TextInputLayout)dialog.findViewById(R.id.set_batch2);
 
+        pop_spinner=dialog.findViewById(R.id.management_popup_spinner1);
+
+        spinner1=dialog.findViewById(R.id.management_popup_spinner2);
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,list.spinner_setter());
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        pop_spinner.setAdapter(arrayAdapter);
+        spinner1.setAdapter(arrayAdapter);
+
+       pop_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           @Override
+           public void onItemSelected(final AdapterView<?> parent, View view, final int position, long id) {
+
+               member1.setEnabled(false);
+
+               Toast.makeText(getApplicationContext(),"ok",Toast.LENGTH_LONG).show();
+
+                 member1.getEditText().setText(parent.getItemAtPosition(position).toString());
+
+                Log.e("gtr",parent.getItemAtPosition(position).toString());
+                Log.e("jhy","jg");
+                System.out.println("juht");
+
+                DatabaseReference databaseReference1=FirebaseDatabase.getInstance().getReference().child("teacher_info").child(list.get_uid(parent.getItemAtPosition(position).toString()));
+
+                databaseReference1.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        Teacher_management.Teacher info=new Teacher_management.Teacher();
+
+                        member1.getEditText().setText(info.getUser_name());
+                        member1.setEnabled(false);
+                        Uid1.getEditText().setText(parent.getItemAtPosition(position).toString());
+                        Uid1.setEnabled(false);
+                        Batch1.getEditText().setText(info.getBatch());
+                        Batch1.setEnabled(false);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+           }
+
+           @Override
+           public void onNothingSelected(AdapterView<?> parent) {
+
+               Log.e("dfg","ug");
+           }
+       });
+
+       spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           @Override
+           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+               Toast.makeText(getApplicationContext(),"ok",Toast.LENGTH_LONG).show();
+           }
+
+           @Override
+           public void onNothingSelected(AdapterView<?> parent) {
+
+           }
+       });
         (dialog.findViewById(R.id.bt_close)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,28 +208,8 @@ public class Management_schedule extends AppCompatActivity {
         dialog.findViewById(R.id.bt_save).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String member1_name,uid1,batch1,member2_name,uid2,batch2;
-                TextInputLayout member1=(TextInputLayout)dialog.findViewById(R.id.set_member1_name);
-                TextInputLayout member2=(TextInputLayout)dialog.findViewById(R.id.set_member2_name);
-                TextInputLayout Uid1=(TextInputLayout)dialog.findViewById(R.id.set_uid1);
-                TextInputLayout Uid2=(TextInputLayout)dialog.findViewById(R.id.set_uid2);
-                TextInputLayout Batch1=(TextInputLayout)dialog.findViewById(R.id.set_batch1);
-                TextInputLayout Batch2=(TextInputLayout)dialog.findViewById(R.id.set_batch2);
-                final Spinner pop_spinner=dialog.findViewById(R.id.management_popup_spinner1);
-
-                Spinner spinner1=dialog.findViewById(R.id.management_popup_spinner2);
-
-                ArrayList<String> list_list=new ArrayList<>();
-
-                list_list.add("tfygh");
-                list_list.add("ghb");
-
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,list_list);
-                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                pop_spinner.setAdapter(arrayAdapter);
-
-
-
                 member1_name=member1.getEditText().getText().toString();
                 uid1=Uid1.getEditText().getText().toString();
                 batch1=Batch1.getEditText().getText().toString();

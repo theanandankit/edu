@@ -1,15 +1,12 @@
 package com.example.edu;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.content.res.ResourcesCompat;
-
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.SpannableString;
@@ -21,18 +18,24 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 import android.widget.ViewFlipper;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
+
 import com.example.edu.adapter.notice_adapter;
-import com.example.edu.adapter.schedule_adapter;
-import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -41,8 +44,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -94,6 +95,22 @@ public class action_screen extends AppCompatActivity  {
         CardView about_app=findViewById(R.id.about_app_card);
         pref_1 = PreferenceManager.getDefaultSharedPreferences(this);
         basic = pref_1.edit();
+        CardView join=findViewById(R.id.action_join);
+        CardView contact=findViewById(R.id.action_contact);
+
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                contact_popup();
+            }
+        });
+        join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                join_popup();
+            }
+        });
 
         about_app.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,58 +166,49 @@ public class action_screen extends AppCompatActivity  {
             }
         };
 
-        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("notice").child("counter");
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        DatabaseReference databaseReference5=FirebaseDatabase.getInstance().getReference().child("notice");
+        Query l=databaseReference5.orderByKey().limitToLast(3);
+        l.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                counter=dataSnapshot.getValue().hashCode();
-                Toast.makeText(getApplicationContext(),String.valueOf(counter),Toast.LENGTH_LONG).show();
-                int q = 3;
-                counter--;
-                while (q>0) {
-                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("notice").child(String.valueOf(counter));
-                    final int finalQ = q;
-                    databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.e("ihg","jh");
 
-                            progressBar.setVisibility(View.INVISIBLE);
+                int finalQ=1;
+                for (final DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
 
-
-                            if(finalQ ==3)
-                            {
-                                TextView textView=findViewById(R.id.notice_data1);
-                                TextView textView1=findViewById(R.id.notice_date1);
-                                String[] data = dataSnapshot.getValue().toString().split("-");
-                                textView.setText(data[0]);
-                                textView1.setText(data[1]);
-                            }
-                            if(finalQ ==2)
-                            {
-                                TextView textView1=findViewById(R.id.notice_date2);
-                                TextView textView=findViewById(R.id.notice_data2);
-                                String[] data = dataSnapshot.getValue().toString().split("-");
-                                textView.setText(data[0]);
-                                textView1.setText(data[1]);
-                            }
-                            if(finalQ ==1)
-                            {
-                                TextView textView1=findViewById(R.id.notice_date3);
-                                TextView textView=findViewById(R.id.notice_data3);
-                                String[] data = dataSnapshot.getValue().toString().split("-");
-                                textView.setText(data[0]);
-                                textView1.setText(data[1]);
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-                    q--;
-                    counter--;
+                    Log.e("fghj","hgf");
+                    if(finalQ ==1)
+                    {
+                        TextView textView=findViewById(R.id.notice_data1);
+                        TextView textView1=findViewById(R.id.notice_date1);
+                        String[] data = postSnapshot.getValue().toString().split("-");
+                        textView.setText(data[0]);
+                        textView1.setText(data[1]);
+                        finalQ=2;
+                        continue;
+                    }
+                    if(finalQ ==2)
+                    {
+                        TextView textView1=findViewById(R.id.notice_date2);
+                        TextView textView=findViewById(R.id.notice_data2);
+                        String[] data = postSnapshot.getValue().toString().split("-");
+                        textView.setText(data[0]);
+                        textView1.setText(data[1]);
+                        finalQ=3;
+                        continue;
+                    }
+                    if(finalQ ==3)
+                    {
+                        TextView textView1=findViewById(R.id.notice_date3);
+                        TextView textView=findViewById(R.id.notice_data3);
+                        String[] data = postSnapshot.getValue().toString().split("-");
+                        textView.setText(data[0]);
+                        textView1.setText(data[1]);
+                    }
+                    Log.e("hj", dataSnapshot.getValue().toString());
                 }
+
+                progressBar.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -431,14 +439,182 @@ public class action_screen extends AppCompatActivity  {
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        final ListView listView=dialog.findViewById(R.id.notice_list);
-        final ProgressBar progressBar=dialog.findViewById(R.id.notice_progress);
+
+        ImageButton m_phone=dialog.findViewById(R.id.m_phone);
+        ImageButton m_git=dialog.findViewById(R.id.m_git);
+        ImageButton m_insta=dialog.findViewById(R.id.m_insta);
+
+
+        ImageButton a_phone=dialog.findViewById(R.id.a_phone);
+        ImageButton a_git=dialog.findViewById(R.id.a_git);
+        ImageButton a_insta=dialog.findViewById(R.id.a_insta);
+
+        final ArrayList<String> info=new ArrayList<>();
+
+        info.add("https://github.com/Medhavi-16");
+        info.add("https://www.instagram.com/medhavi.srivastava16");
+        info.add("https://github.com/theanandankit");
+        info.add("https://www.instagram.com/theanandankit");
+        m_git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(info.get(0)));
+                startActivity(i);
+            }
+        });
+        m_insta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(info.get(1)));
+                startActivity(i);
+            }
+        });
+
+        a_git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(info.get(2)));
+                startActivity(i);
+            }
+        });
+        a_insta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(info.get(3)));
+                startActivity(i);
+            }
+        });
+        m_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_CALL, Uri.fromParts("tel","8787081902",null));
+
+
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(action_screen.this, new String[]{Manifest.permission.CALL_PHONE},1);
+                }
+                else
+                {
+                    startActivity(i);
+                }
+            }
+        });
+
+        a_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_CALL, Uri.fromParts("tel","9024923695",null));
+
+
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(action_screen.this, new String[]{Manifest.permission.CALL_PHONE},1);
+                }
+                else
+                {
+                    startActivity(i);
+                }
+            }
+        });
+
+
 
         dialog.show();
         dialog.setCanceledOnTouchOutside(false);
         dialog.getWindow().setAttributes(lp);
 
     }
+
+    public void join_popup()
+    {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.join_us);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+        final TextInputLayout name=dialog.findViewById(R.id.join_name);
+        final TextInputLayout roll=dialog.findViewById(R.id.join_roll);
+        final TextInputLayout contact=dialog.findViewById(R.id.join_contact);
+        final TextInputLayout email=dialog.findViewById(R.id.join_email);
+        Button button=dialog.findViewById(R.id.join_send);
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                final String value=name.getEditText().getText().toString()+" with roll no"+roll.getEditText().getText().toString()+" contact no."+contact.getEditText().getText().toString()+" email "+email.getEditText().getText().toString()+" want to join SGM";
+        final DatabaseReference databaseReference_complain_counter=FirebaseDatabase.getInstance().getReference().child("complain").child("counter");
+
+
+        databaseReference_complain_counter.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String counter=dataSnapshot.getValue().toString();
+                int count=dataSnapshot.getValue().hashCode();
+
+                DatabaseReference databaseReference_complain=FirebaseDatabase.getInstance().getReference().child("complain").child(counter);
+                databaseReference_complain.setValue(value);
+
+                count++;
+
+                databaseReference_complain_counter.setValue(count);
+
+                Toast.makeText(getApplicationContext(),"Request Sent Thank you !",Toast.LENGTH_LONG).show();
+
+                dialog.dismiss();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+            }
+        });
+
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setAttributes(lp);
+    }
+
+    public void contact_popup()
+    {
+
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.contact_us);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setAttributes(lp);
+
+    }
+
+
 
   public static class notice
     {

@@ -34,6 +34,7 @@
                     android:layout_height="wrap_content"
                     android:text="SGM is continuously working in Student all around development"
                     android:layout_gravity="center"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20dp"
