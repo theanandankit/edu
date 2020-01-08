@@ -5,9 +5,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -16,9 +18,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -48,11 +53,22 @@ public class Management_screen extends AppCompatActivity {
     DatabaseReference databaseReference;
     DatabaseReference reference;
      public static int a;
+     Dialog other_member, mgmt_substitute_popup;
     HashMap<String,String> attendance = new HashMap<>();
     HashMap<String,String> substitute_list = new HashMap<>();
     public static Teacher_management.Teacher attendance_teacher_info;
+    static String name1;
+    static String uid2;
+    static String uid1;
+    static String name2;
+    static RadioButton yes,no,cur_sub_mem_yes,oth_sub_mem_yes,oth_sub_mem_no,cur_sub_mem_no,oth_sub_sent, oth_sub_not_sent;
+    static Button done,done1,done2;
+    static EditText substitute_id, substitute1_id, member_id;
+    String Name,Uid,Name2,Uid2;
+    int flag;
+    SharedPreferences pref;
 
-    String teacher,batch,status;
+    String teacher,batch,status,id,username, text;
     int k=0;
     int count;
     int c;
@@ -71,20 +87,56 @@ public class Management_screen extends AppCompatActivity {
         member_sgmid attendance_list=new member_sgmid();
 
         list_of_student=attendance_list.spinner_setter();
+        other_member=new Dialog(Management_screen.this);
+        mgmt_substitute_popup=new Dialog(Management_screen.this);
+
+        mgmt_substitute_popup.setContentView(R.layout.mgmt_substitute_popup);
+
+        other_member.setContentView(R.layout.other_member);
+        done=other_member.findViewById(R.id.done);
+        yes=other_member.findViewById(R.id.yes);
+        no=other_member.findViewById(R.id.no);
+        done1=mgmt_substitute_popup.findViewById(R.id.done);
+        cur_sub_mem_yes=mgmt_substitute_popup.findViewById(R.id.yes);
+        cur_sub_mem_no=mgmt_substitute_popup.findViewById(R.id.no);
+        oth_sub_sent=other_member.findViewById(R.id.oth_sub_sent);
+        oth_sub_not_sent=other_member.findViewById(R.id.oth_sub_not_sent);
+        oth_sub_mem_yes=other_member.findViewById(R.id.is_sgm_member);
+        oth_sub_mem_no=other_member.findViewById(R.id.not_sgm_member);
+        substitute_id=other_member.findViewById(R.id.substitute_id);
+        substitute1_id=mgmt_substitute_popup.findViewById(R.id.substitute1_id);
+        member_id=other_member.findViewById(R.id.member_id);
+
+
+
+
+
+        pref= PreferenceManager.getDefaultSharedPreferences(Management_screen.this);
+        id=pref.getString("userid", "0");
+        if(!id.equals("0"))
+        {
+           username=FirebaseDatabase.getInstance().getReference().child(id).child("user_name").toString();
+        }
+
 
 
         listView= findViewById(R.id.list_id);
         SimpleDateFormat sdf2 = new SimpleDateFormat("EEEE");
-       // String current_day = sdf2.format(new Date());
-        String current_day="Wednesday";
+        final String current_day = sdf2.format(new Date());
+        //final String current_day="Monday";
         final Date todaysDate = new Date();
 
         DateFormat sdf1 = new SimpleDateFormat("dd-MMM-yyyy");
      final String   date= sdf1.format(todaysDate).toString();
-     if(current_day.equals("Saturday"))
-         count=9;
-     else
-         count=10;
+     if(!current_day.equals("Sunday"))
+     {
+         if(current_day.equals("Saturday"))
+             count=8;
+         else
+             count=10;
+     }
+
+
 
 
         reference=FirebaseDatabase.getInstance().getReference().child(date).child("Teacher-Attendance");
@@ -109,8 +161,10 @@ public class Management_screen extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(c==count)
+
+                if(c==count && !current_day.equals("Sunday"))
                 {
+
                 FirebaseDatabase.getInstance().getReference().child("Dates").child(date).setValue(date);
 
                 reference.child("set").setValue("1");
@@ -183,13 +237,15 @@ public class Management_screen extends AppCompatActivity {
 
   }
                 attendance.clear();
+               showOtherMemberPopup();
 
 
-               Intent i=new Intent(Management_screen.this,Show_Attendance.class);
-                startActivity(i);
+
             }
                 else
                     Toast.makeText(getApplicationContext(),"Mark complete attendance\nAttendance once marked can't be changed",Toast.LENGTH_LONG).show();
+
+
         }
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -263,6 +319,111 @@ public class Management_screen extends AppCompatActivity {
                 }
 
             }
+
+        FirebaseDatabase.getInstance().getReference().child("Schedule").child(current_day).child("Management").child("name1").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                name1=dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        FirebaseDatabase.getInstance().getReference().child("Schedule").child(current_day).child("Management").child("uid1").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                uid1=dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        FirebaseDatabase.getInstance().getReference().child("Schedule").child(current_day).child("Management").child("name2").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                name2=dataSnapshot.getValue().toString();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        FirebaseDatabase.getInstance().getReference().child("Schedule").child(current_day).child("Management").child("uid2").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                uid2=dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        FirebaseDatabase.getInstance().getReference().child("teacher_info").child(uid1).child("actual_day").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int a=Integer.parseInt(dataSnapshot.getValue().toString());
+                update(a+1,FirebaseDatabase.getInstance().getReference().child("teacher_info").child(uid1).child("actual_day"));
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        FirebaseDatabase.getInstance().getReference().child("teacher_info").child(uid2).child("actual_day").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int a=Integer.parseInt(dataSnapshot.getValue().toString());
+                update(a+1,FirebaseDatabase.getInstance().getReference().child("teacher_info").child(uid2).child("actual_day"));
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+        if(username.equals(name1))
+        {
+            text=name2;
+            flag=1;
+            Name=name1;
+            Uid=uid1;
+            Name2=name2;
+            Uid2=uid2;
+        }
+        else if(username.equals(name2))
+        {
+            text=name1;
+            flag=2;
+            Name=name2;
+            Uid=uid2;
+            Name2=name1;
+            Uid2=uid1;
+        }
+        else
+        {
+            text="none";
+            flag=0;
+        }
+
+
+
+
+
+
     }
     private void showList()
     {
@@ -302,6 +463,7 @@ public class Management_screen extends AppCompatActivity {
         final RadioButton substitute_not_sent=(RadioButton)dialog.findViewById(R.id.substitute_not_sent);
         final Spinner spinner=(Spinner)dialog.findViewById(R.id.attendance_spinner);
         final ExtendedFloatingActionButton close=(ExtendedFloatingActionButton)dialog.findViewById(R.id.bt_close);
+
 
 
         close.setOnClickListener(new View.OnClickListener() {
@@ -536,5 +698,215 @@ public class Management_screen extends AppCompatActivity {
     {
         d.setValue(String.valueOf(a));
     }
+     private  void showOtherMemberPopup() {
+
+
+             member_id.setEnabled(false);
+             yes.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View v) {
+                     if (yes.isChecked()) {
+                         oth_sub_mem_no.setChecked(false);
+                         oth_sub_mem_yes.setChecked(false);
+                         oth_sub_sent.setChecked(false);
+                         oth_sub_not_sent.setChecked(false);
+                         member_id.setEnabled(true);
+                         other_member.findViewById(R.id.oth_sub_member_or_not).setEnabled(false);
+                         other_member.findViewById(R.id.oth_sub_sent_not_sent).setEnabled(false);
+                     }
+                 }
+             });
+             no.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View v) {
+                     member_id.setEnabled(false);
+                     other_member.findViewById(R.id.oth_sub_sent_not_sent).setEnabled(true);
+
+                 }
+             });
+             oth_sub_sent.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View v) {
+                     other_member.findViewById(R.id.oth_sub_member_or_not).setEnabled(true);
+                 }
+             });
+
+
+             if (flag != 0) {
+
+                 FirebaseDatabase.getInstance().getReference().child("teacher_info").child(Uid).child("present").addListenerForSingleValueEvent(new ValueEventListener() {
+                     @Override
+                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                         int a = Integer.parseInt(dataSnapshot.getValue().toString());
+                         update(a + 1, FirebaseDatabase.getInstance().getReference().child("teacher_info").child(Uid).child("present"));
+                     }
+
+                     @Override
+                     public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                     }
+                 });
+             }
+
+
+             done.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View v) {
+                     RadioGroup p = other_member.findViewById(R.id.oth_mem_attendance);
+                    final String m_id=member_id.getText().toString().toUpperCase();
+                     if (p.getCheckedRadioButtonId() != -1) {
+                         if (yes.isChecked()  ) {
+                             if((flag!=0 && m_id.equals(Uid2)) || (flag==0 && (m_id.equals(Uid) || m_id.equals(Uid2))))
+                             {
+                                 FirebaseDatabase.getInstance().getReference().child("teacher_info").child(m_id).child("present").addListenerForSingleValueEvent(new ValueEventListener() {
+                                     @Override
+                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                             int a = Integer.parseInt(dataSnapshot.getValue().toString());
+                                             update(a + 1, FirebaseDatabase.getInstance().getReference().child("teacher_info").child(m_id).child("present"));
+                                             k=1;
+                                         }
+
+
+
+                                     @Override
+                                     public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                     }
+                                 });
+                             }
+                             else
+                                 Toast.makeText(getApplicationContext(), "Please enter correct SGM id", Toast.LENGTH_SHORT);
+                         } else   {
+                            RadioGroup oth_sub_sent_not_sent=other_member.findViewById(R.id.oth_sub_sent_not_sent);
+                            RadioGroup oth_sub_member_or_not=other_member.findViewById(R.id.oth_sub_member_or_not);
+                            if(oth_sub_sent_not_sent.getCheckedRadioButtonId()!=-1)
+                            {
+                                if(oth_sub_sent.isChecked()==true)
+                            {
+                                if(oth_sub_member_or_not.getCheckedRadioButtonId()!=-1)
+                                {
+                                    if((oth_sub_mem_yes.isChecked() == true))
+                                    {
+                                        final String id = substitute_id.getText().toString().toUpperCase();
+
+
+                                        FirebaseDatabase.getInstance().getReference().child("teacher_info").child(id).child("extra_day").addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                if(dataSnapshot.getValue()!=null)
+                                                {
+                                                    int a = Integer.parseInt(dataSnapshot.getValue().toString());
+                                                    update(a + 1, FirebaseDatabase.getInstance().getReference().child("teacher_info").child(id).child("extra_day"));
+                                                     k=1;
+                                                }
+                                                else
+                                                    Toast.makeText(getApplicationContext(), "Please enter correct SGM id\nSGM id doesn't exist", Toast.LENGTH_SHORT);
+
+
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
+                                            }
+                                        });
+                                    }
+                                    else k=1;
+                                }
+                                else
+                                    Toast.makeText(getApplicationContext(), "Please select if substitute is SGM member or not", Toast.LENGTH_SHORT);
+
+                            }
+                                else k=1;
+
+
+
+
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(), "Please select if substitute sent or not", Toast.LENGTH_SHORT);
+                            }
+
+                         }
+
+
+                     } else {
+                         Toast.makeText(getApplicationContext(), "Please mark the attendance", Toast.LENGTH_SHORT);
+                     }
+                     if(flag==0 && k==1)
+                     {
+                         showMgmtSubstitutePopup();
+                     }
+                     else
+                     {
+                         Intent i=new Intent(Management_screen.this, Show_Attendance.class);
+                         startActivity(i);
+
+                     }
+
+                 }
+
+             });
+             other_member.show();
+
+
+
+     }
+
+    private void showMgmtSubstitutePopup() {
+         cur_sub_mem_yes.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 substitute1_id.setEnabled(true);
+             }
+         });
+         cur_sub_mem_no.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 substitute1_id.setEnabled(false);
+             }
+         });
+         done1.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 RadioGroup r = mgmt_substitute_popup.findViewById(R.id.cur_sub);
+                 if (r.getCheckedRadioButtonId() != -1) {
+                     if(cur_sub_mem_yes.isChecked())
+                     {
+                         FirebaseDatabase.getInstance().getReference().child("teacher_info").child(id).child("extra_day").addListenerForSingleValueEvent(new ValueEventListener() {
+                             @Override
+                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                 if (dataSnapshot.getValue() != null) {
+                                     int a = Integer.parseInt(dataSnapshot.getValue().toString());
+                                     update(a + 1, FirebaseDatabase.getInstance().getReference().child("teacher_info").child(id).child("extra_day"));
+                                     Intent i=new Intent(Management_screen.this, Show_Attendance.class);
+                                     startActivity(i);
+
+                                 } else
+                                     Toast.makeText(getApplicationContext(), "Please enter correct SGM id\nSGM id doesn't exist", Toast.LENGTH_SHORT);
+
+
+                             }
+
+                             @Override
+                             public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
+                             }
+
+
+                         });
+                     }
+                 }
+             }}
+         );
+         mgmt_substitute_popup.show();
+         }
+
+
+
 
 }
+

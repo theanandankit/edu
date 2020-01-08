@@ -55,12 +55,13 @@ public class Profile_mgmt extends AppCompatActivity {
     TextView actual;
     TextView extra;
     TextView present;
-    DatabaseReference user;
+
     ViewFlipper viewFlipper;
     FirebaseAuth auth;
     ImageButton b;
     SharedPreferences pref;
     Button logout;
+    DatabaseReference user;
     FirebaseAuth.AuthStateListener authStateListener;
     ProgressBar progressBar;
     ArrayList<action_screen.notice> list=new ArrayList<>();
@@ -230,6 +231,8 @@ public class Profile_mgmt extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(Profile_mgmt.this,Management_screen.class);
+
+
 
                 startActivity(i);
             }

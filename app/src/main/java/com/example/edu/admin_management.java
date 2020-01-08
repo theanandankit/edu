@@ -8,9 +8,11 @@ import androidx.core.content.res.ResourcesCompat;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.ColorSpace;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -19,14 +21,18 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.example.edu.adapter.notice_adapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,6 +54,12 @@ public class admin_management extends AppCompatActivity {
     ViewFlipper viewFlipper;
     ProgressBar progressBar;
     ArrayList<action_screen.notice> list=new ArrayList<>();
+    ImageButton b;
+    Button logout;
+    SharedPreferences pref;
+
+    FirebaseAuth auth;
+    FirebaseAuth.AuthStateListener authStateListener;
 
 
     public static member_sgmid member_list_object=new member_sgmid();
@@ -67,6 +79,8 @@ public class admin_management extends AppCompatActivity {
         textView.setText("Admin");
         Typeface typeface= ResourcesCompat.getFont(getApplicationContext(),R.font.berkshireswash);
         textView.setTextColor(getResources().getColor(R.color.white));
+        b=(ImageButton)view.findViewById(R.id.home);
+        logout=(Button)view.findViewById(R.id.logout);
         SpannableString spannableString=new SpannableString("MORE");
         TextView textView1=findViewById(R.id.action_admin_more);
         ClickableSpan clickableSpan=new ClickableSpan() {
@@ -80,6 +94,28 @@ public class admin_management extends AppCompatActivity {
         spannableString.setSpan(clickableSpan,0,4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textView1.setText(spannableString);
         textView1.setMovementMethod(LinkMovementMethod.getInstance());
+        auth=FirebaseAuth.getInstance();
+        authStateListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user=firebaseAuth.getCurrentUser();
+                if(user==null)
+                {
+                    Intent i=new Intent(admin_management.this, action_screen.class);
+                    startActivity(i);
+                }
+
+            }
+        };
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Logging you out", Toast.LENGTH_SHORT).show();
+                auth.signOut();
+
+            }
+        });
+        pref= PreferenceManager.getDefaultSharedPreferences(admin_management.this);
 
         DatabaseReference databaseReference5=FirebaseDatabase.getInstance().getReference().child("notice_admin");
         Query l=databaseReference5.orderByKey().limitToLast(3);
@@ -328,4 +364,19 @@ public class admin_management extends AppCompatActivity {
         dialog.setCanceledOnTouchOutside(false);
         dialog.getWindow().setAttributes(lp);
     }
+    @Override
+    public void onBackPressed()
+    {
+        //auth.signOut();
+        //Toast.makeText(getApplicationContext(), "Logging you out", Toast.LENGTH_SHORT).show();
+        Intent i=new Intent(admin_management.this,action_screen.class);
+        startActivity(i);
+        //pref.edit().clear();
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        auth.addAuthStateListener(authStateListener);
+    }
+
 }

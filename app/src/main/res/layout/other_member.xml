@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    app:strokeColor="@color/black"
+    app:strokeWidth="5dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="25dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/question"
+            android:text="Is other member present?"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            />
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:id="@+id/oth_mem_attendance">
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:layout_weight="1"
+                android:id="@+id/yes"
+                android:textColor="@color/black"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:id="@+id/no"
+                android:layout_weight="1"
+                android:textColor="@color/black"/>
+        </RadioGroup>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/member_id"
+            android:hint="Enter other member's SGM Id"
+            android:enabled="false"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Is other substitute sent?"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:id="@+id/oth_sub_sent_not_sent">
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:layout_weight="1"
+                android:id="@+id/oth_sub_sent"
+                android:textColor="@color/black"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:id="@+id/oth_sub_not_sent"
+                android:layout_weight="1"
+                android:textColor="@color/black"/>
+        </RadioGroup>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Is other substitute a SGM member?"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/oth_sub_member_or_not"
+
+
+            >
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"
+                android:id="@+id/is_sgm_member"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/not_sgm_member"
+                android:text="No"/>
+        </RadioGroup>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/substitute_id"
+            android:hint="Enter other substitute's SGM Id (if member)"
+           />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DONE"
+            android:layout_gravity="center_horizontal"
+            app:cornerRadius="20dp"
+            android:id="@+id/done"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+
+

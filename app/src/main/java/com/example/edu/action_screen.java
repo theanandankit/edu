@@ -338,7 +338,7 @@ public class action_screen extends AppCompatActivity  {
                 else
                 {     pref= PreferenceManager.getDefaultSharedPreferences(action_screen.this);
                     type=pref.getInt("type",0);
-                   Toast.makeText(getApplicationContext(),"hi",Toast.LENGTH_LONG).show();
+                   Toast.makeText(getApplicationContext(),"type"+type,Toast.LENGTH_LONG).show();
 
                     if(type!=0)
                     {
