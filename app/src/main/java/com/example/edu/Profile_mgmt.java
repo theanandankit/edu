@@ -116,6 +116,13 @@ public class Profile_mgmt extends AppCompatActivity {
 
             }
         });
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Profile_mgmt.this, action_screen.class);
+                startActivity(i);
+            }
+        });
 
         DatabaseReference databaseReference5=FirebaseDatabase.getInstance().getReference().child("notice_management");
         Query l=databaseReference5.orderByKey().limitToLast(3);

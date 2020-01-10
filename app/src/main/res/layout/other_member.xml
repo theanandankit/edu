@@ -5,12 +5,14 @@
     app:strokeColor="@color/black"
     app:strokeWidth="5dp"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="25dp"
+    app:cardCornerRadius="0dp"
+    android:padding="4dp"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +29,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="5dp"
-            android:id="@+id/oth_mem_attendance">
+            android:id="@+id/oth_mem_attendance"
+            >
             <RadioButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -63,7 +66,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="5dp"
-            android:id="@+id/oth_sub_sent_not_sent">
+            android:id="@+id/oth_sub_sent_not_sent"
+            >
             <RadioButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -112,6 +116,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/substitute_id"
             android:hint="Enter other substitute's SGM Id (if member)"
+            android:enabled="false"
            />
 
         <com.google.android.material.button.MaterialButton

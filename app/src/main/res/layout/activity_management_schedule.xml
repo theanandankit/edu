@@ -554,7 +554,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tuesday"
+                    android:text="Wednesday"
                     android:fontFamily="@font/pacifico"
                     android:textSize="20dp"
                     android:textAlignment="center"/>
@@ -811,7 +811,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tuesday"
+                    android:text="Thursday"
                     android:fontFamily="@font/pacifico"
                     android:textSize="20dp"
                     android:textAlignment="center"/>
@@ -1068,7 +1068,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tuesday"
+                    android:text="Friday"
                     android:fontFamily="@font/pacifico"
                     android:textSize="20dp"
                     android:textAlignment="center"/>
@@ -1326,7 +1326,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tuesday"
+                    android:text="Saturday"
                     android:fontFamily="@font/pacifico"
                     android:textSize="20dp"
                     android:textAlignment="center"/>
