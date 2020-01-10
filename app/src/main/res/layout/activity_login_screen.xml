@@ -96,8 +96,7 @@
                             android:background="@android:color/transparent"
                             app:boxBackgroundColor="@color/white"
                             app:endIconMode="clear_text"
-                            app:counterMaxLength="40"
-                            app:counterEnabled="true"
+
                             app:startIconDrawable="@drawable/ic_email_black_24dp"
                             >
 
@@ -105,7 +104,7 @@
 
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:maxLength="25"
+
                                 android:layout_gravity="center_horizontal"
                                 android:layout_margin="10dp" />
                         </com.google.android.material.textfield.TextInputLayout>

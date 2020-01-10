@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -92,5 +93,14 @@ public class Show_Attendance extends AppCompatActivity {
         adaptor=new Show_attendance_adapter(arrayList,getApplicationContext());
         list.setAdapter(adaptor);
 
+    }
+    @Override
+    public void onBackPressed()
+    {
+        //auth.signOut();
+        //Toast.makeText(getApplicationContext(), "Logging you out", Toast.LENGTH_SHORT).show();
+        Intent i=new Intent(Show_Attendance.this,Profile_mgmt.class);
+        startActivity(i);
+        //pref.edit().clear();
     }
 }
