@@ -115,7 +115,7 @@ public class admin_management extends AppCompatActivity {
 
             }
         });
-        logout.setOnClickListener(new View.OnClickListener() {
+        b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                Intent i=new Intent(admin_management.this, action_screen.class);
