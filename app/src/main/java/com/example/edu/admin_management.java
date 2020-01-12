@@ -115,6 +115,14 @@ public class admin_management extends AppCompatActivity {
 
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent i=new Intent(admin_management.this, action_screen.class);
+                    startActivity(i);
+
+            }
+        });
         pref= PreferenceManager.getDefaultSharedPreferences(admin_management.this);
 
         DatabaseReference databaseReference5=FirebaseDatabase.getInstance().getReference().child("notice_admin");
